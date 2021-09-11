@@ -11,7 +11,9 @@ import SwiftUI
 struct AthanApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                ContentView()
+            }
         }
     }
 }
