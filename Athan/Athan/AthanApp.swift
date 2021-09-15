@@ -7,13 +7,12 @@
 
 import SwiftUI
 
+
 @main
 struct AthanApp: App {
     var body: some Scene {
         WindowGroup {
-            NavigationView{
-                ContentView()
-            }
+            AppTappedView()
         }
     }
 }
