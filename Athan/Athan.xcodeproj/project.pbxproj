@@ -7,42 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9016CAE26F566D00000EDBF /* PrayerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9016CAD26F566D00000EDBF /* PrayerTime.swift */; };
+		E9016CB026F568D00000EDBF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9016CAF26F568D00000EDBF /* Date.swift */; };
 		E93B5ED126F13A6E00C85177 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93B5ED026F13A6E00C85177 /* LocationManager.swift */; };
 		E99C4E3326ED7E8000971EA3 /* Adhan in Frameworks */ = {isa = PBXBuildFile; productRef = E99C4E3226ED7E8000971EA3 /* Adhan */; };
 		E99C4E3626EE49A000971EA3 /* AthkarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C4E3526EE49A000971EA3 /* AthkarGridView.swift */; };
 		E99C4E3B26EE4A5300971EA3 /* AthkarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C4E3A26EE4A5300971EA3 /* AthkarCell.swift */; };
 		E99C4E3D26EE524A00971EA3 /* AthkarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C4E3C26EE524A00971EA3 /* AthkarView.swift */; };
 		E99C4E3F26EE53AC00971EA3 /* PrayerTimeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C4E3E26EE53AC00971EA3 /* PrayerTimeHeader.swift */; };
-		E99C4E4126EE545100971EA3 /* AthanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C4E4026EE545100971EA3 /* AthanView.swift */; };
 		E99C4E4526EEAAEC00971EA3 /* ArefRuqaa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E99C4E4326EEAAE600971EA3 /* ArefRuqaa-Bold.ttf */; };
 		E99C4E4626EEAAEE00971EA3 /* ArefRuqaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E99C4E4426EEAAE600971EA3 /* ArefRuqaa-Regular.ttf */; };
 		E9FADB8026EC3D1000271BFA /* AthanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FADB7F26EC3D1000271BFA /* AthanApp.swift */; };
-		E9FADB8226EC3D1000271BFA /* AppTappedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FADB8126EC3D1000271BFA /* AppTappedView.swift */; };
+		E9FADB8226EC3D1000271BFA /* AppTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FADB8126EC3D1000271BFA /* AppTapView.swift */; };
 		E9FADB8426EC3D1100271BFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9FADB8326EC3D1100271BFA /* Assets.xcassets */; };
 		E9FADB8726EC3D1100271BFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9FADB8626EC3D1100271BFA /* Preview Assets.xcassets */; };
 		E9FADB9026ECFBAB00271BFA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FADB8F26ECFBAB00271BFA /* Color.swift */; };
-		E9FADB9A26ED220C00271BFA /* PrayerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FADB9926ED220C00271BFA /* PrayerTimeView.swift */; };
+		E9FADB9A26ED220C00271BFA /* PrayersTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FADB9926ED220C00271BFA /* PrayersTimeView.swift */; };
 		E9FADB9C26ED22C300271BFA /* PrayerTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FADB9B26ED22C300271BFA /* PrayerTimeCell.swift */; };
 		E9FADB9E26ED22F500271BFA /* PrayerTimeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FADB9D26ED22F500271BFA /* PrayerTimeCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E9016CAD26F566D00000EDBF /* PrayerTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTime.swift; sourceTree = "<group>"; };
+		E9016CAF26F568D00000EDBF /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E93B5ED026F13A6E00C85177 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E99C4E3526EE49A000971EA3 /* AthkarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthkarGridView.swift; sourceTree = "<group>"; };
 		E99C4E3A26EE4A5300971EA3 /* AthkarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthkarCell.swift; sourceTree = "<group>"; };
 		E99C4E3C26EE524A00971EA3 /* AthkarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthkarView.swift; sourceTree = "<group>"; };
 		E99C4E3E26EE53AC00971EA3 /* PrayerTimeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeHeader.swift; sourceTree = "<group>"; };
-		E99C4E4026EE545100971EA3 /* AthanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthanView.swift; sourceTree = "<group>"; };
 		E99C4E4326EEAAE600971EA3 /* ArefRuqaa-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArefRuqaa-Bold.ttf"; sourceTree = "<group>"; };
 		E99C4E4426EEAAE600971EA3 /* ArefRuqaa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArefRuqaa-Regular.ttf"; sourceTree = "<group>"; };
 		E9FADB7C26EC3D1000271BFA /* Athan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Athan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9FADB7F26EC3D1000271BFA /* AthanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthanApp.swift; sourceTree = "<group>"; };
-		E9FADB8126EC3D1000271BFA /* AppTappedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTappedView.swift; sourceTree = "<group>"; };
+		E9FADB8126EC3D1000271BFA /* AppTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTapView.swift; sourceTree = "<group>"; };
 		E9FADB8326EC3D1100271BFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9FADB8626EC3D1100271BFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E9FADB8826EC3D1100271BFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9FADB8F26ECFBAB00271BFA /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		E9FADB9926ED220C00271BFA /* PrayerTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeView.swift; sourceTree = "<group>"; };
+		E9FADB9926ED220C00271BFA /* PrayersTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayersTimeView.swift; sourceTree = "<group>"; };
 		E9FADB9B26ED22C300271BFA /* PrayerTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeCell.swift; sourceTree = "<group>"; };
 		E9FADB9D26ED22F500271BFA /* PrayerTimeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,19 +61,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E93B5ECE26EFB5F100C85177 /* Style */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Style;
-			sourceTree = "<group>";
-		};
-		E93B5ECF26F13A5400C85177 /* Logic */ = {
+		E93B5ECF26F13A5400C85177 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				E93B5ED026F13A6E00C85177 /* LocationManager.swift */,
 			);
-			path = Logic;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		E99C4E3426EE497700971EA3 /* AthkerView */ = {
@@ -120,10 +115,9 @@
 		E9FADB7E26EC3D1000271BFA /* Athan */ = {
 			isa = PBXGroup;
 			children = (
-				E93B5ECE26EFB5F100C85177 /* Style */,
 				E9FADB9726ED129E00271BFA /* Model */,
-				E9FADB8E26ECFB8800271BFA /* Helper */,
-				E93B5ECF26F13A5400C85177 /* Logic */,
+				E9FADB8E26ECFB8800271BFA /* Extensions */,
+				E93B5ECF26F13A5400C85177 /* Managers */,
 				E9FADB9426ED0ACA00271BFA /* Views */,
 				E9FADB7F26EC3D1000271BFA /* AthanApp.swift */,
 				E9FADB8326EC3D1100271BFA /* Assets.xcassets */,
@@ -142,31 +136,32 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		E9FADB8E26ECFB8800271BFA /* Helper */ = {
+		E9FADB8E26ECFB8800271BFA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				E9FADB8F26ECFBAB00271BFA /* Color.swift */,
+				E9016CAF26F568D00000EDBF /* Date.swift */,
 			);
-			path = Helper;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E9FADB9426ED0ACA00271BFA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E9FADB8126EC3D1000271BFA /* AppTappedView.swift */,
-				E9FADB9526ED0BF000271BFA /* AthanView */,
+				E9FADB8126EC3D1000271BFA /* AppTapView.swift */,
+				E9FADB9526ED0BF000271BFA /* PrayersTime */,
 				E99C4E3426EE497700971EA3 /* AthkerView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		E9FADB9526ED0BF000271BFA /* AthanView */ = {
+		E9FADB9526ED0BF000271BFA /* PrayersTime */ = {
 			isa = PBXGroup;
 			children = (
 				E9FADB9626ED0BF800271BFA /* Components */,
-				E99C4E4026EE545100971EA3 /* AthanView.swift */,
+				E9FADB9926ED220C00271BFA /* PrayersTimeView.swift */,
 			);
-			path = AthanView;
+			path = PrayersTime;
 			sourceTree = "<group>";
 		};
 		E9FADB9626ED0BF800271BFA /* Components */ = {
@@ -175,7 +170,6 @@
 				E9FADB9B26ED22C300271BFA /* PrayerTimeCell.swift */,
 				E9FADB9D26ED22F500271BFA /* PrayerTimeCard.swift */,
 				E99C4E3E26EE53AC00971EA3 /* PrayerTimeHeader.swift */,
-				E9FADB9926ED220C00271BFA /* PrayerTimeView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -183,6 +177,7 @@
 		E9FADB9726ED129E00271BFA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E9016CAD26F566D00000EDBF /* PrayerTime.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -265,13 +260,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9FADB9C26ED22C300271BFA /* PrayerTimeCell.swift in Sources */,
-				E9FADB9A26ED220C00271BFA /* PrayerTimeView.swift in Sources */,
-				E99C4E4126EE545100971EA3 /* AthanView.swift in Sources */,
-				E9FADB8226EC3D1000271BFA /* AppTappedView.swift in Sources */,
+				E9016CB026F568D00000EDBF /* Date.swift in Sources */,
+				E9FADB9A26ED220C00271BFA /* PrayersTimeView.swift in Sources */,
+				E9FADB8226EC3D1000271BFA /* AppTapView.swift in Sources */,
 				E99C4E3D26EE524A00971EA3 /* AthkarView.swift in Sources */,
 				E9FADB9E26ED22F500271BFA /* PrayerTimeCard.swift in Sources */,
 				E9FADB8026EC3D1000271BFA /* AthanApp.swift in Sources */,
 				E99C4E3626EE49A000971EA3 /* AthkarGridView.swift in Sources */,
+				E9016CAE26F566D00000EDBF /* PrayerTime.swift in Sources */,
 				E93B5ED126F13A6E00C85177 /* LocationManager.swift in Sources */,
 				E99C4E3B26EE4A5300971EA3 /* AthkarCell.swift in Sources */,
 				E99C4E3F26EE53AC00971EA3 /* PrayerTimeHeader.swift in Sources */,
@@ -416,7 +412,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = iKAlhazmi.Athan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -438,7 +434,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = iKAlhazmi.Athan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

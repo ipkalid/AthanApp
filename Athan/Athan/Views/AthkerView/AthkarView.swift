@@ -16,7 +16,8 @@ struct AthkarView: View {
         
        // UITabBar.appearance().backgroundColor = UIColor.red
 
-        
+       // let customFont:UIFont = UIFont.preferredFont(forTextStyle: .title1)
+
         let customFont:UIFont = UIFont(name: "ArefRuqaa-Bold", size: 32)!
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
@@ -24,7 +25,7 @@ struct AthkarView: View {
             .foregroundColor: UIColor(named: "Yellow")!,
             .font : customFont
             
-        ]
+    ]
       
         
     }
@@ -32,7 +33,7 @@ struct AthkarView: View {
      NavigationView{
             AthkarGridView()
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationBarTitle("أ ذكـار.")
+                .navigationBarTitle("أ ذكار")
         }
     }
 }

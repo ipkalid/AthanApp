@@ -1,26 +1,22 @@
-//
-//  PrayerTimeList.swift
-//  Athan
-//
-//  Created by Khalid Alhazmi on 11/09/2021.
-//
-
 import Foundation
 
 import SwiftUI
+import Adhan
 
 struct PrayerTimeCard: View {
+    var prayers:PrayerTimes?
+
     var body: some View {
         VStack(spacing:0){
-            PrayerTimeCell()
+            PrayerTimeCell(salahTime: prayers!.fajr, prayer: .fajr)
             Divider()
-            PrayerTimeCell()
+            PrayerTimeCell(salahTime: prayers?.asr ?? Date(),prayer: .asr)
             Divider()
-            PrayerTimeCell()
+            PrayerTimeCell(salahTime: prayers?.dhuhr ?? Date(),prayer: .dhuhr)
             Divider()
-            PrayerTimeCell()
+            PrayerTimeCell(salahTime: prayers?.maghrib ?? Date(),prayer: .maghrib)
             Divider()
-            PrayerTimeCell()
+            PrayerTimeCell(salahTime: prayers?.isha ?? Date(),prayer: .isha)
         }
         .padding()
         .background(Color.white.opacity(0.8))

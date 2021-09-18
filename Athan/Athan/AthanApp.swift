@@ -10,9 +10,10 @@ import SwiftUI
 
 @main
 struct AthanApp: App {
+  
     var body: some Scene {
         WindowGroup {
-            AppTappedView()
+            AppTapView()
         }
     }
 }
