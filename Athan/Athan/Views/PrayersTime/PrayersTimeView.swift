@@ -12,8 +12,7 @@ import Adhan
 
 struct PrayersTimeView: View {
     @ObservedObject var viewModel = PrayersTimeView.ViewModel()
-
-
+    
     var body: some View {
         NavigationView{
             ZStack{
@@ -24,25 +23,32 @@ struct PrayersTimeView: View {
                     Spacer()
                 }
             }
-            .navigationBarTitle(viewModel.cityName )
+
+            .navigationBarTitle(viewModel.cityName ?? "Athan" )
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems( trailing: Button(action: {
-                viewModel.isGettingLocation.toggle()
-                viewModel.getNewPrayersTime();
-                
-            } ){
-                !viewModel.isGettingLocation ? AnyView(Image(systemName: "location.fill")): AnyView(ProgressView()
-                )        }.foregroundColor(Color("Yellow"))
-            )}
+            .navigationBarItems(trailing: viewModel.isGettingLocation ? AnyView(ProgressView()) : AnyView(Button(action: {
+                viewModel.getLocationAndUpdatePrayerstime();
+            }, label: {
+                Image(systemName: "location.fill")
+                    .accentColor(Color("Yellow"))
+            })))
+            
+            .alert(isPresented: $viewModel.showingAlert) {
+                Alert(title: Text("You Need to "), message: Text("Wear sunscreen"), dismissButton: .default(Text("Got it!")))
+            }
+        }
     }
 }
 
 extension PrayersTimeView{
-    class ViewModel: ObservableObject {
+    final class ViewModel: ObservableObject {
         @Published var prayers:PrayerTimes?
-        @Published var cityName:String = "Athan"
-        @Published  var isGettingLocation:Bool = false;
+        @Published var cityName:String?
+        @Published var isGettingLocation:Bool = false;
+        @Published var showingAlert = false
         
+        var locationManager =  LocationManager()
+
         
         
         init() {
@@ -57,19 +63,13 @@ extension PrayersTimeView{
             }
         }
         
-        let locationManager =  LocationManager()
         
-        
-        func getNewPrayersTime(){
-            locationManager.requestLocation();
-            cityName = locationManager.cityName ?? "Athan"
-            let cal = Calendar(identifier: Calendar.Identifier.gregorian)
-            let date = cal.dateComponents([.year, .month, .day], from: Date())
-            let coordinates = Coordinates(latitude: locationManager.location!.latitude, longitude: locationManager.location!.longitude)
-            let params = CalculationMethod.ummAlQura.params
-            if let prayers = PrayerTimes(coordinates: coordinates, date: date, calculationParameters: params) {
-                self.prayers = prayers;
-            }
+        func getLocationAndUpdatePrayerstime(){
+            isGettingLocation = true;
+                        
+            locationManager.checkIfLocationManagerEnabled()
+            
+            
         }
     }
     

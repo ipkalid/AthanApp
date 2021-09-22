@@ -11,14 +11,7 @@ import Adhan
 let backgroundColor = LinearGradient(gradient: Gradient(colors: [Color(hex: "0081A7"), Color(hex: "00AFB9")]),startPoint: .top,endPoint: .bottom)
 
 struct AppTapView: View {
-    
-    init() {
-      //  UITabBar.appearance().barTintColor = .systemBackground
         
-    }
-    
-    @State private var selectedIndex:Int = 1
-    
     var body: some View {
     
             TabView(){
@@ -32,8 +25,8 @@ struct AppTapView: View {
                     .tabItem {TabIcon(label: "تسبيح", iconName: "Tasbih")}
     
     
-                Text("View 2")
-                    .tabItem {Label("Setting", systemImage: "gear")}
+                Text("View 3")
+                    .tabItem {TabIcon(label: "More", iconName: "Tasbih")}
                 
             }
         
@@ -47,10 +40,6 @@ struct ContentView_Previews: PreviewProvider {
         AppTapView()
     }
 }
-
-
-
-
 
 struct TabIcon: View {
     var label:String

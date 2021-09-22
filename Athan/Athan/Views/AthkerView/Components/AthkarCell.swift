@@ -14,6 +14,7 @@ struct AthkarCell: View {
             
             Image(systemName: "seal")
                 .resizable()
+                .foregroundColor(.black)
                 .font(.system(size: 2, weight: Font.Weight.ultraLight))
                 .opacity(0.3)
 

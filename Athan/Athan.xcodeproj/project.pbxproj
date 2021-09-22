@@ -25,6 +25,7 @@
 		E9FADB9A26ED220C00271BFA /* PrayersTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FADB9926ED220C00271BFA /* PrayersTimeView.swift */; };
 		E9FADB9C26ED22C300271BFA /* PrayerTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FADB9B26ED22C300271BFA /* PrayerTimeCell.swift */; };
 		E9FADB9E26ED22F500271BFA /* PrayerTimeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FADB9D26ED22F500271BFA /* PrayerTimeCard.swift */; };
+		E9FEF25F26F7E4E30026C261 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FEF25E26F7E4E30026C261 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		E9FADB9926ED220C00271BFA /* PrayersTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayersTimeView.swift; sourceTree = "<group>"; };
 		E9FADB9B26ED22C300271BFA /* PrayerTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeCell.swift; sourceTree = "<group>"; };
 		E9FADB9D26ED22F500271BFA /* PrayerTimeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeCard.swift; sourceTree = "<group>"; };
+		E9FEF25E26F7E4E30026C261 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E9390E4526F7A7C0007A5E11 /* LearnLocation */ = {
+			isa = PBXGroup;
+			children = (
+				E9FEF25E26F7E4E30026C261 /* MapView.swift */,
+			);
+			path = LearnLocation;
+			sourceTree = "<group>";
+		};
 		E93B5ECF26F13A5400C85177 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 		E9FADB7E26EC3D1000271BFA /* Athan */ = {
 			isa = PBXGroup;
 			children = (
+				E9390E4526F7A7C0007A5E11 /* LearnLocation */,
 				E9FADB9726ED129E00271BFA /* Model */,
 				E9FADB8E26ECFB8800271BFA /* Extensions */,
 				E93B5ECF26F13A5400C85177 /* Managers */,
@@ -266,6 +277,7 @@
 				E99C4E3D26EE524A00971EA3 /* AthkarView.swift in Sources */,
 				E9FADB9E26ED22F500271BFA /* PrayerTimeCard.swift in Sources */,
 				E9FADB8026EC3D1000271BFA /* AthanApp.swift in Sources */,
+				E9FEF25F26F7E4E30026C261 /* MapView.swift in Sources */,
 				E99C4E3626EE49A000971EA3 /* AthkarGridView.swift in Sources */,
 				E9016CAE26F566D00000EDBF /* PrayerTime.swift in Sources */,
 				E93B5ED126F13A6E00C85177 /* LocationManager.swift in Sources */,

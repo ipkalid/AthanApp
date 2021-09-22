@@ -22,7 +22,11 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>CFBundleDisplayName</key>
+	<string></string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We want your location to get the correct data</string>
+	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We want your location to get the correct data</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We want your location to get the correct data</string>
