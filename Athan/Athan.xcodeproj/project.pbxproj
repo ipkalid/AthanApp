@@ -43,7 +43,6 @@
 		E9FADB8126EC3D1000271BFA /* AppTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTapView.swift; sourceTree = "<group>"; };
 		E9FADB8326EC3D1100271BFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9FADB8626EC3D1100271BFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E9FADB8826EC3D1100271BFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9FADB8F26ECFBAB00271BFA /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		E9FADB9926ED220C00271BFA /* PrayersTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayersTimeView.swift; sourceTree = "<group>"; };
 		E9FADB9B26ED22C300271BFA /* PrayerTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeCell.swift; sourceTree = "<group>"; };
@@ -133,7 +132,6 @@
 				E9FADB7F26EC3D1000271BFA /* AthanApp.swift */,
 				E9FADB8326EC3D1100271BFA /* Assets.xcassets */,
 				E99C4E4226EEA9F300971EA3 /* Fonts */,
-				E9FADB8826EC3D1100271BFA /* Info.plist */,
 				E9FADB8526EC3D1100271BFA /* Preview Content */,
 			);
 			path = Athan;
@@ -416,7 +414,7 @@
 				DEVELOPMENT_TEAM = Q22HQU5G8X;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Athan/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,7 +436,7 @@
 				DEVELOPMENT_TEAM = Q22HQU5G8X;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Athan/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

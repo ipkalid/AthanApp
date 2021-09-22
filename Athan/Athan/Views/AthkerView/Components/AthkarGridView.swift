@@ -14,6 +14,8 @@ struct AthkarGridView: View {
         GridItem(.flexible()),
     ]
     
+    let offset:Double = 60;
+    
     let array = 0...30
     var body: some View {
             ZStack{
@@ -27,8 +29,8 @@ struct AthkarGridView: View {
                            if(i <= 2){
                             NavigationLink(destination:Text("dd")){
                                 AthkarCell()
-                                    .offset(y:5)
-                                    .padding(.bottom, 5.0)
+                                    .offset(y: offset)
+                                    .padding(.bottom, offset)
                             }
                            
                            }else{
@@ -39,7 +41,7 @@ struct AthkarGridView: View {
                            }
                         }
                         
-                    }.offset(y:-5)
+                    }.offset(y: -offset)
                 }
                 .padding(.horizontal)
                 .padding(.top,1)
