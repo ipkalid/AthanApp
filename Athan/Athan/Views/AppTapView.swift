@@ -8,53 +8,56 @@
 import SwiftUI
 import Adhan
 
-let backgroundColor = LinearGradient(gradient: Gradient(colors: [Color(hex: "0081A7"), Color(hex: "00AFB9")]),startPoint: .top,endPoint: .bottom)
-
 struct AppTapView: View {
     @State private var selectedIndex = 0
     
-    let tabBarImages = ["Athan","Athkar","Tasbih","Tasbih"]
- //   let tabBarLabel = ["أذان"]
+    let tabBarImages = ["Athan","Tasbih","Athkar","Tasbih"]
     
     init(){
-        UITabBar.appearance().isHidden = true;
+        UITabBar.appearance().backgroundColor = .white
+
     }
     
     var body: some View {
-        
-        ZStack(alignment:.bottom){
-            TabView(selection: $selectedIndex){
-                PrayersTimeView()
-                    .tag(0)
-                
-                AthkarView()
-                    .tag(1)
-                
-                Text("View 2")
-                    .tag(2)
-                
-                
-                Text("View 3")
-                    .tag(3)
-                
-            }
-            
-            HStack{
-                ForEach(0..<tabBarImages.count) { i in
-                    Button(action:{
-                        selectedIndex = i;
-                    }){  Spacer()
-                    TabIcon(label: tabBarImages[i], iconName: tabBarImages[i])
-                            .foregroundColor((selectedIndex == i) ? .black : .gray)
-                    Spacer()}
+        TabView(){
+            PrayersTimeView()
+                .tag(0)
+                .tabItem {
+                    Image(tabBarImages[0])
+                        .renderingMode(.template)
+                    Text("أوقات الصلاة")
                 }
-            }
-            .padding(.top,4)
-            .background(.ultraThinMaterial)
             
-        }
-        
+            PostPrayerAthkarView()
+                .tag(1)
+                .tabItem {
+                    Image(tabBarImages[1])
+                        .renderingMode(.template)
+                    Text("أذكار الصلاة")
+                }
 
+            
+            
+            AthkarView()
+                .tag(2)
+                .tabItem {
+                    Image(tabBarImages[2])
+                        .renderingMode(.template)
+                    Text("الأذكار")
+                }
+            
+            
+            
+            SettingView()
+                .tag(3)
+                .tabItem {
+                    Image(systemName: "gear")
+                        .renderingMode(.template)
+                    Text("الإعدادات")
+                }
+        }
+        .accentColor(.black)
+        
         
     }
     

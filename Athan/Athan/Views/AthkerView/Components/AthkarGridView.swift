@@ -15,42 +15,22 @@ struct AthkarGridView: View {
     ]
     
     let offset:Double = 60;
-    
-    let array = 0...30
-    var body: some View {
-            ZStack{
-                backgroundColor
-                    .ignoresSafeArea()
-                ScrollView(showsIndicators: false) {
-                    
-                    LazyVGrid(columns:columns,spacing:20) {
-                        ForEach(0..<array.count) { i in
-                            
-                           if(i <= 2){
-                            NavigationLink(destination:Text("dd")){
-                                AthkarCell()
-                                    .offset(y: offset)
-                                    .padding(.bottom, offset)
-                            }
-                           
-                           }else{
-                            NavigationLink(destination:Text("dd")){
-                                AthkarCell()
-                                    
-                            }
-                           }
-                        }
-                        
-                    }.offset(y: -offset)
+        var body: some View {
+        ScrollView(showsIndicators: false) {
+            LazyVGrid(columns:columns,spacing:20) {
+                ForEach(0..<8) { i in
+                        NavigationLink(destination:Text("\(i)")){
+                            AthkarCell()
+                    }
                 }
-                .padding(.horizontal)
-                .padding(.top,1)
-
                 
-            }
+            }//.offset(y: -offset)
         }
-//        .ignoresSafeArea()
-//    }
+        .padding(Edge.Set.vertical,1)
+        .padding(.horizontal)
+        .background(AppColors.backgroundColor.ignoresSafeArea())
+    }
+
     
 }
 

@@ -20,18 +20,15 @@ struct AthkarCell: View {
 
             
             
-            Text("أذكار الصباح")
-                .font(.title2)
-                .foregroundColor(.black)
-                .multilineTextAlignment(.center)
-            
-            
-            
+            //NavigationTitleText("أذكار الصباح",size: 28,color: .black)
+            CustomText("اذكار\nالصباح", size: 28)
+                .frame(width: 40, height: 40, alignment: .center)
+
             
         }
         .frame(width: 100, height: 100, alignment: .center)
         .cornerRadius(16)
-        //.shadow(radius: 2)
+        .shadow(radius: 2)
     }
 }
 

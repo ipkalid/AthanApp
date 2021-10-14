@@ -13,7 +13,6 @@ struct AthanApp: App {
   
     var body: some Scene {
         WindowGroup {
-            //MapView()
             AppTapView()
         }
     }

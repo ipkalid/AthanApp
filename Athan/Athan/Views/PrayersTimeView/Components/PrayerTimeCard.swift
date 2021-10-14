@@ -18,11 +18,11 @@ struct PrayerTimeCard: View {
             Divider()
             PrayerTimeCell(salahTime: prayers?.isha ?? Date(),prayer: .isha)
         }
+        .frame(width: UIScreen.screenWidth * 0.8)
         .padding()
         .background(Color.white.opacity(0.8))
         .cornerRadius(8)
         .shadow(radius: 10)
-        .padding()
     }
 }
 
