@@ -27,34 +27,43 @@ struct TasbihView: View {
     }
     var body: some View {
         ZStack(alignment: .top){
-          if(showgroundColor){
-              AppColors.backgroundColor.ignoresSafeArea()
-              
-          }
+            if(showgroundColor){
+                AppColors.backgroundColor.ignoresSafeArea()
+                
+            }
             
             ScrollView( showsIndicators: false ){
-               ScrollViewReader{ value in
-                   Spacer()
-                    .frame(maxWidth: .infinity, minHeight: 0)
-                
-                ForEach((0..<viewModel.azkarConents!.count)){ i in
-                    
-                    VStack{
-                        Spacer()
-                        .frame(height:10)
-                    
-                    ZekrCardView(zekrContent: viewModel.azkarConents![i],onTap: {
-                       withAnimation{ value.scrollTo(i + 1, anchor: .top)}
-                    })
-                      
-                    
+                ScrollViewReader{ value in
                     Spacer()
-                        .frame(height:10)
+                        .frame(maxWidth: .infinity, minHeight: 25)
+                    
+                    ForEach((0..<viewModel.azkarConents!.count)){ i in
                         
-                    }.id(i)
+                        VStack{
+                            Spacer()
+                                .frame(height:10)
+                            
+                            ZekrCardView(
+                                zekrContent: viewModel.azkarConents![i] ,
+                                onTap: {
+                                    if(i < (viewModel.azkarConents!.count - 1)){
+                                        withAnimation{ value.scrollTo(i + 1, anchor: .top)
+                                        }
+                                        
+                                    }
+                                }
+                            )
+                            
+                            
+                            Spacer()
+                                .frame(height:10)
+                            
+                        }.id(i)
+                    }
+                    Spacer()
+                    .frame(height:30)
+                    
                 }
-                Spacer()
-                    .frame(height:10)}
             }
             .padding(.top,1)
             
@@ -63,6 +72,16 @@ struct TasbihView: View {
             ToolbarItem(placement: .principal) {
                 NavigationTitleText(title)
             }
+            
+//            ToolbarItem(placement: .navigationBarLeading) {
+//              
+//                Button(action:{
+//                    print("f")
+//                }){
+//                    Image(systemName: "goforward")
+//                }
+//                
+//            }
         }
         .alert(viewModel.dialogTitle, isPresented: $viewModel.showDialog) {
             Button("نعم",role: .destructive) {

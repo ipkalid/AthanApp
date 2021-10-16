@@ -28,8 +28,9 @@ struct PrayersTimeView: View {
                     Spacer()
                     
                     Text(viewModel.getDayInWeek())
-                        .font(.title)
+                        .font(.title2)
                         .fontWeight(.bold)
+                        .minimumScaleFactor(0.4)
                         .foregroundColor(AppColors.yellow)
                         .shadow(radius: 6)
                     
@@ -76,7 +77,7 @@ struct PrayersTimeView: View {
                     : AnyView(
                         Button(action: viewModel.requestLocation,
                                label: {Image(systemName: "location.fill")
-                                       .tint(Color("Yellow"))
+                                       .tint(AppColors.yellow)
                                }
                               )
                     )

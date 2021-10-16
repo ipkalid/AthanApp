@@ -12,49 +12,52 @@ struct AthkarView: View {
     
     var body: some View {
         NavigationView{
-            ZStack{
-                AppColors.backgroundColor.ignoresSafeArea()
-                ScrollView(showsIndicators:false){
-                    Spacer()
-                        .frame(height:20)
-                    
-//                    NavigationLink(destination: TasbihView(jsonFileName: "PostPrayer_azkar", title: "أذكار الصلاة")) {
-//                        AthkarBitButton(
-//                            title: "أذكار الصلاة",
-//                            titleColor: .white,
-//                            backgroundColor: Color("Light Green")
-//                        )
-//                    }
-//                    
-//                    Spacer()
-//                        .frame(height:20)
-                    
-                    
-                    NavigationLink(destination: TasbihView(jsonFileName: "azkar_sabah", title: "أذكار الصباح")) {
-                        AthkarBitButton(
-                            title: "أذكار الصباح",
-                            titleColor: .black,
-                            backgroundColor: AppColors.yellow
-                        )
-                    }
-                    
-                    Spacer()
-                        .frame(maxWidth: .infinity, minHeight: 20)
-                    
-                    
-                    NavigationLink(destination: TasbihView(jsonFileName: "azkar_massa", title: "أذكار المساء")) {
-                        AthkarBitButton(
-                            title: "أذكار المساء",
-                            titleColor: .white,
-                            backgroundColor: Color(hex: "091740")
-                        )
-                        
-                    }
+            
+            ScrollView(){
+                Spacer()
+                    .frame(height:40)
+                
+                NavigationLink(destination: TasbihView(jsonFileName: "PostPrayer_azkar", title: "أذكار الصلاة")) {
+                    AthkarBigButton(
+                        title: "أذكار الصلاة",
+                        titleColor: .white,
+                        backgroundColor: Color("Light Green")
+                    )
+                }
+                
+                Spacer()
+                    .frame(height:20)
+                
+                NavigationLink(destination: TasbihView(jsonFileName: "azkar_sabah", title: "أذكار الصباح")) {
+                    AthkarBigButton(
+                        title: "أذكار الصباح",
+                        titleColor: .black,
+                        backgroundColor: AppColors.yellow
+                    )
+                }
+                
+                Spacer()
+                    .frame(maxWidth: .infinity, minHeight: 20)
+                
+                
+                NavigationLink(destination: TasbihView(jsonFileName: "azkar_massa", title: "أذكار المساء")) {
+                    AthkarBigButton(
+                        title: "أذكار المساء",
+                        titleColor: .white,
+                        backgroundColor: Color(hex: "091740")
+                    )
                     
                 }
-                .padding(.top,1)
+                
+                
+                Spacer()
+                    .frame(height:40)
+                
                 
             }
+            .padding(.top,1)
+            .background(AppColors.backgroundColor.ignoresSafeArea())
+            
             .navigationTitle("الأذكار")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -74,7 +77,7 @@ struct AthkarView_Previews: PreviewProvider {
     }
 }
 
-struct AthkarBitButton: View {
+struct AthkarBigButton: View {
     var title:String
     var titleColor: Color
     var backgroundColor: Color

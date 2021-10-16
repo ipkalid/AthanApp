@@ -14,29 +14,51 @@ struct SettingView: View {
     }
     var body: some View {
         NavigationView{
-            ZStack{
-                AppColors.backgroundColor.ignoresSafeArea()
-            ScrollView{
-                Spacer()
-                    .frame(height:20)
-                Text("fff")
-                Text("fff")
-                Spacer()
-            }
-            .padding(.top,1)
+            List{
                 
-            }
-            .navigationBarTitleDisplayMode(.inline)
-       
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                NavigationTitleText("الإعدادات")
-            }
-            
+                Button(action:{
+                    
+                }){ HStack{
+                    VStack(alignment:.leading){
+                        Text("تحديث الموقع")
+                        Spacer().frame(height:5)
+                        Text("الرياض")
+                            .font(.caption2)
+                    }
+                    
+                    Spacer()
+                    Image(systemName: "location.fill")
+                }
+                .multilineTextAlignment(.leading)}
+                .listRowBackground(AppColors.SettinglistRowBackground)
+                
+                
+                AppSettingSection()
+                
+                    
+                    AppDetailsSection()
+                    
+                    
+                    DevloperDetailsSection()
+                }
+                .foregroundColor(.white)
+                .listStyle(.insetGrouped)
+                .padding(.top,1)
+                .navigationTitle("الإعدادات")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        NavigationTitleText("الإعدادات")
+                    }
+                    
+                }
+                .background(AppColors.SettingBackgroundColor.ignoresSafeArea())
+           
+
         }
-        
-    }
-        
+        .accentColor(AppColors.yellow)
+
+
     }
 }
 

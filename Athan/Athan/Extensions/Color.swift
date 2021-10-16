@@ -9,12 +9,6 @@ import Foundation
 import SwiftUI
 
 
-struct Colors {
-    static let greeen = Color(hex: "000000");
-   // static let
-}
-
-
 extension Color {
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)

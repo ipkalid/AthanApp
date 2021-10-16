@@ -25,16 +25,16 @@ struct AppTapView: View {
                 .tabItem {
                     Image(tabBarImages[0])
                         .renderingMode(.template)
-                    Text("أوقات الصلاة")
+                    Text("الصلاة")
                 }
             
-            PostPrayerAthkarView()
-                .tag(1)
-                .tabItem {
-                    Image(tabBarImages[1])
-                        .renderingMode(.template)
-                    Text("أذكار الصلاة")
-                }
+//            PostPrayerAthkarView()
+//                .tag(1)
+//                .tabItem {
+//                    Image(tabBarImages[1])
+//                        .renderingMode(.template)
+//                    Text("أذكار الصلاة")
+//                }
 
             
             

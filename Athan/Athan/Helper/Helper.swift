@@ -7,9 +7,9 @@
 
 import Foundation
 
-class Helper{
+class Helper {
     
-    func loadJson<T:Codable>(fileName: String) -> T? {
+    func loadJson<T: Codable>(fileName: String, _ type: T.Type) -> Optional<T> {
         let decoder = JSONDecoder()
         
         guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else {return nil}
@@ -17,7 +17,7 @@ class Helper{
         do{
             let JsonData = try Data(contentsOf: url)
             
-            guard let data = try? decoder.decode(T.self, from: JsonData) else{
+            guard let data = try? decoder.decode(type, from: JsonData) else {
                 return nil
             }
             

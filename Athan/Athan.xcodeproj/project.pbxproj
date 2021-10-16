@@ -17,9 +17,11 @@
 		E96974DD271599DA006C2154 /* PostPrayerAthkarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96974DC271599DA006C2154 /* PostPrayerAthkarView.swift */; };
 		E96974E02715A4AE006C2154 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96974DF2715A4AE006C2154 /* SettingView.swift */; };
 		E96974E22715A987006C2154 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96974E12715A987006C2154 /* Launch Screen.storyboard */; };
+		E9775CF0271A24A000608664 /* DevloperDetailsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775CEF271A24A000608664 /* DevloperDetailsSection.swift */; };
+		E9775CF2271A251B00608664 /* AppDetailsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775CF1271A251B00608664 /* AppDetailsSection.swift */; };
+		E9775CF4271A282B00608664 /* AppSettingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775CF3271A282B00608664 /* AppSettingSection.swift */; };
+		E990D6F6271A1E1A000B8B72 /* sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E990D6F5271A1E1A000B8B72 /* sheet.swift */; };
 		E99C4E3326ED7E8000971EA3 /* Adhan in Frameworks */ = {isa = PBXBuildFile; productRef = E99C4E3226ED7E8000971EA3 /* Adhan */; };
-		E99C4E3626EE49A000971EA3 /* AthkarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C4E3526EE49A000971EA3 /* AthkarGridView.swift */; };
-		E99C4E3B26EE4A5300971EA3 /* AthkarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C4E3A26EE4A5300971EA3 /* AthkarCell.swift */; };
 		E99C4E3D26EE524A00971EA3 /* AthkarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C4E3C26EE524A00971EA3 /* AthkarView.swift */; };
 		E99C4E3F26EE53AC00971EA3 /* PrayerTimeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C4E3E26EE53AC00971EA3 /* PrayerTimeHeader.swift */; };
 		E9AA10C7271245640073C265 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA10C6271245640073C265 /* CoreDataManager.swift */; };
@@ -59,8 +61,10 @@
 		E96974DC271599DA006C2154 /* PostPrayerAthkarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrayerAthkarView.swift; sourceTree = "<group>"; };
 		E96974DF2715A4AE006C2154 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		E96974E12715A987006C2154 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		E99C4E3526EE49A000971EA3 /* AthkarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthkarGridView.swift; sourceTree = "<group>"; };
-		E99C4E3A26EE4A5300971EA3 /* AthkarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthkarCell.swift; sourceTree = "<group>"; };
+		E9775CEF271A24A000608664 /* DevloperDetailsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevloperDetailsSection.swift; sourceTree = "<group>"; };
+		E9775CF1271A251B00608664 /* AppDetailsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailsSection.swift; sourceTree = "<group>"; };
+		E9775CF3271A282B00608664 /* AppSettingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingSection.swift; sourceTree = "<group>"; };
+		E990D6F5271A1E1A000B8B72 /* sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sheet.swift; sourceTree = "<group>"; };
 		E99C4E3C26EE524A00971EA3 /* AthkarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthkarView.swift; sourceTree = "<group>"; };
 		E99C4E3E26EE53AC00971EA3 /* PrayerTimeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeHeader.swift; sourceTree = "<group>"; };
 		E9AA10C6271245640073C265 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				E9FEF25E26F7E4E30026C261 /* MapView.swift */,
+				E990D6F5271A1E1A000B8B72 /* sheet.swift */,
 			);
 			path = LearnLocation;
 			sourceTree = "<group>";
@@ -135,7 +140,8 @@
 				E9AA10D427124A750073C265 /* TasbihView.swift */,
 				E96974BE2714CB52006C2154 /* ZekrCardView.swift */,
 			);
-			path = Components;
+			name = Components;
+			path = ../PostPrayerAthkarView/Components;
 			sourceTree = "<group>";
 		};
 		E96974DB27158787006C2154 /* SettingView */ = {
@@ -150,6 +156,9 @@
 		E96974DE27159EE5006C2154 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E9775CF3271A282B00608664 /* AppSettingSection.swift */,
+				E9775CF1271A251B00608664 /* AppDetailsSection.swift */,
+				E9775CEF271A24A000608664 /* DevloperDetailsSection.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -157,19 +166,10 @@
 		E99C4E3426EE497700971EA3 /* AthkerView */ = {
 			isa = PBXGroup;
 			children = (
-				E99C4E3926EE4A1E00971EA3 /* Components */,
+				E96974C02714CB93006C2154 /* Components */,
 				E99C4E3C26EE524A00971EA3 /* AthkarView.swift */,
 			);
 			path = AthkerView;
-			sourceTree = "<group>";
-		};
-		E99C4E3926EE4A1E00971EA3 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				E99C4E3A26EE4A5300971EA3 /* AthkarCell.swift */,
-				E99C4E3526EE49A000971EA3 /* AthkarGridView.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		E99C4E4226EEA9F300971EA3 /* Fonts */ = {
@@ -196,7 +196,6 @@
 		E9AA10D327124A4A0073C265 /* PostPrayerAthkarView */ = {
 			isa = PBXGroup;
 			children = (
-				E96974C02714CB93006C2154 /* Components */,
 				E96974DC271599DA006C2154 /* PostPrayerAthkarView.swift */,
 			);
 			path = PostPrayerAthkarView;
@@ -252,8 +251,8 @@
 			children = (
 				E9FADB7F26EC3D1000271BFA /* AthanApp.swift */,
 				E96974E12715A987006C2154 /* Launch Screen.storyboard */,
-				E9F483D92712AA80004971BF /* Helper */,
 				E9F37889270023A200C86589 /* Resources */,
+				E9F483D92712AA80004971BF /* Helper */,
 				E93115F726FD535C00532A28 /* Style */,
 				E9390E4526F7A7C0007A5E11 /* LearnLocation */,
 				E9FADB9726ED129E00271BFA /* Model */,
@@ -416,24 +415,26 @@
 				E9FADB9A26ED220C00271BFA /* PrayersTimeView.swift in Sources */,
 				E9FADB8226EC3D1000271BFA /* AppTapView.swift in Sources */,
 				E96974E02715A4AE006C2154 /* SettingView.swift in Sources */,
+				E990D6F6271A1E1A000B8B72 /* sheet.swift in Sources */,
 				E9AA10C7271245640073C265 /* CoreDataManager.swift in Sources */,
 				E99C4E3D26EE524A00971EA3 /* AthkarView.swift in Sources */,
 				E9FADB9E26ED22F500271BFA /* PrayerTimeCard.swift in Sources */,
 				E9FADB8026EC3D1000271BFA /* AthanApp.swift in Sources */,
+				E9775CF4271A282B00608664 /* AppSettingSection.swift in Sources */,
 				E9FEF25F26F7E4E30026C261 /* MapView.swift in Sources */,
-				E99C4E3626EE49A000971EA3 /* AthkarGridView.swift in Sources */,
 				E9F483DB2712AA96004971BF /* Helper.swift in Sources */,
+				E9775CF2271A251B00608664 /* AppDetailsSection.swift in Sources */,
 				E9016CAE26F566D00000EDBF /* PrayerTime.swift in Sources */,
 				E9AA10D2271247B10073C265 /* Colors.swift in Sources */,
 				E9AA10D527124A750073C265 /* TasbihView.swift in Sources */,
 				E93B5ED126F13A6E00C85177 /* LocationManager.swift in Sources */,
 				E93115F926FD5F0200532A28 /* CustomText.swift in Sources */,
-				E99C4E3B26EE4A5300971EA3 /* AthkarCell.swift in Sources */,
 				E99C4E3F26EE53AC00971EA3 /* PrayerTimeHeader.swift in Sources */,
 				E96974DD271599DA006C2154 /* PostPrayerAthkarView.swift in Sources */,
 				E9FADB9026ECFBAB00271BFA /* Color.swift in Sources */,
 				E9F1970427127CE9002AE23E /* UIScreen.swift in Sources */,
 				E93115ED26FD4D3600532A28 /* NavigationTitleText.swift in Sources */,
+				E9775CF0271A24A000608664 /* DevloperDetailsSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

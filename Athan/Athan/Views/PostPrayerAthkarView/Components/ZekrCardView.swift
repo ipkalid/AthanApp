@@ -27,17 +27,28 @@ struct ZekrCardView: View {
                 .padding(.horizontal,4)
             Spacer()
             Text(zekrContent.bless)
+                .font(.system(size: 14))
                 .foregroundColor(.black)
-                .font(.caption)
                 .multilineTextAlignment(.center)
             (zekrContent.contentRepeat != 0)
-            ? Text("\((zekrContent.contentRepeat))")
-                .font(Font.title2)
-                .fontWeight(.bold)
-            : Text(Image(systemName: "checkmark.seal"))
-                .font(Font.title2)
-                .fontWeight(.medium)
-                .foregroundColor(.green)
+            ? AnyView(
+                Text("\(zekrContent.contentRepeat)")
+                    .font(.system(size: 21, weight: .medium))
+                    .minimumScaleFactor(0.5)
+                    .padding(.all,4)
+                    .frame(width: 27, height: 27, alignment: .center)
+                    .background(
+                        Circle()
+                            .stroke(.black, lineWidth: 1)
+                    )
+            )
+            :AnyView(
+                Text(Image(systemName: "checkmark.seal"))
+                    .fontWeight(.medium)
+                    .font(.system(size: 21))
+                    .foregroundColor(.green)
+                    .frame(width: 27, height: 27, alignment: .center)
+            )
         }
         .frame(width: UIScreen.screenWidth * 0.8, height:300)
         .padding()
@@ -63,3 +74,10 @@ struct ZekrCardView: View {
 
     }
 }
+
+struct ZekrCardView_Previews: PreviewProvider {
+    static var previews: some View {
+        ZekrCardView(zekrContent: ZekrContent(zekr: "السلام عليكم", contentRepeat: 1, bless: "السلام عليمم"), onTap: {print("dd")})
+    }
+}
+ 
