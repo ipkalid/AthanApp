@@ -112,6 +112,8 @@ extension PrayersTimeView{
             
             guard let prayers = PrayerTimes(coordinates: coordinates, date: date, calculationParameters: params) else{ return}
             self.prayers = prayers;
+            
+            print(prayers)
 //            if let prayers = PrayerTimes(coordinates: coordinates, date: date, calculationParameters: params) {
 //                self.prayers = prayers;
 //            }

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Adhan
+import UIKit
 
 struct AppTapView: View {
     @State private var selectedIndex = 0
@@ -15,7 +15,6 @@ struct AppTapView: View {
     
     init(){
         UITabBar.appearance().backgroundColor = .white
-
     }
     
     var body: some View {
@@ -27,15 +26,6 @@ struct AppTapView: View {
                         .renderingMode(.template)
                     Text("الصلاة")
                 }
-            
-//            PostPrayerAthkarView()
-//                .tag(1)
-//                .tabItem {
-//                    Image(tabBarImages[1])
-//                        .renderingMode(.template)
-//                    Text("أذكار الصلاة")
-//                }
-
             
             
             AthkarView()

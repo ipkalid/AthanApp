@@ -29,36 +29,38 @@ struct SettingView: View {
                     Spacer()
                     Image(systemName: "location.fill")
                 }
-                .multilineTextAlignment(.leading)}
+                .multilineTextAlignment(.leading)
+                    
+                }
                 .listRowBackground(AppColors.SettinglistRowBackground)
                 
                 
                 AppSettingSection()
                 
-                    
-                    AppDetailsSection()
-                    
-                    
-                    DevloperDetailsSection()
+                
+                AppDetailsSection()
+                
+                
+                DevloperDetailsSection()
+            }
+            .foregroundColor(.white)
+            .listStyle(.insetGrouped)
+            .padding(.top,1)
+            .navigationTitle("الإعدادات")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    NavigationTitleText("الإعدادات")
                 }
-                .foregroundColor(.white)
-                .listStyle(.insetGrouped)
-                .padding(.top,1)
-                .navigationTitle("الإعدادات")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        NavigationTitleText("الإعدادات")
-                    }
-                    
-                }
-                .background(AppColors.SettingBackgroundColor.ignoresSafeArea())
-           
-
+                
+            }
+            .background(AppColors.SettingBackgroundColor.ignoresSafeArea())
+            
+            
         }
         .accentColor(AppColors.yellow)
-
-
+        
+        
     }
 }
 
