@@ -10,15 +10,15 @@ import UIKit
 
 struct AppTapView: View {
     @State private var selectedIndex = 0
-    
-    let tabBarImages = ["Athan","Tasbih","Athkar","Tasbih"]
-    
-    init(){
+
+    let tabBarImages = ["Athan", "Tasbih", "Athkar", "Tasbih"]
+
+    init() {
         UITabBar.appearance().backgroundColor = .white
     }
-    
+
     var body: some View {
-        TabView(){
+        TabView {
             PrayersTimeView()
                 .tag(0)
                 .tabItem {
@@ -26,8 +26,7 @@ struct AppTapView: View {
                         .renderingMode(.template)
                     Text("الصلاة")
                 }
-            
-            
+
             AthkarView()
                 .tag(2)
                 .tabItem {
@@ -35,9 +34,7 @@ struct AppTapView: View {
                         .renderingMode(.template)
                     Text("الأذكار")
                 }
-            
-            
-            
+
             SettingView()
                 .tag(3)
                 .tabItem {
@@ -47,10 +44,7 @@ struct AppTapView: View {
                 }
         }
         .accentColor(.black)
-        
-        
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -60,10 +54,10 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct TabIcon: View {
-    var label:String
-    var iconName:String
+    var label: String
+    var iconName: String
     var body: some View {
-        VStack{
+        VStack {
             Image(iconName)
                 .renderingMode(.template)
             Text(label)

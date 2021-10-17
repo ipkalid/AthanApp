@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-
 @main
 struct AthanApp: App {
-    @StateObject var environmentViewModel:EnvironmentViewModel = EnvironmentViewModel()
-    
+    @StateObject var environmentViewModel = EnvironmentViewModel()
+
     var body: some Scene {
         WindowGroup {
             AppTapView()

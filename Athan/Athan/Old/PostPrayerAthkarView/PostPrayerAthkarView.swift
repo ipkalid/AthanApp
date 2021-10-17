@@ -5,27 +5,27 @@
 ////  Created by Khalid Alhazmi on 12/10/2021.
 ////
 //
-//import SwiftUI
+// import SwiftUI
 //
-//struct PostPrayerAthkarView: View {
+// struct PostPrayerAthkarView: View {
 //    var body: some View {
 //       NavigationView{
 //         ZStack{
 //            AppColors.backgroundColor.ignoresSafeArea()
-//             
+//
 //                  TasbihView(jsonFileName: "PostPrayer_azkar")
-//           
+//
 //             .padding(.top,1)
 //         }
 //         .navigationBarTitleDisplayMode(.inline)
 //       }
-//     
+//
 //    }
-//}
+// }
 //
 //
-//struct PostPrayerAthkarView_Previews: PreviewProvider {
+// struct PostPrayerAthkarView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        PostPrayerAthkarView()
 //    }
-//}
+// }

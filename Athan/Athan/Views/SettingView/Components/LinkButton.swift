@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct LinkButton: View {
-    let label:String
-    let urlSring:String
+    let label: String
+    let urlSring: String
     var body: some View {
-        Button(label){
-            guard let url = URL(string:urlSring) else { return }
+        Button(label) {
+            guard let url = URL(string: urlSring) else { return }
             UIApplication.shared.open(url)
         }
     }

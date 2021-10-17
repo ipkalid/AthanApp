@@ -1,45 +1,31 @@
-import Foundation
 import CoreLocation
+import Foundation
 
-
-
-
-class LocstionManager: NSObject,CLLocationManagerDelegate {
+class LocstionManager: NSObject, CLLocationManagerDelegate {
     private var locationManger = CLLocationManager()
-    
+
     override init() {
         super.init()
-        locationManger.delegate = self;
+        locationManger.delegate = self
     }
-    
-    
-    func getLocation(){
+
+    func getLocation() {
         locationManger.requestWhenInUseAuthorization()
-        
     }
-    
-    
+
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        guard let location = manager.location else {return}
+        guard let location = manager.location else { return }
         print(location)
     }
-    
-    
-    
-    
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error);
+
+    func locationManager(_: CLLocationManager, didFailWithError error: Error) {
+        print(error)
     }
-    
-    
-    
 }
 
-
 //
 //
-//class LocationManager: NSObject,CLLocationManagerDelegate {
+// class LocationManager: NSObject,CLLocationManagerDelegate {
 //    var manager: CLLocationManager = CLLocationManager()
 //    var currentLocation: CLLocation?
 //
@@ -98,7 +84,7 @@ class LocstionManager: NSObject,CLLocationManagerDelegate {
 ////        print("locationManagerDidChangeAuthorization")
 ////    }
 //
-//}
+// }
 //
 //
 ////class LocationManager: NSObject , CLLocationManagerDelegate {

@@ -8,16 +8,13 @@
 import SwiftUI
 
 struct AthkarView: View {
-    
-    
     var body: some View {
-        NavigationView{
-            
-            ScrollView(){
+        NavigationView {
+            ScrollView {
                 Spacer()
                     .frame(maxWidth: .infinity, minHeight: 40)
-                
-                VStack(spacing:20){
+
+                VStack(spacing: 20) {
                     NavigationLink(destination: TasbihView(jsonFileName: "PostPrayer_azkar")) {
                         AthkarBigButton(
                             title: "أذكار بعد الصلاة",
@@ -25,8 +22,7 @@ struct AthkarView: View {
                             backgroundColor: Color("Light Green")
                         )
                     }
-                    
-                    
+
                     NavigationLink(destination: TasbihView(jsonFileName: "azkar_sabah")) {
                         AthkarBigButton(
                             title: "أذكار الصباح",
@@ -34,35 +30,28 @@ struct AthkarView: View {
                             backgroundColor: AppColors.yellow
                         )
                     }
-                    
-                    
-                    
-                    
+
                     NavigationLink(destination: TasbihView(jsonFileName: "azkar_massa")) {
                         AthkarBigButton(
                             title: "أذكار المساء",
                             titleColor: .white,
                             backgroundColor: Color(hex: "091740")
                         )
-                        
                     }
                 }
-                
+
                 Spacer()
-                    .frame(height:40)
-                
-                
+                    .frame(height: 40)
             }
-            .padding(.top,1)
+            .padding(.top, 1)
             .background(AppColors.backgroundColor.ignoresSafeArea())
-            
+
             .navigationTitle("الأذكار")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     NavigationTitleText("الأذكار")
                 }
-                
             }
         }
         .accentColor(AppColors.yellow)

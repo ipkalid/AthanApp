@@ -9,8 +9,7 @@ import Foundation
 import SwiftUI
 
 struct DevloperDetailsSection: View {
-    
-    var body:some View{
+    var body: some View {
         Section(header: Text("المطور")) {
             LinkButton(label: "تابع المطور على Twitter", urlSring: "https://twitter.com/iKAlhazmi")
             LinkButton(label: "تابع المطور على Linkden", urlSring: "https://www.linkedin.com/in/khalid-alhazmi")

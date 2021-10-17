@@ -1,68 +1,53 @@
-import SwiftUI
-import MapKit
 import CoreLocation
+import MapKit
+import SwiftUI
 
 struct MapView: View {
-    
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 24.797761, longitude: 46.741433), span: MKCoordinateSpan(latitudeDelta:0.5, longitudeDelta: 0.5))
-    
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 24.797761, longitude: 46.741433), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+
     @StateObject private var viewModel = MapView.ViewModel()
-    
+
     var body: some View {
-        Map(coordinateRegion: $viewModel.region, showsUserLocation:true)
+        Map(coordinateRegion: $viewModel.region, showsUserLocation: true)
             .ignoresSafeArea()
-            .onAppear{
+            .onAppear {
                 viewModel.checkIfLocationManagerEnabled()
             }
-        
     }
 }
-extension MapView{
-    class ViewModel:NSObject, ObservableObject, CLLocationManagerDelegate{
-        
-        var locationManager  = MLocationManager()
-        
-        @Published  var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 24.797761, longitude: 46.741433), span: MKCoordinateSpan(latitudeDelta:0.5, longitudeDelta: 0.5))
-        
+
+extension MapView {
+    class ViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+        var locationManager = MLocationManager()
+
+        @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 24.797761, longitude: 46.741433), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+
         func checkIfLocationManagerEnabled() {
             locationManager.checkIfLocationManagerEnabled()
         }
-
-
-        
     }
-    
 }
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         MapView()
-        
     }
 }
 
-
-class MLocationManager: NSObject,CLLocationManagerDelegate {
+class MLocationManager: NSObject, CLLocationManagerDelegate {
     var locationManager: CLLocationManager?
-    
-    
-    
-    
-    func checkIfLocationManagerEnabled(){
-        if CLLocationManager.locationServicesEnabled(){
+
+    func checkIfLocationManagerEnabled() {
+        if CLLocationManager.locationServicesEnabled() {
             locationManager = CLLocationManager()
             locationManager!.delegate = self
-            
-        }
-        else {
+        } else {
             print("Fuck")
         }
     }
-    
-    
-    
+
     private func checkLocationAuthorization() {
-        guard  let locationManager = locationManager else {return}
+        guard let locationManager = locationManager else { return }
         switch locationManager.authorizationStatus {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
@@ -72,27 +57,21 @@ class MLocationManager: NSObject,CLLocationManagerDelegate {
             print("denied")
         case .authorizedAlways, .authorizedWhenInUse:
             print("authorizedAlways")
-            //locationManager.startUpdatingLocation()
-            //print(locationManager.location?.coordinate)
-            
+            // locationManager.startUpdatingLocation()
+            // print(locationManager.location?.coordinate)
+
         @unknown default:
             break
         }
-        
     }
-    
-    
-    
-    
-    
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+
+    func locationManagerDidChangeAuthorization(_: CLLocationManager) {
         checkLocationAuthorization()
         print("locationManagerDidChangeAuthorization")
     }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations)
-       // region = MKCoordinateRegion(center: (manager.location!.coordinate), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
-    }
 
+    func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(locations)
+        // region = MKCoordinateRegion(center: (manager.location!.coordinate), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
+    }
 }

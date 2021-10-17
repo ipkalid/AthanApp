@@ -1,22 +1,22 @@
 import Foundation
 
-import SwiftUI
 import Adhan
+import SwiftUI
 
 struct PrayerTimeCard: View {
-    var prayers:PrayerTimes?
+    var prayers: PrayerTimes?
 
     var body: some View {
-        VStack(spacing:0){
+        VStack(spacing: 0) {
             PrayerTimeCell(salahTime: prayers!.fajr, prayer: .fajr)
             Divider()
-            PrayerTimeCell(salahTime: prayers?.asr ?? Date(),prayer: .asr)
+            PrayerTimeCell(salahTime: prayers?.asr ?? Date(), prayer: .asr)
             Divider()
-            PrayerTimeCell(salahTime: prayers?.dhuhr ?? Date(),prayer: .dhuhr)
+            PrayerTimeCell(salahTime: prayers?.dhuhr ?? Date(), prayer: .dhuhr)
             Divider()
-            PrayerTimeCell(salahTime: prayers?.maghrib ?? Date(),prayer: .maghrib)
+            PrayerTimeCell(salahTime: prayers?.maghrib ?? Date(), prayer: .maghrib)
             Divider()
-            PrayerTimeCell(salahTime: prayers?.isha ?? Date(),prayer: .isha)
+            PrayerTimeCell(salahTime: prayers?.isha ?? Date(), prayer: .isha)
         }
         .frame(width: UIScreen.screenWidth * 0.8)
         .padding()

@@ -5,12 +5,12 @@
 //  Created by Khalid Alhazmi on 18/09/2021.
 //
 
-import Foundation
 import Adhan
+import Foundation
 
-struct PrayerTimesInMonth{
+struct PrayerTimesInMonth {
     var PrayerTime: [PrayerTimes]
-    var satringDate:Date
+    var satringDate: Date
 }
 
 enum Prayer {

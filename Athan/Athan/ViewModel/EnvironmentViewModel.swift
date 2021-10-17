@@ -1,27 +1,25 @@
+import Adhan
 import Foundation
 import SwiftUI
-import Adhan
 
-class EnvironmentViewModel:ObservableObject {
+class EnvironmentViewModel: ObservableObject {
     @Published var preferredColorScheme: ColorScheme = .light
-    
+
     @Published var calculationMethod = CalculationMethod.ummAlQura
-    
-    @Published var madhabType:Madhab = Madhab.shafi
-    
-    
+
+    @Published var madhabType = Madhab.shafi
+
     func getMadhabName() -> String {
-        switch madhabType{
+        switch madhabType {
         case .shafi:
             return "حنبلي - مالكي - شافعي"
         case .hanafi:
             return "حنفي"
         }
     }
-    
+
     func getCalculationMethod() -> String {
-        switch calculationMethod{
-            
+        switch calculationMethod {
         case .muslimWorldLeague:
             return "رابطة العالم الإسلامي"
         case .ummAlQura:
@@ -35,13 +33,11 @@ class EnvironmentViewModel:ObservableObject {
         default:
             return "Other"
         }
-        
     }
-    
-    init(){
+
+    init() {
         print(madhabType.rawValue)
     }
-    
-    private var isDarkMode:Bool = false;
-    
+
+    private var isDarkMode: Bool = false
 }

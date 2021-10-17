@@ -8,59 +8,47 @@
 import SwiftUI
 
 struct SettingView: View {
-    
-    init(){
+    init() {
         UITableView.appearance().backgroundColor = UIColor.clear
     }
+
     var body: some View {
-        NavigationView{
-            List{
-                
-                Button(action:{
-                    
-                }){ HStack{
-                    VStack(alignment:.leading){
+        NavigationView {
+            List {
+                Button(action: {}) { HStack {
+                    VStack(alignment: .leading) {
                         Text("تحديث الموقع")
-                        Spacer().frame(height:5)
+                        Spacer().frame(height: 5)
                         Text("الرياض")
                             .font(.caption2)
                     }
-                    
+
                     Spacer()
                     Image(systemName: "location.fill")
                 }
                 .multilineTextAlignment(.leading)
-                    
                 }
                 .listRowBackground(AppColors.SettinglistRowBackground)
-                
-                
+
                 AppSettingSection()
-                
-                
+
                 AppDetailsSection()
-                
-                
+
                 DevloperDetailsSection()
             }
             .foregroundColor(.white)
             .listStyle(.insetGrouped)
-            .padding(.top,1)
+            .padding(.top, 1)
             .navigationTitle("الإعدادات")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     NavigationTitleText("الإعدادات")
                 }
-                
             }
             .background(AppColors.SettingBackgroundColor.ignoresSafeArea())
-            
-            
         }
         .accentColor(AppColors.yellow)
-        
-        
     }
 }
 

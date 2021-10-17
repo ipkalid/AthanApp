@@ -9,18 +9,17 @@ import SwiftUI
 
 struct SettingNotificationView: View {
     var body: some View {
-        List{
+        List {
             Text("TEXT")
             Text("TEXT")
             Text("TEXT")
             Text("TEXT")
         }
-        .padding(.top,1)
+        .padding(.top, 1)
         .toolbar {
             ToolbarItem(placement: .principal) {
                 NavigationTitleText("الإشعارات")
             }
-            
         }
         .background(AppColors.SettingBackgroundColor.ignoresSafeArea())
     }
