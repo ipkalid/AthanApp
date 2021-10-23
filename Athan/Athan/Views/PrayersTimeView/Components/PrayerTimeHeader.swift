@@ -8,30 +8,62 @@
 import SwiftUI
 
 struct PrayerTimeHeader: View {
+
     var body: some View {
-        //                VStack(alignment:.leading){
-        //                    HStack {
-        //                        Text("Riyadh")
-        //                            .font(.largeTitle)
-        //                            .foregroundColor(Color.white)
-        //                            .multilineTextAlignment(.leading)
-        //
-        //                        Image(systemName: "location.fill")
-        //                            .font(.title)
-        //                            .foregroundColor(Color.white)
-        //                    }
-        //
-        //                    Text("\(Date().description)")
-        //                        .font(.title)
-        //                        .foregroundColor(Color.white)
-        //
-        //                }.padding([.horizontal],8)
-        Text("")
+        HStack(alignment: .center) {
+            Text(higriDate())
+                .frame(width: 100)
+                .padding(.vertical, 8)
+                .background(.white.opacity(0.5))
+                .cornerRadius(20)
+
+            Spacer()
+
+            Text(dayInWeek())
+                .font(.title2)
+                .fontWeight(.bold)
+                .minimumScaleFactor(0.4)
+                .foregroundColor(AppColors.yellow)
+                .shadow(radius: 6)
+
+            Spacer()
+
+            Text(getDate())
+                .frame(width: 100)
+                .padding(.vertical, 8)
+                .background(.white.opacity(0.5))
+                .cornerRadius(20)
+        }
+        .padding(.horizontal, 32)
+        .padding(.top, 30)
+    }
+    
+    
+      
+    private func higriDate() -> String {
+        let dateFormatter = DateFormatter()
+
+        let hijriCalendar = Calendar(identifier: Calendar.Identifier.islamicCivil)
+        dateFormatter.locale = Locale(identifier: "ar")
+        dateFormatter.calendar = hijriCalendar
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+
+        return dateFormatter.string(from: Date.now)
+    }
+    
+    private func dayInWeek() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ar")
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: Date.now)
+    }
+    
+    private func getDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY/MM/dd"
+        return dateFormatter.string(from: Date.now)
     }
 }
-
-struct PrayerTimeHeader_Previews: PreviewProvider {
-    static var previews: some View {
-        PrayerTimeHeader()
-    }
+extension PrayerTimeHeader{
+    
 }

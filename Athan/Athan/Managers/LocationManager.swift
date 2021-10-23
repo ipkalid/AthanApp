@@ -1,164 +1,80 @@
 import CoreLocation
 import Foundation
 
-class LocstionManager: NSObject, CLLocationManagerDelegate {
-    private var locationManger = CLLocationManager()
-
+class LocationManager: NSObject {
+    static let instance = LocationManager()
+    
+    private var manger = CLLocationManager()
+    
+    
+    var cityName:String?
+    
+    var onUpdateLocation: ((_ location: CLLocation) -> Void)?
+    var onFailWithError: (() -> Void)?
+    var onAuthorizationDenied: (() -> Void)?
+    
+    
     override init() {
         super.init()
-        locationManger.delegate = self
+        manger.delegate = self
     }
-
-    func getLocation() {
-        locationManger.requestWhenInUseAuthorization()
+    
+    func requestLocation() {
+        let status = manger.authorizationStatus
+        switch status {
+        case .notDetermined:
+            manger.requestAlwaysAuthorization()
+        case .authorizedWhenInUse, .authorizedAlways:
+            manger.requestLocation()
+        case.denied:
+            if let onAuthorizationDenied = onAuthorizationDenied {
+                onAuthorizationDenied()
+            }
+        default:
+            return
+        }
     }
-
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        guard let location = manager.location else { return }
-        print(location)
-    }
-
-    func locationManager(_: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+    
+    func getCityName() {
+        guard let location = manger.location else {return};
+        let locale = Locale(identifier: "ar_sa")
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location, preferredLocale: locale) { placemarks, error in
+            if let error = error {
+                debugPrint("Error: " + error.localizedDescription)
+                return
+            }
+            guard let placemarks = placemarks,
+                  let place = placemarks.first,
+                  let city = place.locality
+            else{return}
+            
+            self.cityName = city
+        }
     }
 }
 
-//
-//
-// class LocationManager: NSObject,CLLocationManagerDelegate {
-//    var manager: CLLocationManager = CLLocationManager()
-//    var currentLocation: CLLocation?
-//
-//
-//    override init() {
-//        super.init()
-//        manager.delegate = self
-//    }
-//
-//
-//
-//    public func requestLocation(){
-//        manager.requestLocation()
-//    }
-//
-//
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        guard let latestLocation = locations.last else {return}
-//        currentLocation = latestLocation
-//        print(latestLocation);
-//    }
-//
-//
-//
-//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-//        print("Error happend")
-//        print(error.localizedDescription)
-//    }
-//
-//
-//
-////    private func checkLocationAuthorization() {
-////          let locationManager = manager
-////        switch locationManager.authorizationStatus {
-////        case .notDetermined:
-////            locationManager.requestWhenInUseAuthorization()
-////        case .restricted:
-////            print("restricted")
-////        case .denied:
-////            print("denied")
-////        case .authorizedAlways, .authorizedWhenInUse:
-////            print(locationManager.location?.coordinate)
-////
-////        @unknown default:
-////            break
-////        }
-////
-////    }
-////
-//
-//
-//
-//
-////    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-////        checkLocationAuthorization()
-////        print("locationManagerDidChangeAuthorization")
-////    }
-//
-// }
-//
-//
-////class LocationManager: NSObject , CLLocationManagerDelegate {
-////    private var manager:CLLocationManager?
-////    var location:CLLocation?
-////    var cityName:String?
-////
-////
-////    override init() {
-////        super.init()
-////        manager = CLLocationManager()
-////        manager!.delegate = self
-////    }
-////
-////
-////    func checkIfLocationManagerEnabled(){
-////        if CLLocationManager.locationServicesEnabled(){
-////
-////            print("locationServicesEnabled")
-////
-////
-////        }
-////        else {
-////            print(" NOT locationServicesEnabled")
-////        }
-////    }
-////
-////    private func checkLocationAuthorization() {
-////         guard  let locationManager = manager else {return}
-////         switch locationManager.authorizationStatus {
-////         case .notDetermined:
-////            print("notDetermined")
-////             locationManager.requestWhenInUseAuthorization()
-////         case .restricted:
-////             print("restricted")
-////         case .denied:
-////             print("denied")
-////         case .authorizedAlways, .authorizedWhenInUse:
-////             locationManager.requestLocation()
-////
-////         @unknown default:
-////            break
-////         }
-////
-////     }
-////
-////
-////    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-////        print("Failed to find user's location: \(error.localizedDescription)")
-////    }
-////
-////    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-////        print("ff")
-////        checkLocationAuthorization()
-////    }
-////
-////
-//////    private  func getCityName(_ location: CLLocation) {
-//////        CLGeocoder()
-//////            .reverseGeocodeLocation(location) { placemarks, error in
-//////
-//////                guard error == nil else {
-//////                    print("*** Error in \(#function): \(error!.localizedDescription)")
-//////
-//////                    return
-//////                }
-//////
-//////                guard let placemark = placemarks?[0] else {
-//////                    print("*** Error in \(#function): placemark is nil")
-//////                    return
-//////                }
-//////                self.cityName = placemark.locality!
-//////
-//////            }
-//////    }
-//////
-////}
+extension LocationManager: CLLocationManagerDelegate {
+    func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else { return }
+        if let onUpdateLocation = onUpdateLocation {
+            onUpdateLocation(location)
+            getCityName()
+        }
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        guard let location = manager.location else { return }
+        if let onUpdateLocation = onUpdateLocation {
+            onUpdateLocation(location)
+            getCityName()
+        }
+    }
+    
+    func locationManager(_: CLLocationManager, didFailWithError error: Error) {
+        if let onFailWithError = onFailWithError{
+            onFailWithError();
+        }
+        debugPrint("Error: " + error.localizedDescription)
+    }
+}

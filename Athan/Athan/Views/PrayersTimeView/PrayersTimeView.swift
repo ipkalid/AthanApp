@@ -6,140 +6,66 @@
 //
 
 import Adhan
+import CoreLocation
 import Foundation
 import SwiftUI
 
 struct PrayersTimeView: View {
-    @ObservedObject var viewModel = PrayersTimeView.ViewModel()
-
+    @EnvironmentObject var env: EnvViewModel
     var body: some View {
         NavigationView {
-            ScrollView {
-                HStack(alignment: .center) {
-                    Text(viewModel.getHijriDate())
-                        .frame(width: 100)
-                        .padding(.vertical, 8)
-                        .background(.white.opacity(0.5))
-                        .cornerRadius(20)
+            ScrollView(showsIndicators: false) {
+                PrayerTimeHeader()
 
-                    Spacer()
+                if let prayers = env.prayers {
+                    PrayerTimeCard(prayers: prayers)
+                        .padding()
 
-                    Text(viewModel.getDayInWeek())
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .minimumScaleFactor(0.4)
-                        .foregroundColor(AppColors.yellow)
-                        .shadow(radius: 6)
+                } else {
+                    VStack {
+                        Text("الرجاء الضغط على الأيقونة لتفعيل الموقع")
+                            .font(.title)
+                            .multilineTextAlignment(.center)
 
-                    Spacer()
-
-                    Text(viewModel.getDate())
-                        .frame(width: 100)
-                        .padding(.vertical, 8)
-                        .background(.white.opacity(0.5))
-                        .cornerRadius(20)
-                }
-                .padding(.horizontal, 32)
-                .padding(.top, 30)
-
-                PrayerTimeCard(prayers: viewModel.prayers)
+                        Button(action:env.requestLocation) {
+                            if env.showLocationIndicator {
+                                ProgressView()
+                            } else {
+                                Image(systemName: "location.fill")
+                            }
+                        }
+                        .padding()
+                        .frame(width: 70, height: 70, alignment: .center)
+                        .background(
+                            Circle()
+                                .stroke(.black, lineWidth: 2)
+                        )
+                        .disabled(env.showLocationIndicator)
+                    }
+                    .font(.largeTitle)
+                    .modifier(MainCardStyle(height: 300))
                     .padding()
-
-                Text("لا توجل عمل اليوم الى الغد لأنك سوف تندم ندما")
-                    // .font(Font.custom("me_quran", size: 32))
-                    .font(.title)
-                    .minimumScaleFactor(0.4)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(AppColors.yellow)
-                    .shadow(radius: 6)
+                }
+//
+//                Text("لا توجل عمل اليوم الى الغد لأنك سوف تندم ندما")
+//                    // .font(Font.custom("me_quran", size: 32))
+//                    .font(.title)
+//                    .minimumScaleFactor(0.4)
+//                    .multilineTextAlignment(.center)
+//                    .foregroundColor(AppColors.yellow)
+//                    .shadow(radius: 6)
                 Spacer()
             }
             .padding(.top, 1)
             .background(AppColors.backgroundColor.ignoresSafeArea())
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    NavigationTitleText("أوقات الصلاة")
-                }
-
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    viewModel.isGettingLocation
-                        ? AnyView(ProgressView())
-                        : AnyView(
-                            Button(action: viewModel.requestLocation,
-                                   label: { Image(systemName: "location.fill")
-                                       .tint(AppColors.yellow)
-                                   })
-                        )
+                    LogoTextStyleView(env.cityName ?? "أوقات الصلاة")
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .alert(isPresented: $viewModel.showingAlert) {
-                Alert(title: Text("You Need to "), message: Text("Wear sunscreen"), dismissButton: .default(Text("Got it!")))
-            }
+            .modifier(GoToSettingAlert(isPresented: $env.showGoToSettingAlert))
         }
     }
 }
 
-extension PrayersTimeView {
-    final class ViewModel: ObservableObject {
-        @Published var prayers: PrayerTimes?
-        @Published var cityName: String?
-        @Published var isGettingLocation: Bool = false
-        @Published var showingAlert = false
-
-        var locationManager = LocstionManager()
-        private var today = Date.now
-
-        init() {
-            let cal = Calendar(identifier: Calendar.Identifier.gregorian)
-            let date = cal.dateComponents([.year, .month, .day], from: today)
-            let coordinates = Coordinates(latitude: 24.797761, longitude: 46.741433)
-            let params = CalculationMethod.ummAlQura.params
-
-            guard let prayers = PrayerTimes(coordinates: coordinates, date: date, calculationParameters: params) else { return }
-            self.prayers = prayers
-
-            print(prayers)
-//            if let prayers = PrayerTimes(coordinates: coordinates, date: date, calculationParameters: params) {
-//                self.prayers = prayers;
-//            }
-        }
-
-        func getDate() -> String {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "YYYY/MM/dd"
-            return dateFormatter.string(from: today)
-        }
-
-        func getDayInWeek() -> String {
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "ar")
-            dateFormatter.dateFormat = "EEEE"
-            return dateFormatter.string(from: today)
-        }
-
-        func getHijriDate() -> String {
-            let dateFormatter = DateFormatter()
-
-            let hijriCalendar = Calendar(identifier: Calendar.Identifier.islamicCivil)
-            dateFormatter.locale = Locale(identifier: "ar")
-            dateFormatter.calendar = hijriCalendar
-            dateFormatter.dateFormat = "yyyy/MM/dd"
-
-            return dateFormatter.string(from: today)
-        }
-
-        func requestLocation() {
-            isGettingLocation = true
-            locationManager.getLocation()
-
-            isGettingLocation = false
-        }
-    }
-}
-
-struct PrayerItmeView_Previews: PreviewProvider {
-    static var previews: some View {
-        PrayersTimeView()
-    }
-}

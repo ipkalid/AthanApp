@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NavigationTitleText: View {
+struct LogoTextStyleView: View {
     let label: String
     let size: Double
     let color: Color

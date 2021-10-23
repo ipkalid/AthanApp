@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class AppColors {
+struct AppColors {
     // MARK: - App Colors
 
     static let backgroundColor = LinearGradient(gradient: Gradient(colors: [Color(hex: "0081A7"), Color(hex: "00AFB9")]), startPoint: .top, endPoint: .bottom)

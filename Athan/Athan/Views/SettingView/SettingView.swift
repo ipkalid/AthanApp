@@ -8,33 +8,56 @@
 import SwiftUI
 
 struct SettingView: View {
+    let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+
     init() {
         UITableView.appearance().backgroundColor = UIColor.clear
+        UITableView.appearance().showsVerticalScrollIndicator = false
     }
+    
+    @EnvironmentObject var env: EnvViewModel
 
     var body: some View {
         NavigationView {
             List {
-                Button(action: {}) { HStack {
-                    VStack(alignment: .leading) {
-                        Text("تحديث الموقع")
-                        Spacer().frame(height: 5)
-                        Text("الرياض")
-                            .font(.caption2)
+                Button(action: env.requestLocation) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("تحديث الموقع")
+                            Spacer().frame(height: 5)
+                            Text(env.cityName ?? "فعل الموقع أولا")
+                                .font(.caption2)
+                        }
+                        Spacer()
+                        env.showLocationIndicator
+                        ? AnyView( ProgressView())
+                        : AnyView( Image(systemName: "location.fill"))
+                        
+                        
                     }
-
-                    Spacer()
-                    Image(systemName: "location.fill")
+                    
                 }
-                .multilineTextAlignment(.leading)
-                }
+                .buttonStyle(.borderless)
+                .disabled(env.showLocationIndicator)
                 .listRowBackground(AppColors.SettinglistRowBackground)
-
-                AppSettingSection()
 
                 AppDetailsSection()
 
                 DevloperDetailsSection()
+                
+                
+                HStack{
+                    Spacer()
+                    VStack(alignment:.center){
+                        Text("Athan v\(appVersion!) ")
+                        
+                    }
+                    Spacer()
+                    
+                }
+                //.frame(width: UIScreen.screenWidth)
+                .listRowBackground(Color.clear)
+                
             }
             .foregroundColor(.white)
             .listStyle(.insetGrouped)
@@ -43,17 +66,12 @@ struct SettingView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    NavigationTitleText("الإعدادات")
+                    LogoTextStyleView("الإعدادات")
                 }
             }
             .background(AppColors.SettingBackgroundColor.ignoresSafeArea())
         }
+        .modifier(GoToSettingAlert(isPresented: $env.showGoToSettingAlert))
         .accentColor(AppColors.yellow)
-    }
-}
-
-struct SettingView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingView()
     }
 }

@@ -9,13 +9,14 @@ import SwiftUI
 
 @main
 struct AthanApp: App {
-    @StateObject var environmentViewModel = EnvironmentViewModel()
+    @StateObject var env = EnvViewModel.shared
 
     var body: some Scene {
         WindowGroup {
+//            NOTOTO()
             AppTapView()
                 .preferredColorScheme(.light)
-                .environmentObject(environmentViewModel)
+                .environmentObject(env)
         }
     }
 }

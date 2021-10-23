@@ -13,9 +13,9 @@ struct AthkarBigButton: View {
     var titleColor: Color
     var backgroundColor: Color
     var body: some View {
-        NavigationTitleText(title, size: 44, color: titleColor)
+        LogoTextStyleView(title, size: 44, color: titleColor)
             .padding()
-            .frame(width: UIScreen.screenWidth * 0.8, height: UIScreen.screenHeight / 5, alignment: .bottomTrailing)
+            .frame(width: UIScreen.screenWidth * 0.8, height: UIScreen.screenHeight / 5, alignment: .bottomLeading)
             .padding()
             .background(backgroundColor)
             .cornerRadius(8)

@@ -11,7 +11,7 @@ import SwiftUI
 struct PrayerTimeCell: View {
     let prayer: Prayer
 
-    let salahTime: Date?
+    let salahTime: Date
     init(salahTime: Date = Date(), prayer: Prayer = .fajr) {
         self.salahTime = salahTime
         self.prayer = prayer
@@ -21,15 +21,15 @@ struct PrayerTimeCell: View {
     private var prayerName: String {
         switch prayer {
         case .fajr:
-            return "Fajr"
+            return "الفجر"
         case .dhuhr:
-            return "Dhuhr"
+            return "الظهر"
         case .asr:
-            return "Asr"
+            return "العصر"
         case .maghrib:
-            return "Maghrib"
+            return "المغرب"
         case .isha:
-            return "Isha"
+            return "العشاء"
         }
     }
 
@@ -39,7 +39,7 @@ struct PrayerTimeCell: View {
         case .fajr:
             return "sunrise"
         case .dhuhr:
-            return "sun.min"
+            return "sun.max"
         case .asr:
             return "cloud.sun"
         case .maghrib:
@@ -55,7 +55,7 @@ struct PrayerTimeCell: View {
                 Text(prayerName)
                     .font(.title2)
                     .foregroundColor(.black)
-                Text(salahTime?.getShortDate() ?? " - ")
+                Text(salahTime.getShortDate())
                     .font(.callout)
                     .foregroundColor(.gray)
             }
@@ -64,6 +64,8 @@ struct PrayerTimeCell: View {
             Image(systemName: prayerIcon)
                 .font(.largeTitle)
                 .foregroundColor(.gray)
+//               .symbolRenderingMode(.palette)
+//                .foregroundStyle(Color.gray, Color.orange, Color.indigo)
         }
         .padding(8.0)
     }

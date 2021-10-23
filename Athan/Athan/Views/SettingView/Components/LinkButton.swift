@@ -15,5 +15,6 @@ struct LinkButton: View {
             guard let url = URL(string: urlSring) else { return }
             UIApplication.shared.open(url)
         }
+        .buttonStyle(.borderless)
     }
 }

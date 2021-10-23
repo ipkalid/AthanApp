@@ -14,14 +14,14 @@ struct Actions: View {
     }
 
     var body: some View {
-        ForEach(0 ..< actions.count, id: \.self) { i in
+        ForEach(actions.indices, id: \.self) { i in
             Button(actions[i].title, action: actions[i].action)
         }
     }
 }
 
 struct AppSettingSection: View {
-    @EnvironmentObject var env: EnvironmentViewModel
+    @EnvironmentObject var env: EnvViewModel
 
     @State private var showSheet = false
     @State private var sheetTitle = ""
@@ -29,7 +29,7 @@ struct AppSettingSection: View {
     @State var actions: Actions?
 
     var body: some View {
-        return Section(header: Text("إعدادات الأذان")) {
+        Section(header: Text("إعدادات الأذان")) {
             NavigationLink(destination: {
                 SettingNotificationView()
             }) { Text("الإشعارات") }

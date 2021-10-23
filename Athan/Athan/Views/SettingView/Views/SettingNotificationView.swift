@@ -18,7 +18,7 @@ struct SettingNotificationView: View {
         .padding(.top, 1)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                NavigationTitleText("الإشعارات")
+                LogoTextStyleView("الإشعارات")
             }
         }
         .background(AppColors.SettingBackgroundColor.ignoresSafeArea())

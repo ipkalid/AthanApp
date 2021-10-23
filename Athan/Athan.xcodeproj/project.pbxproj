@@ -9,17 +9,22 @@
 /* Begin PBXBuildFile section */
 		E9016CAE26F566D00000EDBF /* PrayerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9016CAD26F566D00000EDBF /* PrayerTime.swift */; };
 		E9016CB026F568D00000EDBF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9016CAF26F568D00000EDBF /* Date.swift */; };
-		E93115ED26FD4D3600532A28 /* NavigationTitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93115EC26FD4D3600532A28 /* NavigationTitleText.swift */; };
+		E93115ED26FD4D3600532A28 /* LogoTextStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93115EC26FD4D3600532A28 /* LogoTextStyleView.swift */; };
 		E93115F626FD518500532A28 /* Rakkas-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E93115F526FD518500532A28 /* Rakkas-Regular.ttf */; };
 		E93115F926FD5F0200532A28 /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93115F826FD5F0200532A28 /* CustomText.swift */; };
 		E93B5ED126F13A6E00C85177 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93B5ED026F13A6E00C85177 /* LocationManager.swift */; };
+		E9504DCE27231EB400836A76 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9504DCD27231EB400836A76 /* Helper.swift */; };
 		E96974DD271599DA006C2154 /* PostPrayerAthkarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96974DC271599DA006C2154 /* PostPrayerAthkarView.swift */; };
 		E96974E02715A4AE006C2154 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96974DF2715A4AE006C2154 /* SettingView.swift */; };
 		E96974E22715A987006C2154 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96974E12715A987006C2154 /* Launch Screen.storyboard */; };
 		E96B23B7271B9D3D00B6C249 /* ZekrCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B23B6271B9D3D00B6C249 /* ZekrCard.swift */; };
 		E96B23B9271B9D6700B6C249 /* AthkarBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B23B8271B9D6700B6C249 /* AthkarBigButton.swift */; };
+		E96B23BC271F63FA00B6C249 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B23BB271F63FA00B6C249 /* UserDefaultsKey.swift */; };
+		E96B23BF271F6A8A00B6C249 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B23BE271F6A8A00B6C249 /* SoundManager.swift */; };
+		E96B23C1271F757400B6C249 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B23C0271F757400B6C249 /* HapticManager.swift */; };
+		E96B23C3271F764900B6C249 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B23C2271F764900B6C249 /* NotificationManager.swift */; };
 		E96CD929271B54B800C847D3 /* SettingNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96CD928271B54B800C847D3 /* SettingNotificationView.swift */; };
-		E96CD92D271B87FB00C847D3 /* EnvironmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96CD92C271B87FB00C847D3 /* EnvironmentViewModel.swift */; };
+		E96CD92D271B87FB00C847D3 /* EnvViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96CD92C271B87FB00C847D3 /* EnvViewModel.swift */; };
 		E96CD930271B996500C847D3 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96CD92F271B996500C847D3 /* LinkButton.swift */; };
 		E9775CF0271A24A000608664 /* DevloperDetailsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775CEF271A24A000608664 /* DevloperDetailsSection.swift */; };
 		E9775CF2271A251B00608664 /* AppDetailsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775CF1271A251B00608664 /* AppDetailsSection.swift */; };
@@ -35,6 +40,7 @@
 		E9AA10CF271246FC0073C265 /* azkar_sabah.json in Resources */ = {isa = PBXBuildFile; fileRef = E9AA10CC271246FC0073C265 /* azkar_sabah.json */; };
 		E9AA10D2271247B10073C265 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA10D1271247B10073C265 /* Colors.swift */; };
 		E9AA10D527124A750073C265 /* TasbihView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA10D427124A750073C265 /* TasbihView.swift */; };
+		E9B61EC027222FE300F894B5 /* Modifires.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B61EBF27222FE300F894B5 /* Modifires.swift */; };
 		E9F1970427127CE9002AE23E /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F1970327127CE9002AE23E /* UIScreen.swift */; };
 		E9F378AA270024F400C86589 /* 1_athkar.json in Resources */ = {isa = PBXBuildFile; fileRef = E9F378A5270024F400C86589 /* 1_athkar.json */; };
 		E9F378AB270024F400C86589 /* 3_sunnah_ad3yah.json in Resources */ = {isa = PBXBuildFile; fileRef = E9F378A6270024F400C86589 /* 3_sunnah_ad3yah.json */; };
@@ -56,17 +62,22 @@
 /* Begin PBXFileReference section */
 		E9016CAD26F566D00000EDBF /* PrayerTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTime.swift; sourceTree = "<group>"; };
 		E9016CAF26F568D00000EDBF /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		E93115EC26FD4D3600532A28 /* NavigationTitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleText.swift; sourceTree = "<group>"; };
+		E93115EC26FD4D3600532A28 /* LogoTextStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoTextStyleView.swift; sourceTree = "<group>"; };
 		E93115F526FD518500532A28 /* Rakkas-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rakkas-Regular.ttf"; sourceTree = "<group>"; };
 		E93115F826FD5F0200532A28 /* CustomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
 		E93B5ED026F13A6E00C85177 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		E9504DCD27231EB400836A76 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		E96974DC271599DA006C2154 /* PostPrayerAthkarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrayerAthkarView.swift; sourceTree = "<group>"; };
 		E96974DF2715A4AE006C2154 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		E96974E12715A987006C2154 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E96B23B6271B9D3D00B6C249 /* ZekrCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZekrCard.swift; sourceTree = "<group>"; };
 		E96B23B8271B9D6700B6C249 /* AthkarBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthkarBigButton.swift; sourceTree = "<group>"; };
+		E96B23BB271F63FA00B6C249 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		E96B23BE271F6A8A00B6C249 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		E96B23C0271F757400B6C249 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		E96B23C2271F764900B6C249 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		E96CD928271B54B800C847D3 /* SettingNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNotificationView.swift; sourceTree = "<group>"; };
-		E96CD92C271B87FB00C847D3 /* EnvironmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentViewModel.swift; sourceTree = "<group>"; };
+		E96CD92C271B87FB00C847D3 /* EnvViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvViewModel.swift; sourceTree = "<group>"; };
 		E96CD92F271B996500C847D3 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
 		E9775CEF271A24A000608664 /* DevloperDetailsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevloperDetailsSection.swift; sourceTree = "<group>"; };
 		E9775CF1271A251B00608664 /* AppDetailsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailsSection.swift; sourceTree = "<group>"; };
@@ -81,6 +92,7 @@
 		E9AA10CC271246FC0073C265 /* azkar_sabah.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = azkar_sabah.json; sourceTree = "<group>"; };
 		E9AA10D1271247B10073C265 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E9AA10D427124A750073C265 /* TasbihView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasbihView.swift; sourceTree = "<group>"; };
+		E9B61EBF27222FE300F894B5 /* Modifires.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifires.swift; sourceTree = "<group>"; };
 		E9F1970327127CE9002AE23E /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
 		E9F197052712852B002AE23E /* me_quran.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = me_quran.ttf; sourceTree = "<group>"; };
 		E9F378A5270024F400C86589 /* 1_athkar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1_athkar.json; sourceTree = "<group>"; };
@@ -115,7 +127,7 @@
 		E93115F726FD535C00532A28 /* Style */ = {
 			isa = PBXGroup;
 			children = (
-				E93115EC26FD4D3600532A28 /* NavigationTitleText.swift */,
+				E93115EC26FD4D3600532A28 /* LogoTextStyleView.swift */,
 				E93115F826FD5F0200532A28 /* CustomText.swift */,
 				E9AA10D1271247B10073C265 /* Colors.swift */,
 			);
@@ -134,8 +146,11 @@
 		E93B5ECF26F13A5400C85177 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				E96B23C2271F764900B6C249 /* NotificationManager.swift */,
+				E96B23C0271F757400B6C249 /* HapticManager.swift */,
 				E93B5ED026F13A6E00C85177 /* LocationManager.swift */,
 				E9AA10C6271245640073C265 /* CoreDataManager.swift */,
+				E96B23BE271F6A8A00B6C249 /* SoundManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -170,6 +185,16 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		E96B23BA271F63CE00B6C249 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E96B23BB271F63FA00B6C249 /* UserDefaultsKey.swift */,
+				E9504DCD27231EB400836A76 /* Helper.swift */,
+				E9B61EBF27222FE300F894B5 /* Modifires.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		E96CD92A271B54C500C847D3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +206,7 @@
 		E96CD92B271B87DF00C847D3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E96CD92C271B87FB00C847D3 /* EnvironmentViewModel.swift */,
+				E96CD92C271B87FB00C847D3 /* EnvViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -294,6 +319,7 @@
 				E9FADB7F26EC3D1000271BFA /* AthanApp.swift */,
 				E96974E12715A987006C2154 /* Launch Screen.storyboard */,
 				E9F37889270023A200C86589 /* Resources */,
+				E96B23BA271F63CE00B6C249 /* Helper */,
 				E93115F726FD535C00532A28 /* Style */,
 				E9FADB9726ED129E00271BFA /* Model */,
 				E9FADB8E26ECFB8800271BFA /* Extensions */,
@@ -451,6 +477,8 @@
 				E9FADB9C26ED22C300271BFA /* PrayerTimeCell.swift in Sources */,
 				E9AA10C92712469F0073C265 /* Azkar.swift in Sources */,
 				E9016CB026F568D00000EDBF /* Date.swift in Sources */,
+				E96B23BC271F63FA00B6C249 /* UserDefaultsKey.swift in Sources */,
+				E9504DCE27231EB400836A76 /* Helper.swift in Sources */,
 				E96CD929271B54B800C847D3 /* SettingNotificationView.swift in Sources */,
 				E9FADB9A26ED220C00271BFA /* PrayersTimeView.swift in Sources */,
 				E9FADB8226EC3D1000271BFA /* AppTapView.swift in Sources */,
@@ -461,21 +489,25 @@
 				E99C4E3D26EE524A00971EA3 /* AthkarView.swift in Sources */,
 				E9FADB9E26ED22F500271BFA /* PrayerTimeCard.swift in Sources */,
 				E9FADB8026EC3D1000271BFA /* AthanApp.swift in Sources */,
-				E96CD92D271B87FB00C847D3 /* EnvironmentViewModel.swift in Sources */,
+				E96CD92D271B87FB00C847D3 /* EnvViewModel.swift in Sources */,
 				E9775CF4271A282B00608664 /* AppSettingSection.swift in Sources */,
 				E9FEF25F26F7E4E30026C261 /* MapView.swift in Sources */,
+				E96B23BF271F6A8A00B6C249 /* SoundManager.swift in Sources */,
+				E96B23C3271F764900B6C249 /* NotificationManager.swift in Sources */,
+				E96B23C1271F757400B6C249 /* HapticManager.swift in Sources */,
 				E9775CF2271A251B00608664 /* AppDetailsSection.swift in Sources */,
 				E9016CAE26F566D00000EDBF /* PrayerTime.swift in Sources */,
 				E9AA10D2271247B10073C265 /* Colors.swift in Sources */,
 				E9AA10D527124A750073C265 /* TasbihView.swift in Sources */,
 				E93B5ED126F13A6E00C85177 /* LocationManager.swift in Sources */,
+				E9B61EC027222FE300F894B5 /* Modifires.swift in Sources */,
 				E93115F926FD5F0200532A28 /* CustomText.swift in Sources */,
 				E99C4E3F26EE53AC00971EA3 /* PrayerTimeHeader.swift in Sources */,
 				E96974DD271599DA006C2154 /* PostPrayerAthkarView.swift in Sources */,
 				E9FADB9026ECFBAB00271BFA /* Color.swift in Sources */,
 				E9F1970427127CE9002AE23E /* UIScreen.swift in Sources */,
 				E96CD930271B996500C847D3 /* LinkButton.swift in Sources */,
-				E93115ED26FD4D3600532A28 /* NavigationTitleText.swift in Sources */,
+				E93115ED26FD4D3600532A28 /* LogoTextStyleView.swift in Sources */,
 				E9775CF0271A24A000608664 /* DevloperDetailsSection.swift in Sources */,
 				E96B23B7271B9D3D00B6C249 /* ZekrCard.swift in Sources */,
 			);
@@ -615,7 +647,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = iKAlhazmi.Athan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -638,7 +670,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = iKAlhazmi.Athan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -4,30 +4,26 @@ import Adhan
 import SwiftUI
 
 struct PrayerTimeCard: View {
-    var prayers: PrayerTimes?
+    var prayers: PrayerTimes
 
     var body: some View {
         VStack(spacing: 0) {
-            PrayerTimeCell(salahTime: prayers!.fajr, prayer: .fajr)
+            PrayerTimeCell(salahTime: prayers.fajr, prayer: .fajr)
             Divider()
-            PrayerTimeCell(salahTime: prayers?.asr ?? Date(), prayer: .asr)
+            PrayerTimeCell(salahTime: prayers.dhuhr, prayer: .dhuhr)
             Divider()
-            PrayerTimeCell(salahTime: prayers?.dhuhr ?? Date(), prayer: .dhuhr)
+            PrayerTimeCell(salahTime: prayers.asr, prayer: .asr)
             Divider()
-            PrayerTimeCell(salahTime: prayers?.maghrib ?? Date(), prayer: .maghrib)
+            PrayerTimeCell(salahTime: prayers.maghrib, prayer: .maghrib)
             Divider()
-            PrayerTimeCell(salahTime: prayers?.isha ?? Date(), prayer: .isha)
+            PrayerTimeCell(salahTime: prayers.isha, prayer: .isha)
         }
-        .frame(width: UIScreen.screenWidth * 0.8)
-        .padding()
-        .background(Color.white.opacity(0.8))
-        .cornerRadius(8)
-        .shadow(radius: 10)
+        .modifier(MainCardStyle())
     }
 }
 
-struct PrayerTimeList_Previews: PreviewProvider {
-    static var previews: some View {
-        PrayerTimeCard()
-    }
-}
+// struct PrayerTimeList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PrayerTimeCard()
+//    }
+// }

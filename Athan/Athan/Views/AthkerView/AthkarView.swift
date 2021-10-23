@@ -10,7 +10,7 @@ import SwiftUI
 struct AthkarView: View {
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 Spacer()
                     .frame(maxWidth: .infinity, minHeight: 40)
 
@@ -21,7 +21,7 @@ struct AthkarView: View {
                             titleColor: .white,
                             backgroundColor: Color("Light Green")
                         )
-                    }
+                    }.buttonStyle(.plain)
 
                     NavigationLink(destination: TasbihView(jsonFileName: "azkar_sabah")) {
                         AthkarBigButton(
@@ -30,6 +30,7 @@ struct AthkarView: View {
                             backgroundColor: AppColors.yellow
                         )
                     }
+                    .buttonStyle(.plain)
 
                     NavigationLink(destination: TasbihView(jsonFileName: "azkar_massa")) {
                         AthkarBigButton(
@@ -38,10 +39,11 @@ struct AthkarView: View {
                             backgroundColor: Color(hex: "091740")
                         )
                     }
+                    .buttonStyle(.plain)
                 }
 
                 Spacer()
-                    .frame(height: 40)
+                    .frame(height: 30)
             }
             .padding(.top, 1)
             .background(AppColors.backgroundColor.ignoresSafeArea())
@@ -50,7 +52,7 @@ struct AthkarView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    NavigationTitleText("الأذكار")
+                    LogoTextStyleView("الأذكار")
                 }
             }
         }
