@@ -26,7 +26,6 @@ struct MainCardStyle: ViewModifier {
 
 struct GoToSettingAlert: ViewModifier {
     @Binding var isPresented:Bool
-   
 
     func body(content: Content) -> some View {
         content
