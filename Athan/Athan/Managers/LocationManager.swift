@@ -3,22 +3,20 @@ import Foundation
 
 class LocationManager: NSObject {
     static let instance = LocationManager()
-    
+
     private var manger = CLLocationManager()
-    
-    
-    var cityName:String?
-    
+
+    var cityName: String?
+
     var onUpdateLocation: ((_ location: CLLocation) -> Void)?
     var onFailWithError: (() -> Void)?
     var onAuthorizationDenied: (() -> Void)?
-    
-    
+
     override init() {
         super.init()
         manger.delegate = self
     }
-    
+
     func requestLocation() {
         let status = manger.authorizationStatus
         switch status {
@@ -26,7 +24,7 @@ class LocationManager: NSObject {
             manger.requestAlwaysAuthorization()
         case .authorizedWhenInUse, .authorizedAlways:
             manger.requestLocation()
-        case.denied:
+        case .denied:
             if let onAuthorizationDenied = onAuthorizationDenied {
                 onAuthorizationDenied()
             }
@@ -34,9 +32,9 @@ class LocationManager: NSObject {
             return
         }
     }
-    
+
     func getCityName() {
-        guard let location = manger.location else {return};
+        guard let location = manger.location else { return }
         let locale = Locale(identifier: "ar_sa")
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location, preferredLocale: locale) { placemarks, error in
@@ -47,8 +45,8 @@ class LocationManager: NSObject {
             guard let placemarks = placemarks,
                   let place = placemarks.first,
                   let city = place.locality
-            else{return}
-            
+            else { return }
+
             self.cityName = city
         }
     }
@@ -62,7 +60,7 @@ extension LocationManager: CLLocationManagerDelegate {
             getCityName()
         }
     }
-    
+
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         guard let location = manager.location else { return }
         if let onUpdateLocation = onUpdateLocation {
@@ -70,10 +68,10 @@ extension LocationManager: CLLocationManagerDelegate {
             getCityName()
         }
     }
-    
+
     func locationManager(_: CLLocationManager, didFailWithError error: Error) {
-        if let onFailWithError = onFailWithError{
-            onFailWithError();
+        if let onFailWithError = onFailWithError {
+            onFailWithError()
         }
         debugPrint("Error: " + error.localizedDescription)
     }

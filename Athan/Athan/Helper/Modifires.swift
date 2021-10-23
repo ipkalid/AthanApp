@@ -23,21 +23,18 @@ struct MainCardStyle: ViewModifier {
     }
 }
 
-
 struct GoToSettingAlert: ViewModifier {
-    @Binding var isPresented:Bool
+    @Binding var isPresented: Bool
 
     func body(content: Content) -> some View {
         content
             .alert("تفعيل الموقع", isPresented: $isPresented) {
                 Button("الذهاب الى الإعدادات") {
-                    Helper.goToAppSetting();
+                    Helper.goToAppSetting()
                 }
-                Button("إلغاء",role: .cancel) {
-                }
+                Button("إلغاء", role: .cancel) {}
             } message: {
                 Text("الرجاء تفعيل الموقع من الإعدادات")
             }
     }
 }
-

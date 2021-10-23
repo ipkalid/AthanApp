@@ -14,7 +14,7 @@ struct SettingView: View {
         UITableView.appearance().backgroundColor = UIColor.clear
         UITableView.appearance().showsVerticalScrollIndicator = false
     }
-    
+
     @EnvironmentObject var env: EnvViewModel
 
     var body: some View {
@@ -30,12 +30,9 @@ struct SettingView: View {
                         }
                         Spacer()
                         env.showLocationIndicator
-                        ? AnyView( ProgressView())
-                        : AnyView( Image(systemName: "location.fill"))
-                        
-                        
+                            ? AnyView(ProgressView())
+                            : AnyView(Image(systemName: "location.fill"))
                     }
-                    
                 }
                 .buttonStyle(.borderless)
                 .disabled(env.showLocationIndicator)
@@ -44,20 +41,16 @@ struct SettingView: View {
                 AppDetailsSection()
 
                 DevloperDetailsSection()
-                
-                
-                HStack{
+
+                HStack {
                     Spacer()
-                    VStack(alignment:.center){
+                    VStack(alignment: .center) {
                         Text("Athan v\(appVersion!) ")
-                        
                     }
                     Spacer()
-                    
                 }
-                //.frame(width: UIScreen.screenWidth)
+                // .frame(width: UIScreen.screenWidth)
                 .listRowBackground(Color.clear)
-                
             }
             .foregroundColor(.white)
             .listStyle(.insetGrouped)

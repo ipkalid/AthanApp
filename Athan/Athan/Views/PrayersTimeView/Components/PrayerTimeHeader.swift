@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PrayerTimeHeader: View {
-
     var body: some View {
         HStack(alignment: .center) {
             Text(higriDate())
@@ -37,9 +36,7 @@ struct PrayerTimeHeader: View {
         .padding(.horizontal, 32)
         .padding(.top, 30)
     }
-    
-    
-      
+
     private func higriDate() -> String {
         let dateFormatter = DateFormatter()
 
@@ -50,20 +47,19 @@ struct PrayerTimeHeader: View {
 
         return dateFormatter.string(from: Date.now)
     }
-    
+
     private func dayInWeek() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ar")
         dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from: Date.now)
     }
-    
+
     private func getDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY/MM/dd"
         return dateFormatter.string(from: Date.now)
     }
 }
-extension PrayerTimeHeader{
-    
-}
+
+extension PrayerTimeHeader {}

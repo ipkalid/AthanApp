@@ -27,7 +27,7 @@ struct PrayersTimeView: View {
                             .font(.title)
                             .multilineTextAlignment(.center)
 
-                        Button(action:env.requestLocation) {
+                        Button(action: env.requestLocation) {
                             if env.showLocationIndicator {
                                 ProgressView()
                             } else {
@@ -68,4 +68,3 @@ struct PrayersTimeView: View {
         }
     }
 }
-

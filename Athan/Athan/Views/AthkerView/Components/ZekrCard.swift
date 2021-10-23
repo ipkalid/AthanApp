@@ -8,21 +8,20 @@ struct ZekrCardView: View {
         self.zekrContent = zekrContent
         self.onTap = onTap
     }
-    
-    func buttonAction(){
+
+    func buttonAction() {
         if zekrContent.contentRepeat > 0 {
             zekrContent.contentRepeat = zekrContent.contentRepeat - 1
             UINotificationFeedbackGenerator().notificationOccurred(.warning)
-            
+
             if zekrContent.contentRepeat == 0 {
                 onTap()
             }
         }
     }
-    
+
     var body: some View {
-        
-        Button(action: buttonAction){
+        Button(action: buttonAction) {
             VStack(alignment: .center) {
                 Spacer()
                 Text(zekrContent.zekr)
@@ -32,8 +31,8 @@ struct ZekrCardView: View {
                 Spacer()
                 Text(zekrContent.bless)
                     .font(.system(size: 14))
-                
-                if (zekrContent.contentRepeat != 0) {
+
+                if zekrContent.contentRepeat != 0 {
                     Text("\(zekrContent.contentRepeat)")
                         .font(.system(size: 21, weight: .medium))
                         .minimumScaleFactor(0.5)
@@ -43,7 +42,7 @@ struct ZekrCardView: View {
                             Circle()
                                 .stroke(.black, lineWidth: 1)
                         )
-                }else{
+                } else {
                     Text(Image(systemName: "checkmark.seal"))
                         .fontWeight(.medium)
                         .font(.system(size: 21))
