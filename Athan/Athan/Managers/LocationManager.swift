@@ -9,7 +9,6 @@ class LocationManager: NSObject {
     var cityName: String?
 
     var onUpdateLocation: ((_ location: CLLocation) -> Void)?
-    var onFailWithError: (() -> Void)?
     var onAuthorizationDenied: (() -> Void)?
 
     override init() {
@@ -33,7 +32,7 @@ class LocationManager: NSObject {
         }
     }
 
-    func getCityName() {
+    private func getCityName() {
         guard let location = manger.location else { return }
         let locale = Locale(identifier: "ar_sa")
         let geocoder = CLGeocoder()
@@ -70,9 +69,6 @@ extension LocationManager: CLLocationManagerDelegate {
     }
 
     func locationManager(_: CLLocationManager, didFailWithError error: Error) {
-        if let onFailWithError = onFailWithError {
-            onFailWithError()
-        }
         debugPrint("Error: " + error.localizedDescription)
     }
 }

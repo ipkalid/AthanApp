@@ -42,7 +42,7 @@ class MLocationManager: NSObject, CLLocationManagerDelegate {
             locationManager = CLLocationManager()
             locationManager!.delegate = self
         } else {
-            print("Fuck")
+            print("")
         }
     }
 

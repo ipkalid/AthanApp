@@ -10,46 +10,8 @@ import SwiftUI
 import UIKit
 import UserNotifications
 
-struct NOTOTO: View {
-    var cen = NotificationManager.instance
-    var body: some View {
-        Button("Add Notidication") {
-            // Creating Content
-            let content = UNMutableNotificationContent()
-            content.title = "Weekly Staff Meeting"
-            content.body = "Every Tuesday at 2pm"
-            content.sound = .default
-
-            var dateComponents = DateComponents()
-            dateComponents.calendar = Calendar.current
-
-            dateComponents.weekday = 3 // Tuesday
-            dateComponents.hour = 14 // 14:00 hours
-
-            // Create the trigger as a repeating event.
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-
-            // let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-
-            let request = UNNotificationRequest(
-                identifier: UUID().uuidString,
-                content: content,
-                trigger: trigger
-            )
-
-            cen.center.add(request) { error in
-                if let error = error {
-                    debugPrint("Error: \(error.localizedDescription)")
-                }
-                cen.center.getPendingNotificationRequests { requests in
-                    print(requests.count)
-                }
-            }
-        }
-    }
-}
-
 class NotificationManager {
+    
     static let instance = NotificationManager()
 
     let center = UNUserNotificationCenter.current()
@@ -60,7 +22,7 @@ class NotificationManager {
             case .notDetermined: self.showRequestAuthorizationAlert()
             case .denied: Helper.goToAppSetting()
             case .authorized:
-                print("ddd")
+                return
 
             default:
                 return
@@ -96,9 +58,6 @@ class NotificationManager {
             if let error = error {
                 debugPrint("Error: \(error.localizedDescription)")
             }
-            self.center.getPendingNotificationRequests { requests in
-                print(requests.count)
-            }
         }
     }
 
@@ -120,4 +79,14 @@ class NotificationManager {
             }
         }
     }
+
+    
+    func showNotificationDeniedAlert() -> Alert{
+        return Alert(title: Text("تفعيل الإشعارات"),
+                     message: Text("الرجاء تفعيل الإشعارات من الاعدادات"),
+                     primaryButton:.default(Text("dd"), action: Helper.goToAppSetting),
+                     secondaryButton: .cancel(Text("العودة"))
+        )
+    }
+
 }
