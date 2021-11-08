@@ -15,6 +15,7 @@ class LocationManager: NSObject {
     override init() {
         super.init()
         manger.delegate = self
+        manger.desiredAccuracy = kCLLocationAccuracyThreeKilometers
     }
 
     func requestLocation(onUpdateLocation: @escaping (_ location: CLLocation) -> Void, completionHandler: @escaping (_ authorizationStatus: CLAuthorizationStatus) -> Void) {

@@ -7,18 +7,16 @@
 
 import SwiftUI
 
-struct OnBordingCardView<Icon: View>: View {
-    init(title: LocalizedStringKey, frameSize: Double = 70, @ViewBuilder icon: () -> Icon, action: @escaping () -> Void) {
+struct OnBordingCardView<IconButtom: View>: View {
+    init(title: LocalizedStringKey, frameSize: Double = 70, @ViewBuilder iconButtom: () -> IconButtom) {
         self.title = title
-        self.icon = icon()
+        iconButton = iconButtom()
         self.frameSize = frameSize
-        self.action = action
     }
 
     let title: LocalizedStringKey
-    let icon: Icon
+    let iconButton: IconButtom
     let frameSize: Double
-    let action: () -> Void
 
     var body: some View {
         VStack {
@@ -26,16 +24,14 @@ struct OnBordingCardView<Icon: View>: View {
                 .font(.title)
                 .multilineTextAlignment(.center)
 
-            Button(action: action) {
-                icon
-                    .foregroundColor(.black)
-                    .padding()
-                    .frame(width: frameSize, height: frameSize, alignment: .center)
-                    .background(
-                        Circle()
-                            .stroke(.black, lineWidth: 2)
-                    )
-            }
+            iconButton
+                .foregroundColor(.black)
+                .padding()
+                .frame(width: frameSize, height: frameSize, alignment: .center)
+                .background(
+                    Circle()
+                        .stroke(.black, lineWidth: 2)
+                )
         }
         .font(.largeTitle)
         .modifier(MainCardStyle(height: 300))

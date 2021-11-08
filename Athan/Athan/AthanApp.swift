@@ -20,8 +20,9 @@ struct AthanApp: App {
                 } else {
                     OnboardingView()
                 }
-
-            }.environmentObject(env)
+            }
+            .environment(\.colorScheme, .light)
+            .environmentObject(env)
         }
     }
 }

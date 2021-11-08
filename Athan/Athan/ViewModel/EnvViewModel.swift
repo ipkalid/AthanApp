@@ -29,12 +29,10 @@ class EnvViewModel: ObservableObject {
     }
 
     func updateLocation(latitude: Double, longitude: Double) {
-        DispatchQueue.main.async {
-            self.latitude = latitude
-            self.longitude = longitude
-            self.cityName = self.locationManager.cityName
-        }
-       
+        self.latitude = latitude
+        self.longitude = longitude
+        cityName = locationManager.cityName
+
         showPrayerTime(latitude: latitude, longitude: longitude)
         addNewPrayersNotification(latitude: latitude, longitude: longitude)
     }

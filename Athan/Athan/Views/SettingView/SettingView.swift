@@ -14,37 +14,18 @@ struct SettingView: View {
     }
 
     @EnvironmentObject var env: EnvViewModel
-    @State var showLoadingIndicator: Bool = false
-    @State var showLocationDeniedAlert: Bool = false
+    @ObservedObject var vm = SettingView.ViewModel()
 
     var body: some View {
         NavigationView {
             List {
                 Group {
                     SettingLocationButton(
-                        action: {
-                            env.requestLocation { location in
-                                let latitude = location.coordinate.latitude
-                                let longitude = location.coordinate.longitude
-                                showLoadingIndicator = true
-                                DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
-                                    showLoadingIndicator = false
-                                    env.updateLocation(latitude: latitude, longitude: longitude)
-                                }
-
-                            } completionHandler: { authorizationStatus in
-                                switch authorizationStatus {
-                                case .denied:
-                                    self.showLocationDeniedAlert = true
-                                default:
-                                    return
-                                }
-                            }
-                        },
-                        showIndicator: showLoadingIndicator,
+                        action: vm.requestLocation,
+                        showIndicator: vm.showLoadingIndicator,
                         cityName: env.cityName
                     )
-                    .alert(isPresented: $showLocationDeniedAlert, content: LocationManager.showLocationDeniedAlert)
+                    .alert(isPresented: $vm.showLocationDeniedAlert, content: LocationManager.showLocationDeniedAlert)
 
                     // AppSettingSection()
 
@@ -83,11 +64,31 @@ struct SettingView: View {
     }
 }
 
-extension SettingView{
-    class ViewModel:ObservableObject{
+extension SettingView {
+    class ViewModel: ObservableObject {
         let env = EnvViewModel.shared
-        
-        @State var showLoadingIndicator: Bool = false
-        @State var showLocationDeniedAlert: Bool = false
+
+        @Published var showLoadingIndicator: Bool = false
+        @Published var showLocationDeniedAlert: Bool = false
+
+        func requestLocation() {
+            showLoadingIndicator = true
+            env.requestLocation { location in
+                let latitude = location.coordinate.latitude
+                let longitude = location.coordinate.longitude
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.showLoadingIndicator = false
+                    self.env.updateLocation(latitude: latitude, longitude: longitude)
+                }
+
+            } completionHandler: { authorizationStatus in
+                switch authorizationStatus {
+                case .denied:
+                    self.showLocationDeniedAlert = true
+                default:
+                    return
+                }
+            }
+        }
     }
 }

@@ -81,11 +81,11 @@ extension PrayersTimeView {
         @Published var showLocationDeniedAlert: Bool = false
 
         func requestLocation() {
+            showLocationIndicator = true
             env.requestLocation { location in
                 let latitude = location.coordinate.latitude
                 let longitude = location.coordinate.longitude
-                self.showLocationIndicator = true
-                DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     self.showLocationIndicator = false
                     self.env.updateLocation(latitude: latitude, longitude: longitude)
                 }

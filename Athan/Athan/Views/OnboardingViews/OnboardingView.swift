@@ -10,7 +10,7 @@ import SwiftUI
 struct OnboardingView: View {
     @EnvironmentObject var env: EnvViewModel
     @ObservedObject var vm = OnboardingView.ViewModel()
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -18,15 +18,16 @@ struct OnboardingView: View {
                 TabView(selection: $vm.selectedTab) {
                     OnBordingCardView(
                         title: "Press the Icon to Activate the Location",
-                        icon: {
-                            if vm.showLocationIndicator {
-                                ProgressView()
-                            } else {
-                                Image(systemName: vm.isLocationAuthrised ? "checkmark" : "location.fill")
-                                    .foregroundColor(vm.isLocationAuthrised ? .green : .black)
-                            }
-                        },
-                        action: vm.requestLocation
+                        iconButtom: {
+                            Button(action: vm.requestLocation) {
+                                if vm.showLocationLoadingIndicator {
+                                    ProgressView()
+                                } else {
+                                    Image(systemName: vm.isLocationAuthrised ? "checkmark" : "location.fill")
+                                        .foregroundColor(vm.isLocationAuthrised ? .green : .black)
+                                }
+                            }.disabled(vm.showLocationLoadingIndicator)
+                        }
                     )
                     .alert(isPresented: $vm.showLocationDeniedAlert) {
                         LocationManager.showLocationDeniedAlert()
@@ -35,11 +36,12 @@ struct OnboardingView: View {
 
                     OnBordingCardView(
                         title: "Press the Icon to Activate the Notifications",
-                        icon: {
-                            Image(systemName: vm.isNotificationAuthrised ? "checkmark" : "bell.badge.fill")
-                                .foregroundColor(vm.isNotificationAuthrised ? .green : .black)
-                        },
-                        action: vm.requestNotification
+                        iconButtom: {
+                            Button(action: vm.requestNotification) {
+                                Image(systemName: vm.isNotificationAuthrised ? "checkmark" : "bell.badge.fill")
+                                    .foregroundColor(vm.isNotificationAuthrised ? .green : .black)
+                            }
+                        }
                     )
                     .alert(isPresented: $vm.showNotificationDeniedAlert) {
                         NotificationManager.showNotificationDeniedAlert()
@@ -49,16 +51,14 @@ struct OnboardingView: View {
                     OnBordingCardView(
                         title: "Press the Icon to Enter the App",
                         frameSize: 120,
-                        icon: {
-                            VStack {
-                                NavigationLink(destination: AppTapView(), isActive: $vm.showMainApp) { EmptyView() }
+                        iconButtom: {
+                            Button(action: vm.goToMainApp) {
+                                VStack {
+                                    NavigationLink(destination: AppTapView(), isActive: $vm.showMainApp) { EmptyView() }
 
-                                LogoTextStyleView("أذان", size: 64, color: .black)
+                                    LogoTextStyleView("أذان", size: 64, color: .black)
+                                }
                             }
-
-                        },
-                        action: {
-                            vm.goToMainApp()
                         }
                     )
                     .tag(2)
@@ -77,7 +77,7 @@ extension OnboardingView {
         @Published var showNotificationDeniedAlert: Bool = false
 
         @Published var isLocationAuthrised: Bool = false
-        @Published var showLocationIndicator: Bool = false
+        @Published var showLocationLoadingIndicator: Bool = false
         @Published var showLocationDeniedAlert: Bool = false
 
         @Published var showMainApp: Bool = false
@@ -90,14 +90,14 @@ extension OnboardingView {
         }
 
         func requestLocation() {
+            showLocationLoadingIndicator = true
             env.requestLocation { location in
                 let latitude = location.coordinate.latitude
                 let longitude = location.coordinate.longitude
-                self.isLocationAuthrised = true
                 self.env.updateLocation(latitude: latitude, longitude: longitude)
-//                withAnimation {
-//                    self.selectedTab = 1
-//                }
+                withAnimation {
+                    self.selectedTab = 1
+                }
 
             } completionHandler: { authorizationStatus in
                 switch authorizationStatus {
@@ -123,13 +123,8 @@ extension OnboardingView {
                 case .notDetermined:
                     if onSucess {
                         self.isNotificationAuthrised = true
+                        withAnimation { self.selectedTab = 2 }
                     }
-                case .authorized:
-                    self.isNotificationAuthrised = true
-                    //withAnimation { self.selectedTab = 2 }
-                case .denied:
-                    self.showNotificationDeniedAlert = true
-                    //withAnimation { self.selectedTab = 2 }
                 default:
                     return
                 }
