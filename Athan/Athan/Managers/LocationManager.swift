@@ -1,5 +1,6 @@
 import CoreLocation
 import Foundation
+import SwiftUI
 
 class LocationManager: NSObject {
     static let instance = LocationManager()
@@ -16,17 +17,18 @@ class LocationManager: NSObject {
         manger.delegate = self
     }
 
-    func requestLocation() {
+    func requestLocation(onUpdateLocation: @escaping (_ location: CLLocation) -> Void, completionHandler: @escaping (_ authorizationStatus: CLAuthorizationStatus) -> Void) {
+        self.onUpdateLocation = onUpdateLocation
         let status = manger.authorizationStatus
         switch status {
         case .notDetermined:
             manger.requestAlwaysAuthorization()
-        case .authorizedWhenInUse, .authorizedAlways:
+            completionHandler(.notDetermined)
+        case .authorizedWhenInUse, .authorizedAlways, .authorized:
             manger.requestLocation()
-        case .denied:
-            if let onAuthorizationDenied = onAuthorizationDenied {
-                onAuthorizationDenied()
-            }
+            completionHandler(.authorizedAlways)
+        case .denied: completionHandler(.denied)
+
         default:
             return
         }
@@ -34,9 +36,9 @@ class LocationManager: NSObject {
 
     private func getCityName() {
         guard let location = manger.location else { return }
-        let locale = Locale(identifier: "ar_sa")
+        //let locale = Locale(identifier: "ar_sa")
         let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location, preferredLocale: locale) { placemarks, error in
+        geocoder.reverseGeocodeLocation(location) { placemarks, error in
             if let error = error {
                 debugPrint("Error: " + error.localizedDescription)
                 return
@@ -49,11 +51,20 @@ class LocationManager: NSObject {
             self.cityName = city
         }
     }
+
+    static func showLocationDeniedAlert() -> Alert {
+        return Alert(title: Text("Activate Location Services"),
+                     message: Text("Plese activate the location Services from setting"),
+                     primaryButton: .default(Text("Move to Setting"), action: Helper.goToAppSetting),
+                     secondaryButton: .cancel(Text("Back"))
+        )
+    }
 }
 
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
+        print("didUpdateLocations")
         if let onUpdateLocation = onUpdateLocation {
             onUpdateLocation(location)
             getCityName()
@@ -62,6 +73,7 @@ extension LocationManager: CLLocationManagerDelegate {
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         guard let location = manager.location else { return }
+        print("locationManagerDidChangeAuthorization")
         if let onUpdateLocation = onUpdateLocation {
             onUpdateLocation(location)
             getCityName()

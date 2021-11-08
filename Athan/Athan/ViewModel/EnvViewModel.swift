@@ -1,4 +1,5 @@
 import Adhan
+import CoreLocation
 import Foundation
 import SwiftUI
 
@@ -6,11 +7,12 @@ class EnvViewModel: ObservableObject {
     static let shared = EnvViewModel()
 
     @Published var prayers: PrayerTimes?
-    @Published var showLocationIndicator = false
-    @Published var showGoToSettingAlert = false
+
+    @AppStorage(UserDefaultsKey.showOnboarding) var showOnboarding: Bool?
 
     @AppStorage(UserDefaultsKey.cityName) var cityName: String?
-    @AppStorage(UserDefaultsKey.latitude) private var latitude: Double?
+
+    @AppStorage(UserDefaultsKey.latitude) var latitude: Double?
     @AppStorage(UserDefaultsKey.longitude) private var longitude: Double?
 
     private var locationManager = LocationManager.instance
@@ -21,36 +23,28 @@ class EnvViewModel: ObservableObject {
             let latitude = latitude,
             let longitude = longitude
         else { return }
+
         showPrayerTime(latitude: latitude, longitude: longitude)
         addNewPrayersNotification(latitude: latitude, longitude: longitude)
     }
 
-    func requestLocation() {
-        locationManager.onUpdateLocation = { location in
-            self.showLocationIndicator = true
-            let latitude = location.coordinate.latitude
-            let longitude = location.coordinate.longitude
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                withAnimation(.linear) {
-                    self.showPrayerTime(
-                        latitude: latitude,
-                        longitude: longitude
-                    )
-                    self.latitude = latitude
-                    self.longitude = longitude
-                    self.addNewPrayersNotification(latitude: latitude, longitude: longitude)
-                }
-                self.showLocationIndicator = false
-                self.cityName = self.locationManager.cityName
-            }
+    func updateLocation(latitude: Double, longitude: Double) {
+        DispatchQueue.main.async {
+            self.latitude = latitude
+            self.longitude = longitude
+            self.cityName = self.locationManager.cityName
         }
+       
+        showPrayerTime(latitude: latitude, longitude: longitude)
+        addNewPrayersNotification(latitude: latitude, longitude: longitude)
+    }
 
-        locationManager.onAuthorizationDenied = {
-            self.showGoToSettingAlert = true
-        }
+    func requestNotification(completionHandler: @escaping (Bool, Error?, UNAuthorizationStatus) -> Void) {
+        notificationManager.requestAuthorization(completionHandler: completionHandler)
+    }
 
-        locationManager.requestLocation()
-        notificationManager.requestAuthorization()
+    func requestLocation(onUpdateLocation: @escaping (_ location: CLLocation) -> Void, completionHandler: @escaping (_ authorizationStatus: CLAuthorizationStatus) -> Void) {
+        locationManager.requestLocation(onUpdateLocation: onUpdateLocation, completionHandler: completionHandler)
     }
 
     var calculationMethod = CalculationMethod.ummAlQura
@@ -109,3 +103,26 @@ class EnvViewModel: ObservableObject {
         }
     }
 }
+
+//        locationManager.onUpdateLocation = { location in
+//            self.showLocationIndicator = true
+//            let latitude = location.coordinate.latitude
+//            let longitude = location.coordinate.longitude
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                withAnimation(.linear) {
+//                    self.showPrayerTime(
+//                        latitude: latitude,
+//                        longitude: longitude
+//                    )
+//                    self.latitude = latitude
+//                    self.longitude = longitude
+//                    self.addNewPrayersNotification(latitude: latitude, longitude: longitude)
+//                }
+//                self.showLocationIndicator = false
+//                self.cityName = self.locationManager.cityName
+//            }
+//        }
+//
+//        locationManager.onAuthorizationDenied = {
+//            self.showGoToSettingAlert = true
+//        }

@@ -29,10 +29,11 @@ struct AppSettingSection: View {
     @State var actions: Actions?
 
     var body: some View {
-        Section(header: Text("إعدادات الأذان")) {
-            NavigationLink(destination: {
-                SettingNotificationView()
-            }) { Text("الإشعارات") }
+        Section(header: Text("Athan Settings")) {
+            NavigationLink(destination: SettingNotificationView() ) {
+                Text("Notifications")
+            }
+            .buttonStyle(.plain)
 
             Button(action: {
                 showSheet = true
@@ -87,8 +88,6 @@ struct AppSettingSection: View {
                 }.multilineTextAlignment(.leading)
             }
         }
-        .listRowSeparatorTint(.white.opacity(0.3))
-        .listRowBackground(AppColors.SettinglistRowBackground)
         .confirmationDialog(sheetTitle, isPresented: $showSheet, titleVisibility: .visible, actions: { actions })
     }
 }

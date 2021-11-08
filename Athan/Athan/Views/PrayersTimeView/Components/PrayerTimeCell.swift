@@ -18,18 +18,18 @@ struct PrayerTimeCell: View {
     }
 
     // to get the prayer name
-    private var prayerName: String {
+    private var prayerName: LocalizedStringKey {
         switch prayer {
         case .fajr:
-            return "الفجر"
+            return "Fajr"
         case .dhuhr:
-            return "الظهر"
+            return "Dhuhr"
         case .asr:
-            return "العصر"
+            return "Asr"
         case .maghrib:
-            return "المغرب"
+            return "Maghrib"
         case .isha:
-            return "العشاء"
+            return "Isha"
         }
     }
 

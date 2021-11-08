@@ -12,6 +12,8 @@ import SwiftUI
 
 struct PrayersTimeView: View {
     @EnvironmentObject var env: EnvViewModel
+    @ObservedObject var vm = PrayersTimeView.ViewModel()
+
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
@@ -23,12 +25,12 @@ struct PrayersTimeView: View {
 
                 } else {
                     VStack {
-                        Text("الرجاء الضغط على الأيقونة لتفعيل الموقع")
+                        Text("Press the Icon to Activate the Location")
                             .font(.title)
                             .multilineTextAlignment(.center)
 
-                        Button(action: env.requestLocation) {
-                            if env.showLocationIndicator {
+                        Button(action: vm.requestLocation) {
+                            if vm.showLocationIndicator {
                                 ProgressView()
                             } else {
                                 Image(systemName: "location.fill")
@@ -40,7 +42,7 @@ struct PrayersTimeView: View {
                             Circle()
                                 .stroke(.black, lineWidth: 2)
                         )
-                        .disabled(env.showLocationIndicator)
+                        .disabled(vm.showLocationIndicator)
                     }
                     .font(.largeTitle)
                     .modifier(MainCardStyle(height: 300))
@@ -60,11 +62,41 @@ struct PrayersTimeView: View {
             .background(AppColors.backgroundColor.ignoresSafeArea())
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    LogoTextStyleView(env.cityName ?? "أوقات الصلاة")
+                    if let cityName = env.cityName {
+                        LogoTextStyleView("\(cityName)")
+                    } else {
+                        LogoTextStyleView("Prayer Time")
+                    }
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .modifier(GoToSettingAlert(isPresented: $env.showGoToSettingAlert))
+        }
+    }
+}
+
+extension PrayersTimeView {
+    class ViewModel: ObservableObject {
+        let env: EnvViewModel = EnvViewModel.shared
+        @Published var showLocationIndicator: Bool = false
+        @Published var showLocationDeniedAlert: Bool = false
+
+        func requestLocation() {
+            env.requestLocation { location in
+                let latitude = location.coordinate.latitude
+                let longitude = location.coordinate.longitude
+                self.showLocationIndicator = true
+                DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+                    self.showLocationIndicator = false
+                    self.env.updateLocation(latitude: latitude, longitude: longitude)
+                }
+            } completionHandler: { authorizationStatus in
+                switch authorizationStatus {
+                case .denied:
+                    self.showLocationDeniedAlert = true
+                default:
+                    return
+                }
+            }
         }
     }
 }

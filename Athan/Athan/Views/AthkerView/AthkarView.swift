@@ -48,11 +48,11 @@ struct AthkarView: View {
             .padding(.top, 1)
             .background(AppColors.backgroundColor.ignoresSafeArea())
 
-            .navigationTitle("الأذكار")
+            .navigationTitle("Athkar")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    LogoTextStyleView("الأذكار")
+                    LogoTextStyleView("Athkar")
                 }
             }
         }

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct AthkarBigButton: View {
-    var title: String
+    var title: LocalizedStringKey
     var titleColor: Color
     var backgroundColor: Color
     var body: some View {

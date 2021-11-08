@@ -11,17 +11,18 @@ import UIKit
 import UserNotifications
 
 class NotificationManager {
-    
     static let instance = NotificationManager()
 
     let center = UNUserNotificationCenter.current()
 
-    func requestAuthorization() {
+    func requestAuthorization(completionHandler: @escaping (_ granted: Bool, _ error: Error?, _ authorizationStatus: UNAuthorizationStatus) -> Void) {
         center.getNotificationSettings { setting in
             switch setting.authorizationStatus {
-            case .notDetermined: self.showRequestAuthorizationAlert()
-            case .denied: Helper.goToAppSetting()
-            case .authorized:
+            case .notDetermined: self.showRequestAuthorizationAlert { granted, error in
+                    completionHandler(granted, error, .notDetermined)
+                }
+            case .denied: completionHandler(false, nil, .denied)
+            case .authorized:completionHandler(false, nil, .authorized)
                 return
 
             default:
@@ -35,8 +36,6 @@ class NotificationManager {
         content.title = titlt
         content.body = body
         content.sound = .default
-
-        // let dateComponents = Calendar.current.dateComponents(in: .current, from: date)
 
         let calendar = Calendar.current
 
@@ -69,24 +68,16 @@ class NotificationManager {
         center.removeAllPendingNotificationRequests()
     }
 
-    private func showRequestAuthorizationAlert() {
+    private func showRequestAuthorizationAlert(completionHandler: @escaping (_ granted: Bool, Error?) -> Void) {
         let options: UNAuthorizationOptions = [.alert, .sound]
-        center.requestAuthorization(options: options) { success, error in
-            if let error = error {
-                debugPrint("Error: \(error.localizedDescription)")
-            } else {
-                debugPrint("Success: \(success.description)")
-            }
-        }
+        center.requestAuthorization(options: options, completionHandler: completionHandler)
     }
 
-    
-    func showNotificationDeniedAlert() -> Alert{
-        return Alert(title: Text("تفعيل الإشعارات"),
-                     message: Text("الرجاء تفعيل الإشعارات من الاعدادات"),
-                     primaryButton:.default(Text("dd"), action: Helper.goToAppSetting),
-                     secondaryButton: .cancel(Text("العودة"))
+    static func showNotificationDeniedAlert() -> Alert {
+        return Alert(title: Text("Activate Notifications"),
+                     message: Text("Plese activate the notifications from setting"),
+                     primaryButton: .default(Text("Move to Setting"), action: Helper.goToAppSetting),
+                     secondaryButton: .cancel(Text("Back"))
         )
     }
-
 }

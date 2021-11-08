@@ -13,10 +13,15 @@ struct AthanApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            NOTOTO()
-            AppTapView()
-                .preferredColorScheme(.light)
-                .environmentObject(env)
+            Group {
+                if env.showOnboarding == false {
+                    AppTapView()
+
+                } else {
+                    OnboardingView()
+                }
+
+            }.environmentObject(env)
         }
     }
 }

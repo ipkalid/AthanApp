@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LinkButton: View {
-    let label: String
+    let label: LocalizedStringKey
     let urlSring: String
     var body: some View {
         Button(label) {

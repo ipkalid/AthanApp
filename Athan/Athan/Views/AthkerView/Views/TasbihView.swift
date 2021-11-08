@@ -16,7 +16,7 @@ struct TasbihView: View {
                     Spacer()
                         .frame(maxWidth: .infinity, minHeight: 25)
 
-                    ForEach(viewModel.azkarConents.indices) { i in // indices = 0 ..< 2
+                    ForEach(viewModel.azkarConents.indices) { i in
                         ZekrCardView(
                             zekrContent: viewModel.azkarConents[i],
                             onTap: { viewModel.toTheNextCard(index: i, scrollValue: value) }
@@ -41,12 +41,12 @@ struct TasbihView: View {
 extension TasbihView {
     class ViewModel: ObservableObject {
         @Published var azkarConents: [ZekrContent] = []
-        @Published var title: String = ""
+        @Published var title: LocalizedStringKey = ""
 
         init(fileName: String) {
             guard let azkar = loadJson(fileName: fileName) else { return }
             azkarConents = azkar.content
-            title = azkar.title
+            title = LocalizedStringKey(azkar.title)
         }
 
         func toTheNextCard(index: Int, scrollValue: ScrollViewProxy) {

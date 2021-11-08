@@ -1,0 +1,65 @@
+/* 
+  Localizable.strings
+  Athan
+
+  Created by Kalid on 28/10/2021.
+  
+*/
+
+//AppName
+"Athan" = "أذان";
+
+
+//Onboarding
+"Press the Icon to Activate the Location" = "الرجاء الضغط على الأيقونة لتفعيل الموقع";
+"Press the Icon to Activate the Notifications" = "الرجاء الضغط على الأيقونة لتفعيل الإشعارات";
+"Press the Icon to Enter the App" = "الرجاء الضغط على الأيقونة للدخول للتطبيق";
+
+
+//Alerts
+
+"Activate Notifications" = "تفعيل الآشعارات";
+"Plese activate the notifications from setting" = "الرجاء تفعيل الإشعارات من الاعدادات";
+
+"Activate Location Services" = "تفعيل خدمات الموقع";
+"Plese activate the location Services from setting" = "الرجاء تفعيل خدمات الموقع من الاعدادات";
+
+"Move to Setting" = "الذهاب الى الإعدادات";
+"Back" = "العودة";
+
+//TapBar
+"Salah" = "الصلاة";
+"Athkar" = "الأذكار";
+"Settings" = "الإعدادات";
+
+//PrayerTime View
+"Prayer Time" = "اوقات الصلاة";
+
+"Fajr" = "الفجر";
+"Dhuhr" = "الظهر";
+"Asr" = "العصر";
+"Maghrib" = "المغرب";
+"Isha" = "العشاء";
+
+
+
+
+//Settings View
+"Update Location" = "تحديث الموقع";
+"Update Location First" = "قم بتحديد الموقع أولا";
+
+"Athan Settings" = "إعدادات الأذان";
+"Notifications" = "اللإشعارات";
+"Madhab Type" = "تحديث الموقع";
+"Calculation Method" = "تحديث الموقع";
+
+"Follow Athan on Twitter" = "تابع أذان على Twitter";
+"Rate the app ⭐️⭐️⭐️⭐️⭐️" = "قيم التطبيق ⭐️⭐️⭐️⭐️⭐️";
+"Message me about the app" = "راسلني حول التطبيق";
+
+"Developer" = "المطور";
+"Follow the Developer on Twitter" = "تابع المطور على Twitter";
+"Follow the Developer on Linkden" =  "تابع المطور على Linkden";
+"Follow the Developer on GitHub" =  "تابع المطور على GitHub";
+
+

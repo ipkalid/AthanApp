@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct LogoTextStyleView: View {
-    let label: String
+    let label: LocalizedStringKey
     let size: Double
     let color: Color
-    init(_ key: String, size: Double = 32, color: Color = Color("Yellow")) {
+    init(_ key: LocalizedStringKey, size: Double = 32, color: Color = Color("Yellow")) {
         label = key
         self.size = size
         self.color = color

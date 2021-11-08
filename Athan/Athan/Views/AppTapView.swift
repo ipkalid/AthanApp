@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct AppTapView: View {
-    @State private var selectedIndex = 0
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     let tabBarImages = ["Athan", "Tasbih", "Athkar", "Tasbih"]
 
@@ -18,50 +18,35 @@ struct AppTapView: View {
     }
 
     var body: some View {
-        TabView {
-            PrayersTimeView()
-                .tag(0)
-                .tabItem {
-                    Image(tabBarImages[0])
-                        .renderingMode(.template)
-                    Text("الصلاة")
-                }
+        NavigationView {
+            TabView {
+                PrayersTimeView()
+                    .tag(0)
+                    .tabItem {
+                        Image(tabBarImages[0])
+                            .renderingMode(.template)
+                        Text("Salah")
+                    }
 
-            AthkarView()
-                .tag(2)
-                .tabItem {
-                    Image(tabBarImages[2])
-                        .renderingMode(.template)
-                    Text("الأذكار")
-                }
+                AthkarView()
+                    .tag(2)
+                    .tabItem {
+                        Image(tabBarImages[2])
+                            .renderingMode(.template)
+                        Text("Athkar")
+                    }
 
-            SettingView()
-                .tag(3)
-                .tabItem {
-                    Image(systemName: "gear")
-                        .renderingMode(.template)
-                    Text("الإعدادات")
-                }
+                SettingView()
+                    .tag(3)
+                    .tabItem {
+                        Image(systemName: "gear")
+                            .renderingMode(.template)
+                        Text("Settings")
+                    }
+            }
+            .navigationBarHidden(true)
         }
+        .navigationBarHidden(true)
         .accentColor(.black)
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppTapView()
-    }
-}
-
-struct TabIcon: View {
-    var label: String
-    var iconName: String
-    var body: some View {
-        VStack {
-            Image(iconName)
-                .renderingMode(.template)
-            Text(label)
-                .font(.caption2)
-        }
     }
 }

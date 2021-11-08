@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1239FDBE272C6DF10039C89D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239FDBD272C6DF10039C89D /* OnboardingView.swift */; };
+		12413E9127394D5400090C2A /* SettingLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12413E9027394D5400090C2A /* SettingLocationButton.swift */; };
+		1246FCD3272B37B7007DDBF4 /* SalahSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1246FCD2272B37B7007DDBF4 /* SalahSetting.swift */; };
+		124E3611272A026E0007F905 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 124E3613272A026E0007F905 /* Localizable.strings */; };
+		126B93262738377F00B997CD /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126B93252738377F00B997CD /* SwiftUIView.swift */; };
+		126B93282738938E00B997CD /* OnBordingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126B93272738938E00B997CD /* OnBordingCardView.swift */; };
 		E9016CAE26F566D00000EDBF /* PrayerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9016CAD26F566D00000EDBF /* PrayerTime.swift */; };
 		E9016CB026F568D00000EDBF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9016CAF26F568D00000EDBF /* Date.swift */; };
 		E93115ED26FD4D3600532A28 /* LogoTextStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93115EC26FD4D3600532A28 /* LogoTextStyleView.swift */; };
@@ -60,6 +66,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1239FDBD272C6DF10039C89D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		12413E9027394D5400090C2A /* SettingLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingLocationButton.swift; sourceTree = "<group>"; };
+		1246FCD2272B37B7007DDBF4 /* SalahSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalahSetting.swift; sourceTree = "<group>"; };
+		124E3612272A026E0007F905 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		124E3614272A02800007F905 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		126B93252738377F00B997CD /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		126B93272738938E00B997CD /* OnBordingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBordingCardView.swift; sourceTree = "<group>"; };
 		E9016CAD26F566D00000EDBF /* PrayerTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTime.swift; sourceTree = "<group>"; };
 		E9016CAF26F568D00000EDBF /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E93115EC26FD4D3600532A28 /* LogoTextStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoTextStyleView.swift; sourceTree = "<group>"; };
@@ -124,6 +137,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1239FDBC272C6DC50039C89D /* OnboardingViews */ = {
+			isa = PBXGroup;
+			children = (
+				1239FDBD272C6DF10039C89D /* OnboardingView.swift */,
+				126B93272738938E00B997CD /* OnBordingCardView.swift */,
+			);
+			path = OnboardingViews;
+			sourceTree = "<group>";
+		};
+		126B93242738377000B997CD /* learnNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				126B93252738377F00B997CD /* SwiftUIView.swift */,
+			);
+			path = learnNavigation;
+			sourceTree = "<group>";
+		};
 		E93115F726FD535C00532A28 /* Style */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				E96CD92F271B996500C847D3 /* LinkButton.swift */,
+				12413E9027394D5400090C2A /* SettingLocationButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -230,6 +261,7 @@
 		E96CD934271B9AE400C847D3 /* Old */ = {
 			isa = PBXGroup;
 			children = (
+				126B93242738377000B997CD /* learnNavigation */,
 				E9390E4526F7A7C0007A5E11 /* LearnLocation */,
 				E9AA10D327124A4A0073C265 /* PostPrayerAthkarView */,
 			);
@@ -278,14 +310,15 @@
 		E9F37889270023A200C86589 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E9F378A4270024F400C86589 /* json */,
+				E9F378A4270024F400C86589 /* Json */,
 				E99C4E4226EEA9F300971EA3 /* Fonts */,
 				E9FADB8326EC3D1100271BFA /* Assets.xcassets */,
+				124E3613272A026E0007F905 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		E9F378A4270024F400C86589 /* json */ = {
+		E9F378A4270024F400C86589 /* Json */ = {
 			isa = PBXGroup;
 			children = (
 				E9AA10D0271247140073C265 /* Old */,
@@ -293,7 +326,7 @@
 				E9AA10CC271246FC0073C265 /* azkar_sabah.json */,
 				E9AA10CB271246FC0073C265 /* PostPrayer_azkar.json */,
 			);
-			path = json;
+			path = Json;
 			sourceTree = "<group>";
 		};
 		E9FADB7326EC3D1000271BFA = {
@@ -353,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				E9FADB8126EC3D1000271BFA /* AppTapView.swift */,
+				1239FDBC272C6DC50039C89D /* OnboardingViews */,
 				E9FADB9526ED0BF000271BFA /* PrayersTimeView */,
 				E99C4E3426EE497700971EA3 /* AthkerView */,
 				E96974DB27158787006C2154 /* SettingView */,
@@ -384,6 +418,7 @@
 			children = (
 				E9016CAD26F566D00000EDBF /* PrayerTime.swift */,
 				E9AA10C82712469F0073C265 /* Azkar.swift */,
+				1246FCD2272B37B7007DDBF4 /* SalahSetting.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -432,6 +467,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = E9FADB7326EC3D1000271BFA;
 			packageReferences = (
@@ -454,6 +490,7 @@
 				E9AA10CD271246FC0073C265 /* azkar_massa.json in Resources */,
 				E9F378AA270024F400C86589 /* 1_athkar.json in Resources */,
 				E9FADB8726EC3D1100271BFA /* Preview Assets.xcassets in Resources */,
+				124E3611272A026E0007F905 /* Localizable.strings in Resources */,
 				E9FADB8426EC3D1100271BFA /* Assets.xcassets in Resources */,
 				E96974E22715A987006C2154 /* Launch Screen.storyboard in Resources */,
 				E9F483D82712864F004971BF /* me_quran.ttf in Resources */,
@@ -475,8 +512,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9FADB9C26ED22C300271BFA /* PrayerTimeCell.swift in Sources */,
+				126B93282738938E00B997CD /* OnBordingCardView.swift in Sources */,
 				E9AA10C92712469F0073C265 /* Azkar.swift in Sources */,
 				E9016CB026F568D00000EDBF /* Date.swift in Sources */,
+				1246FCD3272B37B7007DDBF4 /* SalahSetting.swift in Sources */,
 				E96B23BC271F63FA00B6C249 /* UserDefaultsKey.swift in Sources */,
 				E9504DCE27231EB400836A76 /* Helper.swift in Sources */,
 				E96CD929271B54B800C847D3 /* SettingNotificationView.swift in Sources */,
@@ -484,8 +523,10 @@
 				E9FADB8226EC3D1000271BFA /* AppTapView.swift in Sources */,
 				E96974E02715A4AE006C2154 /* SettingView.swift in Sources */,
 				E990D6F6271A1E1A000B8B72 /* sheet.swift in Sources */,
+				1239FDBE272C6DF10039C89D /* OnboardingView.swift in Sources */,
 				E96B23B9271B9D6700B6C249 /* AthkarBigButton.swift in Sources */,
 				E9AA10C7271245640073C265 /* CoreDataManager.swift in Sources */,
+				12413E9127394D5400090C2A /* SettingLocationButton.swift in Sources */,
 				E99C4E3D26EE524A00971EA3 /* AthkarView.swift in Sources */,
 				E9FADB9E26ED22F500271BFA /* PrayerTimeCard.swift in Sources */,
 				E9FADB8026EC3D1000271BFA /* AthanApp.swift in Sources */,
@@ -498,6 +539,7 @@
 				E9775CF2271A251B00608664 /* AppDetailsSection.swift in Sources */,
 				E9016CAE26F566D00000EDBF /* PrayerTime.swift in Sources */,
 				E9AA10D2271247B10073C265 /* Colors.swift in Sources */,
+				126B93262738377F00B997CD /* SwiftUIView.swift in Sources */,
 				E9AA10D527124A750073C265 /* TasbihView.swift in Sources */,
 				E93B5ED126F13A6E00C85177 /* LocationManager.swift in Sources */,
 				E9B61EC027222FE300F894B5 /* Modifires.swift in Sources */,
@@ -515,11 +557,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		124E3613272A026E0007F905 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				124E3612272A026E0007F905 /* en */,
+				124E3614272A02800007F905 /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		E9FADB8926EC3D1100271BFA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -567,7 +622,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -581,6 +636,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -622,7 +678,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -638,6 +694,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Athan/Preview Content\"";
 				DEVELOPMENT_TEAM = Q22HQU5G8X;
 				ENABLE_PREVIEWS = YES;
@@ -661,6 +718,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Athan/Preview Content\"";
 				DEVELOPMENT_TEAM = Q22HQU5G8X;
 				ENABLE_PREVIEWS = YES;

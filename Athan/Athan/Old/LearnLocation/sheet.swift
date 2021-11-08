@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+@available(iOS 15.0, *)
 struct SheetView: View {
     @Environment(\.dismiss) var dismiss
 

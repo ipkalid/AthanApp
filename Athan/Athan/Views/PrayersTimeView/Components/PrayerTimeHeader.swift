@@ -50,7 +50,7 @@ struct PrayerTimeHeader: View {
 
     private func dayInWeek() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ar")
+        
         dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from: Date.now)
     }
