@@ -18,7 +18,7 @@ struct AppTapView: View {
     }
 
     var body: some View {
-        NavigationView {
+        //NavigationView {
             TabView {
                 PrayersTimeView()
                     .tag(0)
@@ -45,7 +45,7 @@ struct AppTapView: View {
                     }
             }
             .navigationBarHidden(true)
-        }
+        
         .navigationBarHidden(true)
         .accentColor(.black)
     }

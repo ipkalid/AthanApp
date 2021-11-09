@@ -66,7 +66,6 @@ class LocationManager: NSObject {
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
-        print("didUpdateLocations")
         if let onUpdateLocation = onUpdateLocation {
             onUpdateLocation(location)
             getCityName()
@@ -75,7 +74,6 @@ extension LocationManager: CLLocationManagerDelegate {
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         guard let location = manager.location else { return }
-        print("locationManagerDidChangeAuthorization")
         if let onUpdateLocation = onUpdateLocation {
             onUpdateLocation(location)
             getCityName()

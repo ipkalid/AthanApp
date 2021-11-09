@@ -58,16 +58,16 @@ struct SettingView: View {
         return HStack {
             Spacer()
 
-            HStack {
-                Text("أذان")
-                    .font(.custom("Rakkas-Regular", size: 20))
-                    .fontWeight(.bold)
+            VStack(spacing:0) {
+                LogoTextStyleView("أذان")
+            
                 Text("\(appVersion!)")
-                    .font(.system(size: 16))
+                    .font(.system(size: 14 ))
                     .fontWeight(.bold)
+                    .offset(y:-6)
             }
             .padding(6.0)
-            .padding(.horizontal, 6.0)
+            .padding(.horizontal, 10.0)
             .background(
                 AppColors.SettinglistRowBackground.opacity(0.5)
                     .cornerRadius(16)
@@ -89,7 +89,6 @@ extension SettingView {
         func requestLocation() {
             showLoadingIndicator = true
             env.requestLocation { location in
-                print("HERE")
                 let latitude = location.coordinate.latitude
                 let longitude = location.coordinate.longitude
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

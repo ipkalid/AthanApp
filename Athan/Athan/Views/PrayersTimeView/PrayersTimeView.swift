@@ -12,7 +12,7 @@ import SwiftUI
 
 struct PrayersTimeView: View {
     @EnvironmentObject var env: EnvViewModel
-    @ObservedObject var vm = PrayersTimeView.ViewModel()
+    @StateObject var vm = PrayersTimeView.ViewModel()
 
     var body: some View {
         NavigationView {

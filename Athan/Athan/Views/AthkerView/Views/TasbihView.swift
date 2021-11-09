@@ -1,10 +1,10 @@
 import SwiftUI
 
 struct TasbihView: View {
-    @ObservedObject var viewModel: TasbihView.ViewModel
+    @ObservedObject var vm: TasbihView.ViewModel
 
     init(jsonFileName: String) {
-        viewModel = TasbihView.ViewModel(fileName: jsonFileName)
+        vm = TasbihView.ViewModel(fileName: jsonFileName)
     }
 
     var body: some View {
@@ -16,10 +16,10 @@ struct TasbihView: View {
                     Spacer()
                         .frame(maxWidth: .infinity, minHeight: 25)
 
-                    ForEach(viewModel.azkarConents.indices) { i in
+                    ForEach(vm.azkarConents.indices) { i in
                         ZekrCardView(
-                            zekrContent: viewModel.azkarConents[i],
-                            onTap: { viewModel.toTheNextCard(index: i, scrollValue: value) }
+                            zekrContent: vm.azkarConents[i],
+                            onTap: { vm.toTheNextCard(index: i, scrollValue: value) }
                         )
                         .padding(.vertical, 7.5)
                         .id(i)
@@ -32,7 +32,7 @@ struct TasbihView: View {
         }
         .toolbar {
             ToolbarItem(placement: .principal) {
-                LogoTextStyleView(viewModel.title)
+                LogoTextStyleView(vm.title)
             }
         }
     }
@@ -71,7 +71,7 @@ extension TasbihView {
 
                 return azkar
             } catch {
-                print("Error Tsbih View Model \(error.localizedDescription)")
+                debugPrint("Error Tsbih View Model \(error.localizedDescription)")
                 return nil
             }
         }
