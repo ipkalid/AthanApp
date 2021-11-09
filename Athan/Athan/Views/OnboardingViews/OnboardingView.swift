@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     @EnvironmentObject var env: EnvViewModel
-    @ObservedObject var vm = OnboardingView.ViewModel()
+    @StateObject var vm = OnboardingView.ViewModel()
 
     var body: some View {
         NavigationView {
@@ -20,12 +20,9 @@ struct OnboardingView: View {
                         title: "Press the Icon to Activate the Location",
                         iconButtom: {
                             Button(action: vm.requestLocation) {
-                                if vm.showLocationLoadingIndicator {
-                                    ProgressView()
-                                } else {
-                                    Image(systemName: vm.isLocationAuthrised ? "checkmark" : "location.fill")
-                                        .foregroundColor(vm.isLocationAuthrised ? .green : .black)
-                                }
+                                Image(systemName: vm.isLocationAuthrised ? "checkmark" : "location.fill")
+                                    .foregroundColor(vm.isLocationAuthrised ? .green : .black)
+
                             }.disabled(vm.showLocationLoadingIndicator)
                         }
                     )
@@ -90,22 +87,20 @@ extension OnboardingView {
         }
 
         func requestLocation() {
-            showLocationLoadingIndicator = true
             env.requestLocation { location in
                 let latitude = location.coordinate.latitude
                 let longitude = location.coordinate.longitude
                 self.env.updateLocation(latitude: latitude, longitude: longitude)
+                self.isLocationAuthrised = true
                 withAnimation {
                     self.selectedTab = 1
                 }
+              
 
             } completionHandler: { authorizationStatus in
                 switch authorizationStatus {
                 case .denied:
                     self.showLocationDeniedAlert = true
-
-                case .authorizedAlways, .authorizedWhenInUse:
-                    self.isLocationAuthrised = true
 
                 default:
                     return
@@ -122,8 +117,10 @@ extension OnboardingView {
                 switch authorizationStatus {
                 case .notDetermined:
                     if onSucess {
-                        self.isNotificationAuthrised = true
-                        withAnimation { self.selectedTab = 2 }
+                        DispatchQueue.main.async {
+                            self.isNotificationAuthrised = true
+                            withAnimation { self.selectedTab = 2 }
+                        }
                     }
                 default:
                     return

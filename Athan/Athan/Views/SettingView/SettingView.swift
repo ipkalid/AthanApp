@@ -14,7 +14,7 @@ struct SettingView: View {
     }
 
     @EnvironmentObject var env: EnvViewModel
-    @ObservedObject var vm = SettingView.ViewModel()
+    @StateObject var vm = SettingView.ViewModel()
 
     var body: some View {
         NavigationView {
@@ -57,7 +57,22 @@ struct SettingView: View {
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         return HStack {
             Spacer()
-            Text("Athan v\(appVersion!) ")
+
+            HStack {
+                Text("أذان")
+                    .font(.custom("Rakkas-Regular", size: 20))
+                    .fontWeight(.bold)
+                Text("\(appVersion!)")
+                    .font(.system(size: 16))
+                    .fontWeight(.bold)
+            }
+            .padding(6.0)
+            .padding(.horizontal, 6.0)
+            .background(
+                AppColors.SettinglistRowBackground.opacity(0.5)
+                    .cornerRadius(16)
+            )
+
             Spacer()
         }
         .listRowBackground(Color.clear)
@@ -74,6 +89,7 @@ extension SettingView {
         func requestLocation() {
             showLoadingIndicator = true
             env.requestLocation { location in
+                print("HERE")
                 let latitude = location.coordinate.latitude
                 let longitude = location.coordinate.longitude
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -84,6 +100,7 @@ extension SettingView {
             } completionHandler: { authorizationStatus in
                 switch authorizationStatus {
                 case .denied:
+                    self.showLoadingIndicator = false
                     self.showLocationDeniedAlert = true
                 default:
                     return

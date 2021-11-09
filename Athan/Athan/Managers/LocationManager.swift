@@ -19,13 +19,14 @@ class LocationManager: NSObject {
     }
 
     func requestLocation(onUpdateLocation: @escaping (_ location: CLLocation) -> Void, completionHandler: @escaping (_ authorizationStatus: CLAuthorizationStatus) -> Void) {
-        self.onUpdateLocation = onUpdateLocation
         let status = manger.authorizationStatus
         switch status {
         case .notDetermined:
+            self.onUpdateLocation = onUpdateLocation
             manger.requestAlwaysAuthorization()
             completionHandler(.notDetermined)
         case .authorizedWhenInUse, .authorizedAlways, .authorized:
+            self.onUpdateLocation = onUpdateLocation
             manger.requestLocation()
             completionHandler(.authorizedAlways)
         case .denied: completionHandler(.denied)
@@ -37,7 +38,7 @@ class LocationManager: NSObject {
 
     private func getCityName() {
         guard let location = manger.location else { return }
-        //let locale = Locale(identifier: "ar_sa")
+        // let locale = Locale(identifier: "ar_sa")
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
             if let error = error {

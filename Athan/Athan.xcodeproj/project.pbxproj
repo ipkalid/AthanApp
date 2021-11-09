@@ -65,9 +65,24 @@
 		E9FEF25F26F7E4E30026C261 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FEF25E26F7E4E30026C261 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		12413EAB273977E700090C2A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1239FDBD272C6DF10039C89D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		12413E9027394D5400090C2A /* SettingLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingLocationButton.swift; sourceTree = "<group>"; };
+		12413E98273977E500090C2A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		12413E9A273977E500090C2A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		1246FCD2272B37B7007DDBF4 /* SalahSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalahSetting.swift; sourceTree = "<group>"; };
 		124E3612272A026E0007F905 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		124E3614272A02800007F905 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -144,6 +159,15 @@
 				126B93272738938E00B997CD /* OnBordingCardView.swift */,
 			);
 			path = OnboardingViews;
+			sourceTree = "<group>";
+		};
+		12413E97273977E500090C2A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				12413E98273977E500090C2A /* WidgetKit.framework */,
+				12413E9A273977E500090C2A /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		126B93242738377000B997CD /* learnNavigation */ = {
@@ -333,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				E9FADB7E26EC3D1000271BFA /* Athan */,
+				12413E97273977E500090C2A /* Frameworks */,
 				E9FADB7D26EC3D1000271BFA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -433,6 +458,7 @@
 				E9FADB7826EC3D1000271BFA /* Sources */,
 				E9FADB7926EC3D1000271BFA /* Frameworks */,
 				E9FADB7A26EC3D1000271BFA /* Resources */,
+				12413EAB273977E700090C2A /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -452,7 +478,7 @@
 		E9FADB7426EC3D1000271BFA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					E9FADB7B26EC3D1000271BFA = {
@@ -694,7 +720,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Athan/Preview Content\"";
 				DEVELOPMENT_TEAM = Q22HQU5G8X;
 				ENABLE_PREVIEWS = YES;
@@ -718,7 +744,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Athan/Preview Content\"";
 				DEVELOPMENT_TEAM = Q22HQU5G8X;
 				ENABLE_PREVIEWS = YES;

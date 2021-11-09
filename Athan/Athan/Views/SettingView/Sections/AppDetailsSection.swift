@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppDetailsSection: View {
     var body: some View {
-        Section(header: Text("أذان")) {
+        Section(header: Text("Athan")) {
             LinkButton(label: "Follow Athan on Twitter", urlSring: "https://twitter.com/AthanDevSA")
             LinkButton(label: "Rate the app ⭐️⭐️⭐️⭐️⭐️", urlSring: " ")
             LinkButton(label: "Message me about the app", urlSring: "https://twitter.com/iKalidDev")
