@@ -64,9 +64,9 @@ struct SettingView: View {
                 Text("\(appVersion!)")
                     .font(.system(size: 14 ))
                     .fontWeight(.bold)
-                    .offset(y:-6)
+                    .offset(y:-10)
             }
-            .padding(6.0)
+            .padding(4.0)
             .padding(.horizontal, 10.0)
             .background(
                 AppColors.SettinglistRowBackground.opacity(0.5)

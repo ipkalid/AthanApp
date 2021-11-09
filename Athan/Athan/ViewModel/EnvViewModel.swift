@@ -24,6 +24,9 @@ class EnvViewModel: ObservableObject {
             let longitude = longitude
         else { return }
 
+        LocationManager.getCityName(latitude: latitude, longitude: longitude) { city in
+            self.cityName = city
+        }
         showPrayerTime(latitude: latitude, longitude: longitude)
         addNewPrayersNotification(latitude: latitude, longitude: longitude)
     }
@@ -31,7 +34,9 @@ class EnvViewModel: ObservableObject {
     func updateLocation(latitude: Double, longitude: Double) {
         self.latitude = latitude
         self.longitude = longitude
-        cityName = locationManager.cityName
+        LocationManager.getCityName(latitude: latitude, longitude: longitude) { city in
+            self.cityName = city
+        }
 
         showPrayerTime(latitude: latitude, longitude: longitude)
         addNewPrayersNotification(latitude: latitude, longitude: longitude)

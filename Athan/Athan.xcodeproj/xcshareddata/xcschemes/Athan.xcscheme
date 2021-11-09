@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Athan.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1278E593273AB1EB00BF66AC"
+               BuildableName = "AthanUITests.xctest"
+               BlueprintName = "AthanUITests"
+               ReferencedContainer = "container:Athan.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

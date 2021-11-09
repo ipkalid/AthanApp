@@ -7,10 +7,7 @@ class LocationManager: NSObject {
 
     private var manger = CLLocationManager()
 
-    var cityName: String?
-
     var onUpdateLocation: ((_ location: CLLocation) -> Void)?
-    var onAuthorizationDenied: (() -> Void)?
 
     override init() {
         super.init()
@@ -36,10 +33,11 @@ class LocationManager: NSObject {
         }
     }
 
-    private func getCityName() {
-        guard let location = manger.location else { return }
-        // let locale = Locale(identifier: "ar_sa")
+    static func getCityName(latitude: Double, longitude: Double, completion: @escaping (_ city: String) -> Void) {
+        let location = CLLocation(latitude: latitude, longitude: longitude)
         let geocoder = CLGeocoder()
+        print(location)
+
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
             if let error = error {
                 debugPrint("Error: " + error.localizedDescription)
@@ -49,8 +47,7 @@ class LocationManager: NSObject {
                   let place = placemarks.first,
                   let city = place.locality
             else { return }
-
-            self.cityName = city
+            completion(city)
         }
     }
 
@@ -68,7 +65,6 @@ extension LocationManager: CLLocationManagerDelegate {
         guard let location = locations.first else { return }
         if let onUpdateLocation = onUpdateLocation {
             onUpdateLocation(location)
-            getCityName()
         }
     }
 
@@ -76,7 +72,6 @@ extension LocationManager: CLLocationManagerDelegate {
         guard let location = manager.location else { return }
         if let onUpdateLocation = onUpdateLocation {
             onUpdateLocation(location)
-            getCityName()
         }
     }
 
