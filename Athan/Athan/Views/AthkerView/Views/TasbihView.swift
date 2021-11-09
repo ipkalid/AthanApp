@@ -2,9 +2,11 @@ import SwiftUI
 
 struct TasbihView: View {
     @ObservedObject var vm: TasbihView.ViewModel
+    var title: LocalizedStringKey
 
-    init(jsonFileName: String) {
+    init(jsonFileName: String, title: LocalizedStringKey) {
         vm = TasbihView.ViewModel(fileName: jsonFileName)
+        self.title = title
     }
 
     var body: some View {
@@ -32,7 +34,7 @@ struct TasbihView: View {
         }
         .toolbar {
             ToolbarItem(placement: .principal) {
-                LogoTextStyleView(vm.title)
+                LogoTextStyleView(title)
             }
         }
     }
@@ -41,12 +43,10 @@ struct TasbihView: View {
 extension TasbihView {
     class ViewModel: ObservableObject {
         @Published var azkarConents: [ZekrContent] = []
-        @Published var title: LocalizedStringKey = ""
 
         init(fileName: String) {
             guard let azkar = loadJson(fileName: fileName) else { return }
             azkarConents = azkar.content
-            title = LocalizedStringKey(azkar.title)
         }
 
         func toTheNextCard(index: Int, scrollValue: ScrollViewProxy) {

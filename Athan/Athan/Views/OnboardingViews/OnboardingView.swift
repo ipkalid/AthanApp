@@ -95,7 +95,6 @@ extension OnboardingView {
                 withAnimation {
                     self.selectedTab = 1
                 }
-              
 
             } completionHandler: { authorizationStatus in
                 switch authorizationStatus {
@@ -121,6 +120,14 @@ extension OnboardingView {
                             self.isNotificationAuthrised = true
                             withAnimation { self.selectedTab = 2 }
                         }
+                    }
+                case .authorized:
+                    DispatchQueue.main.async {
+                        self.isNotificationAuthrised = true
+                    }
+                case .denied:
+                    DispatchQueue.main.async {
+                        self.showNotificationDeniedAlert = true
                     }
                 default:
                     return

@@ -15,26 +15,26 @@ struct AthkarView: View {
                     .frame(maxWidth: .infinity, minHeight: 40)
 
                 VStack(spacing: 20) {
-                    NavigationLink(destination: TasbihView(jsonFileName: "PostPrayer_azkar")) {
+                    NavigationLink(destination: TasbihView(jsonFileName: "PostPrayer_azkar", title: "Post Prayer Athkar")) {
                         AthkarBigButton(
-                            title: "أذكار بعد الصلاة",
+                            title: "Post Prayer Athkar",
                             titleColor: .white,
                             backgroundColor: Color("Light Green")
                         )
                     }.buttonStyle(.plain)
 
-                    NavigationLink(destination: TasbihView(jsonFileName: "azkar_sabah")) {
+                    NavigationLink(destination: TasbihView(jsonFileName: "azkar_sabah", title: "Morning Athkar")) {
                         AthkarBigButton(
-                            title: "أذكار الصباح",
+                            title: "Morning Athkar",
                             titleColor: .black,
                             backgroundColor: AppColors.yellow
                         )
                     }
                     .buttonStyle(.plain)
 
-                    NavigationLink(destination: TasbihView(jsonFileName: "azkar_massa")) {
+                    NavigationLink(destination: TasbihView(jsonFileName: "azkar_massa", title: "Evening Athkar")) {
                         AthkarBigButton(
-                            title: "أذكار المساء",
+                            title: "Evening Athkar",
                             titleColor: .white,
                             backgroundColor: Color(hex: "091740")
                         )

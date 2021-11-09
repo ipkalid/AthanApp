@@ -54,17 +54,21 @@ struct SettingView: View {
     }
 
     private func AppVersion() -> some View {
-        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        var appVersion = "1.0.0"
+        if let bundleVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            appVersion = bundleVersion
+        }
+
         return HStack {
             Spacer()
 
-            VStack(spacing:0) {
+            VStack(spacing: 0) {
                 LogoTextStyleView("أذان")
-            
-                Text("\(appVersion!)")
-                    .font(.system(size: 14 ))
+
+                Text("\(appVersion)")
+                    .font(.system(size: 14))
                     .fontWeight(.bold)
-                    .offset(y:-10)
+                    .offset(y: -10)
             }
             .padding(4.0)
             .padding(.horizontal, 10.0)

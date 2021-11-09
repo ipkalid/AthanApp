@@ -42,6 +42,11 @@
 "Isha" = "العشاء";
 
 
+//AthkarView
+
+"Post Prayer Athkar" = "أذكار بعد الصلاة";
+"Morning Athkar" = "أذكار الصباح";
+"Evening Athkar" = "أذكار المساء";
 
 
 //Settings View

@@ -43,20 +43,30 @@ struct PrayerTimeHeader: View {
         let hijriCalendar = Calendar(identifier: Calendar.Identifier.islamicCivil)
         dateFormatter.locale = Locale(identifier: "ar")
         dateFormatter.calendar = hijriCalendar
-        dateFormatter.dateFormat = "yyyy/MM/dd"
+        dateFormatter.dateFormat = "YYYY/MM/dd"
 
         return dateFormatter.string(from: Date.now)
     }
 
     private func dayInWeek() -> String {
         let dateFormatter = DateFormatter()
+        if let local = Locale.current.languageCode{
+            if local == "ar"{
+                dateFormatter.dateFormat = "EEEE"
+            }else{
+                dateFormatter.dateFormat = "EE"
+            }
+        }
         
-        dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from: Date.now)
     }
 
     private func getDate() -> String {
         let dateFormatter = DateFormatter()
+        
+        let gregorianCalendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        dateFormatter.locale = Locale(identifier: "en")
+        dateFormatter.calendar = gregorianCalendar
         dateFormatter.dateFormat = "YYYY/MM/dd"
         return dateFormatter.string(from: Date.now)
     }

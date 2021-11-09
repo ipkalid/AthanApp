@@ -22,19 +22,3 @@ struct MainCardStyle: ViewModifier {
             .shadow(radius: 10)
     }
 }
-
-struct GoToSettingAlert: ViewModifier {
-    @Binding var isPresented: Bool
-
-    func body(content: Content) -> some View {
-        content
-            .alert("تفعيل الموقع", isPresented: $isPresented) {
-                Button("الذهاب الى الإعدادات") {
-                    Helper.goToAppSetting()
-                }
-                Button("إلغاء", role: .cancel) {}
-            } message: {
-                Text("الرجاء تفعيل الموقع من الإعدادات")
-            }
-    }
-}
