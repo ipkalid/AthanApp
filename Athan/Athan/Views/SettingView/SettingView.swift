@@ -27,6 +27,11 @@ struct SettingView: View {
                     )
                     .alert(isPresented: $vm.showLocationDeniedAlert, content: LocationManager.showLocationDeniedAlert)
 
+                    Button("Change Language") {
+                        Helper.goToAppSetting()
+                    }
+                    .buttonStyle(.plain)
+
                     // AppSettingSection()
 
                     AppDetailsSection()

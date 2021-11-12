@@ -15,7 +15,8 @@ struct AthkarBigButton: View {
     var body: some View {
         LogoTextStyleView(title, size: 44, color: titleColor)
             .padding()
-            .frame(width: UIScreen.screenWidth * 0.8, height: UIScreen.screenHeight / 5, alignment: .bottomLeading)
+            
+            .frame(width: UIScreen.screenWidth * 0.8, height: 170, alignment: .bottomLeading)
             .padding()
             .background(backgroundColor)
             .cornerRadius(8)
