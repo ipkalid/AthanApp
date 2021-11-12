@@ -27,10 +27,10 @@
 <div align="center">
   <table spacing = "10">
     <tr>
-      <img src="images/screenshots/1.png" alt="screenshots 1"  height="400">
-      <img src="images/screenshots/2.png" alt="screenshots 2"  height="400">
-      <img src="images/screenshots/3.png" alt="screenshots 3"  height="400">
-      <img src="images/screenshots/4.png" alt="screenshots 4"  height="400">
+      <img src="images/screenshots/1.png" alt="screenshots 1"  height="700">
+      <img src="images/screenshots/2.png" alt="screenshots 2"  height="700">
+      <img src="images/screenshots/3.png" alt="screenshots 3"  height="700">
+      <img src="images/screenshots/4.png" alt="screenshots 4"  height="700">
     </tr>
   </table>  
 </div>
