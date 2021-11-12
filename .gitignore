@@ -70,6 +70,11 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
+#old and learning folder 
+Athan/Old/*
+
+
+
 # Code Injection
 #
 # After new code Injection tools there's a generated folder /iOSInjectionProject

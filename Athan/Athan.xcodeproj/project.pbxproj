@@ -11,7 +11,6 @@
 		12413E9127394D5400090C2A /* SettingLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12413E9027394D5400090C2A /* SettingLocationButton.swift */; };
 		1246FCD3272B37B7007DDBF4 /* SalahSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1246FCD2272B37B7007DDBF4 /* SalahSetting.swift */; };
 		124E3611272A026E0007F905 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 124E3613272A026E0007F905 /* Localizable.strings */; };
-		126B93262738377F00B997CD /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126B93252738377F00B997CD /* SwiftUIView.swift */; };
 		126B93282738938E00B997CD /* OnBordingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126B93272738938E00B997CD /* OnBordingCardView.swift */; };
 		E9016CAE26F566D00000EDBF /* PrayerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9016CAD26F566D00000EDBF /* PrayerTime.swift */; };
 		E9016CB026F568D00000EDBF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9016CAF26F568D00000EDBF /* Date.swift */; };
@@ -20,7 +19,6 @@
 		E93115F926FD5F0200532A28 /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93115F826FD5F0200532A28 /* CustomText.swift */; };
 		E93B5ED126F13A6E00C85177 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93B5ED026F13A6E00C85177 /* LocationManager.swift */; };
 		E9504DCE27231EB400836A76 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9504DCD27231EB400836A76 /* Helper.swift */; };
-		E96974DD271599DA006C2154 /* PostPrayerAthkarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96974DC271599DA006C2154 /* PostPrayerAthkarView.swift */; };
 		E96974E02715A4AE006C2154 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96974DF2715A4AE006C2154 /* SettingView.swift */; };
 		E96974E22715A987006C2154 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96974E12715A987006C2154 /* Launch Screen.storyboard */; };
 		E96B23B7271B9D3D00B6C249 /* ZekrCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B23B6271B9D3D00B6C249 /* ZekrCard.swift */; };
@@ -35,7 +33,6 @@
 		E9775CF0271A24A000608664 /* DevloperDetailsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775CEF271A24A000608664 /* DevloperDetailsSection.swift */; };
 		E9775CF2271A251B00608664 /* AppDetailsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775CF1271A251B00608664 /* AppDetailsSection.swift */; };
 		E9775CF4271A282B00608664 /* AppSettingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775CF3271A282B00608664 /* AppSettingSection.swift */; };
-		E990D6F6271A1E1A000B8B72 /* sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E990D6F5271A1E1A000B8B72 /* sheet.swift */; };
 		E99C4E3326ED7E8000971EA3 /* Adhan in Frameworks */ = {isa = PBXBuildFile; productRef = E99C4E3226ED7E8000971EA3 /* Adhan */; };
 		E99C4E3D26EE524A00971EA3 /* AthkarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C4E3C26EE524A00971EA3 /* AthkarView.swift */; };
 		E99C4E3F26EE53AC00971EA3 /* PrayerTimeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C4E3E26EE53AC00971EA3 /* PrayerTimeHeader.swift */; };
@@ -62,7 +59,6 @@
 		E9FADB9A26ED220C00271BFA /* PrayersTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FADB9926ED220C00271BFA /* PrayersTimeView.swift */; };
 		E9FADB9C26ED22C300271BFA /* PrayerTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FADB9B26ED22C300271BFA /* PrayerTimeCell.swift */; };
 		E9FADB9E26ED22F500271BFA /* PrayerTimeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FADB9D26ED22F500271BFA /* PrayerTimeCard.swift */; };
-		E9FEF25F26F7E4E30026C261 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FEF25E26F7E4E30026C261 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,7 +81,6 @@
 		1246FCD2272B37B7007DDBF4 /* SalahSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalahSetting.swift; sourceTree = "<group>"; };
 		124E3612272A026E0007F905 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		124E3614272A02800007F905 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
-		126B93252738377F00B997CD /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		126B93272738938E00B997CD /* OnBordingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBordingCardView.swift; sourceTree = "<group>"; };
 		E9016CAD26F566D00000EDBF /* PrayerTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTime.swift; sourceTree = "<group>"; };
 		E9016CAF26F568D00000EDBF /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -94,7 +89,6 @@
 		E93115F826FD5F0200532A28 /* CustomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
 		E93B5ED026F13A6E00C85177 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E9504DCD27231EB400836A76 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		E96974DC271599DA006C2154 /* PostPrayerAthkarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrayerAthkarView.swift; sourceTree = "<group>"; };
 		E96974DF2715A4AE006C2154 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		E96974E12715A987006C2154 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E96B23B6271B9D3D00B6C249 /* ZekrCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZekrCard.swift; sourceTree = "<group>"; };
@@ -109,7 +103,6 @@
 		E9775CEF271A24A000608664 /* DevloperDetailsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevloperDetailsSection.swift; sourceTree = "<group>"; };
 		E9775CF1271A251B00608664 /* AppDetailsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailsSection.swift; sourceTree = "<group>"; };
 		E9775CF3271A282B00608664 /* AppSettingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingSection.swift; sourceTree = "<group>"; };
-		E990D6F5271A1E1A000B8B72 /* sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sheet.swift; sourceTree = "<group>"; };
 		E99C4E3C26EE524A00971EA3 /* AthkarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthkarView.swift; sourceTree = "<group>"; };
 		E99C4E3E26EE53AC00971EA3 /* PrayerTimeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeHeader.swift; sourceTree = "<group>"; };
 		E9AA10C6271245640073C265 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -136,7 +129,6 @@
 		E9FADB9926ED220C00271BFA /* PrayersTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayersTimeView.swift; sourceTree = "<group>"; };
 		E9FADB9B26ED22C300271BFA /* PrayerTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeCell.swift; sourceTree = "<group>"; };
 		E9FADB9D26ED22F500271BFA /* PrayerTimeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeCard.swift; sourceTree = "<group>"; };
-		E9FEF25E26F7E4E30026C261 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,14 +160,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		126B93242738377000B997CD /* learnNavigation */ = {
-			isa = PBXGroup;
-			children = (
-				126B93252738377F00B997CD /* SwiftUIView.swift */,
-			);
-			path = learnNavigation;
-			sourceTree = "<group>";
-		};
 		E93115F726FD535C00532A28 /* Style */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,15 +168,6 @@
 				E9AA10D1271247B10073C265 /* Colors.swift */,
 			);
 			path = Style;
-			sourceTree = "<group>";
-		};
-		E9390E4526F7A7C0007A5E11 /* LearnLocation */ = {
-			isa = PBXGroup;
-			children = (
-				E9FEF25E26F7E4E30026C261 /* MapView.swift */,
-				E990D6F5271A1E1A000B8B72 /* sheet.swift */,
-			);
-			path = LearnLocation;
 			sourceTree = "<group>";
 		};
 		E93B5ECF26F13A5400C85177 /* Managers */ = {
@@ -280,16 +255,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		E96CD934271B9AE400C847D3 /* Old */ = {
-			isa = PBXGroup;
-			children = (
-				126B93242738377000B997CD /* learnNavigation */,
-				E9390E4526F7A7C0007A5E11 /* LearnLocation */,
-				E9AA10D327124A4A0073C265 /* PostPrayerAthkarView */,
-			);
-			path = Old;
-			sourceTree = "<group>";
-		};
 		E99C4E3426EE497700971EA3 /* AthkerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,14 +284,6 @@
 				E9F378A9270024F400C86589 /* 2_quraan_ad3yah.json */,
 			);
 			path = Old;
-			sourceTree = "<group>";
-		};
-		E9AA10D327124A4A0073C265 /* PostPrayerAthkarView */ = {
-			isa = PBXGroup;
-			children = (
-				E96974DC271599DA006C2154 /* PostPrayerAthkarView.swift */,
-			);
-			path = PostPrayerAthkarView;
 			sourceTree = "<group>";
 		};
 		E9F37889270023A200C86589 /* Resources */ = {
@@ -371,7 +328,6 @@
 		E9FADB7E26EC3D1000271BFA /* Athan */ = {
 			isa = PBXGroup;
 			children = (
-				E96CD934271B9AE400C847D3 /* Old */,
 				E9FADB7F26EC3D1000271BFA /* AthanApp.swift */,
 				E96974E12715A987006C2154 /* Launch Screen.storyboard */,
 				E9F37889270023A200C86589 /* Resources */,
@@ -546,7 +502,6 @@
 				E9FADB9A26ED220C00271BFA /* PrayersTimeView.swift in Sources */,
 				E9FADB8226EC3D1000271BFA /* AppTapView.swift in Sources */,
 				E96974E02715A4AE006C2154 /* SettingView.swift in Sources */,
-				E990D6F6271A1E1A000B8B72 /* sheet.swift in Sources */,
 				1239FDBE272C6DF10039C89D /* OnboardingView.swift in Sources */,
 				E96B23B9271B9D6700B6C249 /* AthkarBigButton.swift in Sources */,
 				E9AA10C7271245640073C265 /* CoreDataManager.swift in Sources */,
@@ -556,20 +511,17 @@
 				E9FADB8026EC3D1000271BFA /* AthanApp.swift in Sources */,
 				E96CD92D271B87FB00C847D3 /* EnvViewModel.swift in Sources */,
 				E9775CF4271A282B00608664 /* AppSettingSection.swift in Sources */,
-				E9FEF25F26F7E4E30026C261 /* MapView.swift in Sources */,
 				E96B23BF271F6A8A00B6C249 /* SoundManager.swift in Sources */,
 				E96B23C3271F764900B6C249 /* NotificationManager.swift in Sources */,
 				E96B23C1271F757400B6C249 /* HapticManager.swift in Sources */,
 				E9775CF2271A251B00608664 /* AppDetailsSection.swift in Sources */,
 				E9016CAE26F566D00000EDBF /* PrayerTime.swift in Sources */,
 				E9AA10D2271247B10073C265 /* Colors.swift in Sources */,
-				126B93262738377F00B997CD /* SwiftUIView.swift in Sources */,
 				E9AA10D527124A750073C265 /* TasbihView.swift in Sources */,
 				E93B5ED126F13A6E00C85177 /* LocationManager.swift in Sources */,
 				E9B61EC027222FE300F894B5 /* Modifires.swift in Sources */,
 				E93115F926FD5F0200532A28 /* CustomText.swift in Sources */,
 				E99C4E3F26EE53AC00971EA3 /* PrayerTimeHeader.swift in Sources */,
-				E96974DD271599DA006C2154 /* PostPrayerAthkarView.swift in Sources */,
 				E9FADB9026ECFBAB00271BFA /* Color.swift in Sources */,
 				E9F1970427127CE9002AE23E /* UIScreen.swift in Sources */,
 				E96CD930271B996500C847D3 /* LinkButton.swift in Sources */,
