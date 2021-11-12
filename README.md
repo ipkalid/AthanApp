@@ -15,7 +15,7 @@
     An awesome Prayer time Reminder App
     <br>
     <br>
-     <a href="https://apps.apple.com/us/app/id1592984010"><img src="Images/app-store-badge.svg" alt="App Store Badge"></a>
+     <a href="https://apps.apple.com/us/app/id1592984010"><img src="images/app-store-badge.svg" alt="App Store Badge"></a>
     <br>
   </p>
 </div>
