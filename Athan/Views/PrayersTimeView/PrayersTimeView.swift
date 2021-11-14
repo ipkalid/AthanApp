@@ -18,6 +18,12 @@ struct PrayersTimeView: View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 PrayerTimeHeader()
+                
+                
+                Button("YOU CANT PRESS ME"){
+                    let numbers = [0]
+                    let _ = numbers[1]
+                }
 
                 if let prayers = env.prayers {
                     PrayerTimeCard(prayers: prayers)
