@@ -22,7 +22,7 @@ class NotificationManager {
                     completionHandler(granted, error, .notDetermined)
                 }
             case .denied: completionHandler(false, nil, .denied)
-            case .authorized:completionHandler(false, nil, .authorized)
+            case .authorized: completionHandler(false, nil, .authorized)
                 return
 
             default:
@@ -31,7 +31,7 @@ class NotificationManager {
         }
     }
 
-    func scheduleNewNotification(udid: String = UUID().uuidString, titlt: String, body: String, date: Date, rerepeats: Bool = false) {
+    func scheduleNewNotification(udid: String = UUID().uuidString, titlt: String, body: String, date: Date) {
         let content = UNMutableNotificationContent()
         content.title = titlt
         content.body = body
@@ -46,7 +46,27 @@ class NotificationManager {
         dateComponents.hour = calendar.component(.hour, from: date)
         dateComponents.minute = calendar.component(.minute, from: date)
 
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: rerepeats)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+
+        let request = UNNotificationRequest(
+            identifier: udid,
+            content: content,
+            trigger: trigger
+        )
+        center.add(request) { error in
+            if let error = error {
+                debugPrint("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func scheduleNewNotification(udid: String = UUID().uuidString, titlt: String, body: String, date: DateComponents) {
+        let content = UNMutableNotificationContent()
+        content.title = titlt
+        content.body = body
+        content.sound = .default
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
 
         let request = UNNotificationRequest(
             identifier: udid,
@@ -63,6 +83,7 @@ class NotificationManager {
     func removeNotificationById(_ id: String) {
         center.removePendingNotificationRequests(withIdentifiers: [id])
     }
+
     func removeAllDeliveredNotifications() {
         center.removeAllDeliveredNotifications()
     }

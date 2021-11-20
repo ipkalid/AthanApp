@@ -16,4 +16,13 @@ struct Helper {
             }
         }
     }
+
+    static func isArabic() -> Bool {
+        if let local = Locale.current.languageCode {
+            if local == "ar" {
+                return true
+            }
+        }
+        return false
+    }
 }

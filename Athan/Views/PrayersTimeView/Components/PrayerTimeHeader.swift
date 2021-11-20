@@ -50,20 +50,18 @@ struct PrayerTimeHeader: View {
 
     private func dayInWeek() -> String {
         let dateFormatter = DateFormatter()
-        if let local = Locale.current.languageCode{
-            if local == "ar"{
-                dateFormatter.dateFormat = "EEEE"
-            }else{
-                dateFormatter.dateFormat = "EE"
-            }
+        if Helper.isArabic() {
+            dateFormatter.dateFormat = "EEEE"
+        } else {
+            dateFormatter.dateFormat = "EE"
         }
-        
+
         return dateFormatter.string(from: Date.now)
     }
 
     private func getDate() -> String {
         let dateFormatter = DateFormatter()
-        
+
         let gregorianCalendar = Calendar(identifier: Calendar.Identifier.gregorian)
         dateFormatter.locale = Locale(identifier: "en")
         dateFormatter.calendar = gregorianCalendar
