@@ -22,6 +22,8 @@ struct PrayerTimeCell: View {
         switch prayer {
         case .fajr:
             return "Fajr"
+        case .sunrise:
+            return "Sunrise"
         case .dhuhr:
             return "Dhuhr"
         case .asr:
@@ -37,6 +39,8 @@ struct PrayerTimeCell: View {
     private var prayerIcon: String {
         switch prayer {
         case .fajr:
+            return "sun.and.horizon"
+        case .sunrise:
             return "sunrise"
         case .dhuhr:
             return "sun.max"

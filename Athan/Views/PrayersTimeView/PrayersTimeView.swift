@@ -20,24 +20,25 @@ struct PrayersTimeView: View {
                 PrayerTimeHeader()
 
                 if let prayers = env.prayers {
-                    VStack {
-                        Text("Next Prayer in")
-                            .font(.headline)
+                    VStack (spacing: 4) {
+                        VStack() {
+                            Text("Next Prayer in")
+                                .font(.headline)
 
-                        Text(vm.nextPrayerCountDown())
-                            // .font(.largeTitle)
-                            .font(.system(.largeTitle, design: .monospaced))
-                            .fontWeight(.semibold)
-                            .onReceive(vm.timer, perform: { _ in
-                                vm.currentTime = Date.now
-                            })
+                            Text(vm.nextPrayerCountDown())
+                                // .font(.largeTitle)
+                                .font(.system(.largeTitle, design: .monospaced))
+                                .fontWeight(.semibold)
+                                .onReceive(vm.timer, perform: { _ in
+                                    vm.currentTime = Date.now
+                                })
 
-                    }.multilineTextAlignment(.center)
-                        .foregroundColor(AppColors.yellow)
-                        .shadow(radius: 6)
-
-                    PrayerTimeCard(prayers: prayers)
-                        .padding(.horizontal)
+                        }.multilineTextAlignment(.center)
+                            .foregroundColor(AppColors.yellow)
+                            .shadow(radius: 6)
+                        PrayerTimeCard(prayers: prayers)
+                            .padding(.horizontal)
+                    }
 
                 } else {
                     VStack {

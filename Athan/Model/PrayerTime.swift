@@ -15,6 +15,7 @@ struct PrayerTimesInMonth {
 
 enum Prayer {
     case fajr
+    case sunrise
     case dhuhr
     case asr
     case maghrib
