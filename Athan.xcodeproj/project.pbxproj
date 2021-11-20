@@ -771,7 +771,7 @@
 				CODE_SIGN_ENTITLEMENTS = Athan/Athan.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"Athan/Preview Content\"";
 				DEVELOPMENT_TEAM = Q22HQU5G8X;
@@ -800,7 +800,7 @@
 				CODE_SIGN_ENTITLEMENTS = Athan/Athan.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"Athan/Preview Content\"";
 				DEVELOPMENT_TEAM = Q22HQU5G8X;

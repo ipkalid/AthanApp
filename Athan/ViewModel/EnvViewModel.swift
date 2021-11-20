@@ -166,7 +166,7 @@ class EnvViewModel: ObservableObject {
         } else {
             titleReminder = " Prayer"
             prayerTimeReminder = " Prayer Time"
-            beforePrayerTimeReminder = " Prayer After Time 10 Minutes"
+            beforePrayerTimeReminder = " Prayer Time After 10 Minutes"
             switch prayer {
             case .fajr:
                 prayerName = "Fajr"
