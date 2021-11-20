@@ -63,8 +63,8 @@ struct PrayerTimeCell: View {
         case .isha:
             buttonPadding = 0.0
         default:
-            topPdaaing = 6.0
-            buttonPadding = 6.0
+            topPdaaing = 5.0
+            buttonPadding = 5.0
         }
         return HStack {
             VStack(alignment: .leading) {
@@ -84,13 +84,5 @@ struct PrayerTimeCell: View {
         .padding(.horizontal, 8.0)
         .padding(.top, topPdaaing)
         .padding(.bottom, buttonPadding)
-    }
-}
-
-struct PrayerTimeCell_Previews: PreviewProvider {
-    static var previews: some View {
-        //   let cal = Calendar(identifier: Calendar.Identifier.gregorian)
-        let startDate = Date()
-        return PrayerTimeCell(salahTime: startDate)
     }
 }

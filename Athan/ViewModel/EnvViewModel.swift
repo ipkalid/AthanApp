@@ -6,7 +6,6 @@ import SwiftUI
 class EnvViewModel: ObservableObject {
     static let shared = EnvViewModel()
     @Published var prayers: PrayerTimes?
-    // First Lunch
     @AppStorage(UserDefaultsKey.showOnboarding) var showOnboarding: Bool = true
 
     @AppStorage(UserDefaultsKey.cityName) var cityName: String?
@@ -193,7 +192,18 @@ class EnvViewModel: ObservableObject {
         ]
     }
 
-    func addNewPrayersNotification(calculationMethod: CalculationMethod = .ummAlQura) {
+    private func addNotification(prayer: Prayer, prayerDate: Date, beforeNotification: Bool) {
+        let notificationMessages = notificationMessages(prayer: prayer)
+        let titleReminder = notificationMessages[0]
+        let prayerTimeReminder = notificationMessages[1]
+        let beforePrayerTimeReminder = notificationMessages[2]
+        notificationManager.scheduleNewNotification(titlt: titleReminder, body: prayerTimeReminder, date: prayerDate)
+        if beforeNotification {
+            notificationManager.scheduleNewNotification(titlt: titleReminder, body: beforePrayerTimeReminder, date: prayerDate.addingTimeInterval(-10 * 60))
+        }
+    }
+
+    private func addNewPrayersNotification(calculationMethod: CalculationMethod = .ummAlQura) {
         guard let latitude = self.latitude,
               let longitude = self.longitude
         else {
@@ -205,64 +215,28 @@ class EnvViewModel: ObservableObject {
         let params = calculationMethod.params
         notificationManager.removeAllNotification()
         notificationManager.removeAllDeliveredNotifications()
-        let minusTenMins: Double = -10 * 60
         for i in 0 ..< 5 {
             guard let modifiedDate = Calendar.current.date(byAdding: .day, value: i, to: Date()) else { return }
             let date = cal.dateComponents([.year, .month, .day], from: modifiedDate)
             guard let prayers = PrayerTimes(coordinates: coordinates, date: date, calculationParameters: params) else { return }
             if fajrNotification {
-                let notificationMessages = notificationMessages(prayer: .fajr)
-                let titleReminder = notificationMessages[0]
-                let prayerTimeReminder = notificationMessages[1]
-                let beforePrayerTimeReminder = notificationMessages[2]
-                notificationManager.scheduleNewNotification(titlt: titleReminder, body: prayerTimeReminder, date: prayers.fajr)
-                if beforeFajrNotification {
-                    notificationManager.scheduleNewNotification(titlt: titleReminder, body: beforePrayerTimeReminder, date: prayers.fajr.addingTimeInterval(minusTenMins))
-                }
+                addNotification(prayer: .fajr, prayerDate: prayers.fajr, beforeNotification: beforeFajrNotification)
             }
 
             if dhuhrNotification {
-                let notificationMessages = notificationMessages(prayer: .dhuhr)
-                let titleReminder = notificationMessages[0]
-                let prayerTimeReminder = notificationMessages[1]
-                let beforePrayerTimeReminder = notificationMessages[2]
-                notificationManager.scheduleNewNotification(titlt: titleReminder, body: prayerTimeReminder, date: prayers.dhuhr)
-                if beforeDhuhrNotification {
-                    notificationManager.scheduleNewNotification(titlt: titleReminder, body: beforePrayerTimeReminder, date: prayers.dhuhr.addingTimeInterval(minusTenMins))
-                }
+                addNotification(prayer: .dhuhr, prayerDate: prayers.dhuhr, beforeNotification: beforeDhuhrNotification)
             }
 
             if asrNotification {
-                let notificationMessages = notificationMessages(prayer: .asr)
-                let titleReminder = notificationMessages[0]
-                let prayerTimeReminder = notificationMessages[1]
-                let beforePrayerTimeReminder = notificationMessages[2]
-                notificationManager.scheduleNewNotification(titlt: titleReminder, body: prayerTimeReminder, date: prayers.asr)
-                if beforeAsrNotification {
-                    notificationManager.scheduleNewNotification(titlt: titleReminder, body: beforePrayerTimeReminder, date: prayers.asr.addingTimeInterval(minusTenMins))
-                }
+                addNotification(prayer: .asr, prayerDate: prayers.asr, beforeNotification: beforeAsrNotification)
             }
 
             if maghribNotification {
-                let notificationMessages = notificationMessages(prayer: .maghrib)
-                let titleReminder = notificationMessages[0]
-                let prayerTimeReminder = notificationMessages[1]
-                let beforePrayerTimeReminder = notificationMessages[2]
-                notificationManager.scheduleNewNotification(titlt: titleReminder, body: prayerTimeReminder, date: prayers.maghrib)
-                if beforeMaghribNotification {
-                    notificationManager.scheduleNewNotification(titlt: titleReminder, body: beforePrayerTimeReminder, date: prayers.maghrib.addingTimeInterval(minusTenMins))
-                }
+                addNotification(prayer: .maghrib, prayerDate: prayers.maghrib, beforeNotification: beforeMaghribNotification)
             }
 
             if ishaNotification {
-                let notificationMessages = notificationMessages(prayer: .isha)
-                let titleReminder = notificationMessages[0]
-                let prayerTimeReminder = notificationMessages[1]
-                let beforePrayerTimeReminder = notificationMessages[2]
-                notificationManager.scheduleNewNotification(titlt: titleReminder, body: prayerTimeReminder, date: prayers.isha)
-                if beforeIshaNotification {
-                    notificationManager.scheduleNewNotification(titlt: titleReminder, body: beforePrayerTimeReminder, date: prayers.isha.addingTimeInterval(minusTenMins))
-                }
+                addNotification(prayer: .isha, prayerDate: prayers.isha, beforeNotification: beforeIshaNotification)
             }
         }
         if morningAthkar {
@@ -280,7 +254,7 @@ class EnvViewModel: ObservableObject {
             date.hour = 19
             date.minute = 30
             if isArabic {
-                notificationManager.scheduleNewNotification(titlt: "أذكار الصباح", body: "أذكر الله يحفظك", date: date)
+                notificationManager.scheduleNewNotification(titlt: "أذكار المساء", body: "أذكر الله يحفظك", date: date)
             } else {
                 notificationManager.scheduleNewNotification(titlt: "Evening Athkar", body: "Evening Athkar Time", date: date)
             }

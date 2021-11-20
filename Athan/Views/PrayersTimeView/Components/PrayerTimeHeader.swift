@@ -20,6 +20,7 @@ struct PrayerTimeHeader: View {
 
             Text(dayInWeek())
                 .font(.title2)
+                .font(.system(.title2, design: .monospaced))
                 .fontWeight(.bold)
                 .minimumScaleFactor(0.4)
                 .foregroundColor(AppColors.yellow)
@@ -34,13 +35,13 @@ struct PrayerTimeHeader: View {
                 .cornerRadius(20)
         }
         .padding(.horizontal, 32)
-        .padding(.top, 30)
+        .padding(.top, 5)
     }
 
     private func higriDate() -> String {
         let dateFormatter = DateFormatter()
 
-        let hijriCalendar = Calendar(identifier: Calendar.Identifier.islamicCivil)
+        let hijriCalendar = Calendar(identifier: Calendar.Identifier.islamicUmmAlQura)
         dateFormatter.locale = Locale(identifier: "ar")
         dateFormatter.calendar = hijriCalendar
         dateFormatter.dateFormat = "YYYY/MM/dd"

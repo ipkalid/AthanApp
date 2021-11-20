@@ -20,8 +20,8 @@ struct PrayersTimeView: View {
                 PrayerTimeHeader()
 
                 if let prayers = env.prayers {
-                    VStack (spacing: 4) {
-                        VStack() {
+                    VStack(spacing: 4) {
+                        VStack {
                             Text("Next Prayer in")
                                 .font(.headline)
 
@@ -100,14 +100,20 @@ extension PrayersTimeView {
         @Published var currentTime = Date.now
 
         func nextPrayerCountDown() -> String {
-            guard let prayers = env.prayers,
-                  let nextPrayer = prayers.nextPrayer()
-            else { return "00:00:00" }
+            guard let prayers = env.prayers else { return "ERROR" }
+            var nextPrayerDate: Date
+
+            if let nextPrayer = prayers.nextPrayer() {
+                nextPrayerDate = prayers.time(for: nextPrayer)
+            } else {
+                nextPrayerDate = prayers.fajr.addingTimeInterval(60 * 60 * 24)
+            }
+
             let calendar = Calendar(identifier: .gregorian)
             let components = calendar
                 .dateComponents([.hour, .minute, .second],
                                 from: currentTime,
-                                to: prayers.time(for: nextPrayer)
+                                to: nextPrayerDate
                 )
 
             return String(format: "%02d:%02d:%02d",
