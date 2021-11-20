@@ -5,14 +5,13 @@ import SwiftUI
 
 class EnvViewModel: ObservableObject {
     static let shared = EnvViewModel()
-
     @Published var prayers: PrayerTimes?
-
-    @AppStorage(UserDefaultsKey.showOnboarding) var showOnboarding: Bool?
+    // First Lunch
+    @AppStorage(UserDefaultsKey.showOnboarding) var showOnboarding: Bool = true
 
     @AppStorage(UserDefaultsKey.cityName) var cityName: String?
 
-    @AppStorage(UserDefaultsKey.latitude) var latitude: Double?
+    @AppStorage(UserDefaultsKey.latitude) private var latitude: Double?
     @AppStorage(UserDefaultsKey.longitude) private var longitude: Double?
 
     private var locationManager = LocationManager.instance
@@ -20,15 +19,15 @@ class EnvViewModel: ObservableObject {
 
     init() {
         guard
-            let latitude = latitude,
-            let longitude = longitude
+            let latitude = self.latitude,
+            let longitude = self.longitude
         else { return }
 
         LocationManager.getCityName(latitude: latitude, longitude: longitude) { city in
             self.cityName = city
         }
         showPrayerTime(latitude: latitude, longitude: longitude)
-        addNewPrayersNotification(latitude: latitude, longitude: longitude)
+        addNewPrayersNotification()
     }
 
     func updateLocation(latitude: Double, longitude: Double) {
@@ -39,7 +38,7 @@ class EnvViewModel: ObservableObject {
         }
 
         showPrayerTime(latitude: latitude, longitude: longitude)
-        addNewPrayersNotification(latitude: latitude, longitude: longitude)
+        addNewPrayersNotification()
     }
 
     func requestNotification(completionHandler: @escaping (Bool, Error?, UNAuthorizationStatus) -> Void) {
@@ -63,7 +62,13 @@ class EnvViewModel: ObservableObject {
         self.prayers = prayers
     }
 
-    func addNewPrayersNotification(latitude: Double, longitude: Double, calculationMethod: CalculationMethod = .ummAlQura) {
+    func addNewPrayersNotification(calculationMethod: CalculationMethod = .ummAlQura) {
+        guard let latitude = self.latitude,
+              let longitude = self.longitude
+        else {
+            return
+        }
+
         let cal = Calendar(identifier: Calendar.Identifier.gregorian)
         let coordinates = Coordinates(latitude: latitude, longitude: longitude)
         let params = calculationMethod.params
@@ -73,12 +78,15 @@ class EnvViewModel: ObservableObject {
             guard let modifiedDate = Calendar.current.date(byAdding: .day, value: i, to: Date()) else { return }
             let date = cal.dateComponents([.year, .month, .day], from: modifiedDate)
             guard let prayers = PrayerTimes(coordinates: coordinates, date: date, calculationParameters: params) else { return }
+
             notificationManager.scheduleNewNotification(titlt: "أذان الفجر", body: "حان موعد صلاة الفجر", date: prayers.fajr)
             notificationManager.scheduleNewNotification(titlt: "أذان الظهر", body: "حان موعد صلاة الظهر", date: prayers.dhuhr)
             notificationManager.scheduleNewNotification(titlt: "أذان العصر", body: "حان موعد صلاة العصر", date: prayers.asr)
             notificationManager.scheduleNewNotification(titlt: "أذان المغرب", body: "حان موعد صلاة المغرب", date: prayers.maghrib)
             notificationManager.scheduleNewNotification(titlt: "أذان العشاء", body: "حان موعد صلاة العشاء", date: prayers.isha)
         }
+        guard let modifiedDate = Calendar.current.date(byAdding: .day, value: 11, to: Date()) else { return }
+        notificationManager.scheduleNewNotification(titlt: "أفتح التطبيق", body: "الرجاء فتح التطبيق من اجل استمرار الإشعارات", date: modifiedDate)
     }
 
     func getMadhabName() -> String {
@@ -107,26 +115,3 @@ class EnvViewModel: ObservableObject {
         }
     }
 }
-
-//        locationManager.onUpdateLocation = { location in
-//            self.showLocationIndicator = true
-//            let latitude = location.coordinate.latitude
-//            let longitude = location.coordinate.longitude
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//                withAnimation(.linear) {
-//                    self.showPrayerTime(
-//                        latitude: latitude,
-//                        longitude: longitude
-//                    )
-//                    self.latitude = latitude
-//                    self.longitude = longitude
-//                    self.addNewPrayersNotification(latitude: latitude, longitude: longitude)
-//                }
-//                self.showLocationIndicator = false
-//                self.cityName = self.locationManager.cityName
-//            }
-//        }
-//
-//        locationManager.onAuthorizationDenied = {
-//            self.showGoToSettingAlert = true
-//        }

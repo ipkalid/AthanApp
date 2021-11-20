@@ -27,16 +27,7 @@ struct SettingView: View {
                     )
                     .alert(isPresented: $vm.showLocationDeniedAlert, content: LocationManager.showLocationDeniedAlert)
 
-
-                    Button(action: Helper.goToAppSetting){
-                        HStack {
-                            Text("Change Language")
-                            Spacer()
-                        }
-                    }
-                    .buttonStyle(.borderless)
-
-                    // AppSettingSection()
+                    AppSettingSection()
 
                     AppDetailsSection()
 

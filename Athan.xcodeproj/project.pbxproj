@@ -14,6 +14,7 @@
 		126B93282738938E00B997CD /* OnBordingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126B93272738938E00B997CD /* OnBordingCardView.swift */; };
 		12CD91B02740B69E00C2DAB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12CD91AE2740B4FA00C2DAB5 /* GoogleService-Info.plist */; };
 		12F4CBF827485412005BCBC0 /* timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F4CBF727485412005BCBC0 /* timer.swift */; };
+		12F4CBFA2748AF95005BCBC0 /* appstorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F4CBF92748AF94005BCBC0 /* appstorage.swift */; };
 		524829933B0DFC5C1C927EAE /* Pods_Athan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E49ADCEEE8CBB2657864485 /* Pods_Athan.framework */; };
 		E9016CAE26F566D00000EDBF /* PrayerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9016CAD26F566D00000EDBF /* PrayerTime.swift */; };
 		E9016CB026F568D00000EDBF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9016CAF26F568D00000EDBF /* Date.swift */; };
@@ -87,6 +88,7 @@
 		12CD91AE2740B4FA00C2DAB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		12CD91B22740BBE800C2DAB5 /* Athan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Athan.entitlements; sourceTree = "<group>"; };
 		12F4CBF727485412005BCBC0 /* timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timer.swift; sourceTree = "<group>"; };
+		12F4CBF92748AF94005BCBC0 /* appstorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appstorage.swift; sourceTree = "<group>"; };
 		2F3AB4F32398E99F931132BF /* Pods-Athan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Athan.release.xcconfig"; path = "Target Support Files/Pods-Athan/Pods-Athan.release.xcconfig"; sourceTree = "<group>"; };
 		7E49ADCEEE8CBB2657864485 /* Pods_Athan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Athan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8FAE1CB65D19999DF5BCE22 /* Pods-Athan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Athan.debug.xcconfig"; path = "Target Support Files/Pods-Athan/Pods-Athan.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				12F4CBF727485412005BCBC0 /* timer.swift */,
+				12F4CBF92748AF94005BCBC0 /* appstorage.swift */,
 			);
 			path = LearnSwift;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				E96B23BF271F6A8A00B6C249 /* SoundManager.swift in Sources */,
 				E96B23C3271F764900B6C249 /* NotificationManager.swift in Sources */,
 				E96B23C1271F757400B6C249 /* HapticManager.swift in Sources */,
+				12F4CBFA2748AF95005BCBC0 /* appstorage.swift in Sources */,
 				12F4CBF827485412005BCBC0 /* timer.swift in Sources */,
 				E9775CF2271A251B00608664 /* AppDetailsSection.swift in Sources */,
 				E9016CAE26F566D00000EDBF /* PrayerTime.swift in Sources */,

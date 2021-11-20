@@ -8,68 +8,49 @@
 import SwiftUI
 
 struct SettingNotificationView: View {
-    @State var morning: Bool = false
-    @State var night: Bool = false
-    @State var fajr: Bool = false
-    @State var duhr: Bool = false
-    @State var asr: Bool = false
-    @State var magrib: Bool = false
-    @State var isha: Bool = false
+    @EnvironmentObject var env: EnvViewModel
+    @StateObject var vm = SettingNotificationViewModel()
+
     var body: some View {
         List {
             Group {
                 Section("إشعارات الأذكار") {
-                    Toggle("أذكار الصباح", isOn: $morning)
-                    Toggle("أذكار المساء", isOn: $night)
+                    Toggle("أذكار الصباح", isOn: $vm.morningAthkar)
+                    Toggle("أذكار المساء", isOn: $vm.eveningAthkar)
                 }
 
                 Section("الفجر") {
-                    Toggle("أذان الفجر", isOn: $fajr.animation())
-                    if fajr {
-                        Text("بدون إشعار قبل الصلاة")
-                        Text("٥ دقائق قبل الصلاة")
-                        Text("١٠ دقيقة قبل الصلاة")
-                        Text("٢٠ دقيقة قبل الصلاة")
+                    Toggle("أذان الفجر", isOn: $vm.fajrNotification.animation())
+                    if vm.fajrNotification {
+                        Toggle("١٠ دقائق قبل الصلاة", isOn: $vm.beforeFajrNotification)
                     }
                 }
 
                 Section("الظهر") {
-                    Toggle("أذان الظهر", isOn: $duhr.animation())
-                    if duhr {
-                        Text("بدون إشعار قبل الصلاة")
-                        Text("٥ دقائق قبل الصلاة")
-                        Text("١٠ دقيقة قبل الصلاة")
-                        Text("٢٠ دقيقة قبل الصلاة")
+                    Toggle("أذان الظهر", isOn: $vm.dhuhrNotification.animation())
+                    if vm.dhuhrNotification {
+                        Toggle("١٠ دقائق قبل الصلاة", isOn: $vm.beforeDhuhrNotification)
                     }
                 }
 
                 Section("العصر") {
-                    Toggle("أذان العصر", isOn: $isha.animation())
-                    if isha {
-                        Text("بدون إشعار قبل الصلاة")
-                        Text("٥ دقائق قبل الصلاة")
-                        Text("١٠ دقيقة قبل الصلاة")
-                        Text("٢٠ دقيقة قبل الصلاة")
+                    Toggle("أذان العصر", isOn: $vm.asrNotification.animation())
+                    if vm.asrNotification {
+                        Toggle("١٠ دقائق قبل الصلاة", isOn: $vm.beforeAsrNotification)
                     }
                 }
 
                 Section("المغرب") {
-                    Toggle("أذان المغرب", isOn: $asr.animation())
-                    if asr {
-                        Text("بدون إشعار قبل الصلاة")
-                        Text("٥ دقائق قبل الصلاة")
-                        Text("١٠ دقيقة قبل الصلاة")
-                        Text("٢٠ دقيقة قبل الصلاة")
+                    Toggle("أذان المغرب", isOn: $vm.maghribNotification.animation())
+                    if vm.maghribNotification {
+                        Toggle("١٠ دقائق قبل الصلاة", isOn: $vm.beforeMaghribNotification)
                     }
                 }
 
                 Section("العشاء") {
-                    Toggle("أذان العشاء", isOn: $magrib.animation())
-                    if magrib {
-                        Text("بدون إشعار قبل الصلاة")
-                        Text("٥ دقائق قبل الصلاة")
-                        Text("١٠ دقيقة قبل الصلاة")
-                        Text("٢٠ دقيقة قبل الصلاة")
+                    Toggle("أذان العشاء", isOn: $vm.ishaNotification.animation())
+                    if vm.ishaNotification {
+                        Toggle("١٠ دقائق قبل الصلاة", isOn: $vm.beforeIshaNotification)
                     }
                 }
             }
@@ -88,8 +69,83 @@ struct SettingNotificationView: View {
     }
 }
 
-struct SettingNotificationView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingNotificationView()
+class SettingNotificationViewModel: ObservableObject {
+    let env = EnvViewModel.shared
+    static let shared = SettingNotificationViewModel()
+
+    private func addNewNotification() {
+        env.addNewPrayersNotification()
+    }
+
+    @AppStorage(UserDefaultsKey.morningAthkar) var morningAthkar: Bool = false {
+        didSet {
+            addNewNotification()
+        }
+    }
+
+    @AppStorage(UserDefaultsKey.eveningAthkar) var eveningAthkar: Bool = false {
+        didSet {
+            addNewNotification()
+        }
+    }
+
+    @AppStorage(UserDefaultsKey.fajrNotification) var fajrNotification: Bool = true {
+        didSet {
+            addNewNotification()
+        }
+    }
+
+    @AppStorage(UserDefaultsKey.beforeFajrNotification) var beforeFajrNotification: Bool = false {
+        didSet {
+            addNewNotification()
+        }
+    }
+
+    @AppStorage(UserDefaultsKey.dhuhrNotification) var dhuhrNotification: Bool = true {
+        didSet {
+            addNewNotification()
+        }
+    }
+
+    @AppStorage(UserDefaultsKey.beforeDhuhrNotification) var beforeDhuhrNotification: Bool = false {
+        didSet {
+            addNewNotification()
+        }
+    }
+
+    @AppStorage(UserDefaultsKey.asrNotification) var asrNotification: Bool = true {
+        didSet {
+            addNewNotification()
+        }
+    }
+
+    @AppStorage(UserDefaultsKey.beforeAsrNotification) var beforeAsrNotification: Bool = false {
+        didSet {
+            addNewNotification()
+        }
+    }
+
+    @AppStorage(UserDefaultsKey.maghribNotification) var maghribNotification: Bool = true {
+        didSet {
+            addNewNotification()
+        }
+    }
+
+    @AppStorage(UserDefaultsKey.beforeMaghribNotification) var beforeMaghribNotification: Bool = false {
+        didSet {
+            addNewNotification()
+        }
+    }
+
+    @AppStorage(UserDefaultsKey.ishaNotification) var ishaNotification: Bool = true {
+        didSet {
+            addNewNotification()
+        }
+    }
+
+    @AppStorage(UserDefaultsKey.beforeIshaNotification) var beforeIshaNotification: Bool = false {
+        didSet {
+            addNewNotification()
+        }
     }
 }
