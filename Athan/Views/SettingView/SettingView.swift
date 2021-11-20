@@ -63,7 +63,7 @@ struct SettingView: View {
             Spacer()
 
             VStack(spacing: 0) {
-                LogoTextStyleView("أذان")
+                LogoTextStyleView("أذان",isArabic: true)
 
                 Text("\(appVersion)")
                     .font(.system(size: 14))

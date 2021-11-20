@@ -11,11 +11,18 @@ struct LogoTextStyleView: View {
     let label: LocalizedStringKey
     let size: Double
     let color: Color
+    let isArabic: Bool
 
-    init(_ key: LocalizedStringKey, size: Double = 32, color: Color = Color("Yellow")) {
+    init(_ key: LocalizedStringKey, size: Double = 32, color: Color = Color("Yellow"), isArabic: Bool = false) {
         label = key
         self.size = size
         self.color = color
+        if(isArabic == true){
+            self.isArabic = isArabic
+        }
+        else{
+            self.isArabic = Helper.isArabic()
+        }
     }
 
     var body: some View {
@@ -25,7 +32,7 @@ struct LogoTextStyleView: View {
                 .opacity(0.4)
             Text(label)
         }
-        .font(Helper.isArabic() ? Font.custom("Rakkas-Regular", size: size) : Font.system(size: size, weight: .semibold, design: .rounded))
+        .font(isArabic ? Font.custom("Rakkas-Regular", size: size) : Font.system(size: size - 6, weight: .semibold, design: .rounded))
         .foregroundColor(color)
     }
 }
