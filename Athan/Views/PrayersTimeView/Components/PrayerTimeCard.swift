@@ -22,8 +22,3 @@ struct PrayerTimeCard: View {
     }
 }
 
-// struct PrayerTimeList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PrayerTimeCard()
-//    }
-// }

@@ -35,6 +35,8 @@
 //PrayerTime View
 "Prayer Time" = "اوقات الصلاة";
 
+"Next Prayer in" = "الصلاة القادمة بعد";
+
 "Fajr" = "الفجر";
 "Dhuhr" = "الظهر";
 "Asr" = "العصر";
@@ -59,7 +61,7 @@
 "Madhab Type" = "تحديث الموقع";
 "Calculation Method" = "تحديث الموقع";
 
-"Follow Athan on Twitter" = "تابع أذان على Twitter";
+"Source Code" = "الكود البرمجي";
 "Rate the app ⭐️⭐️⭐️⭐️⭐️" = "قيم التطبيق ⭐️⭐️⭐️⭐️⭐️";
 "Message me about the app" = "راسلني حول التطبيق";
 

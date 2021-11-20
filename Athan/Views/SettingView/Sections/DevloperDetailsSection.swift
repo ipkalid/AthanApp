@@ -14,7 +14,6 @@ struct DevloperDetailsSection: View {
             LinkButton(label:"Follow the Developer on Twitter", urlSring: "https://twitter.com/iKAlhazmi")
             LinkButton(label: "Follow the Developer on Linkden", urlSring: "https://www.linkedin.com/in/khalid-alhazmi")
             LinkButton(label: "Follow the Developer on GitHub", urlSring: "https://Github.com/ipkalid")
-            // LinkButton(label: "إدعم المطور", urlSring: "https://www.buymeacoffee.com/iKhalid")
         }
       
     }

@@ -63,6 +63,9 @@ class NotificationManager {
     func removeNotificationById(_ id: String) {
         center.removePendingNotificationRequests(withIdentifiers: [id])
     }
+    func removeAllDeliveredNotifications() {
+        center.removeAllDeliveredNotifications()
+    }
 
     func removeAllNotification() {
         center.removeAllPendingNotificationRequests()

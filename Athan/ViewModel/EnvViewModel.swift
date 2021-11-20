@@ -68,6 +68,7 @@ class EnvViewModel: ObservableObject {
         let coordinates = Coordinates(latitude: latitude, longitude: longitude)
         let params = calculationMethod.params
         notificationManager.removeAllNotification()
+        notificationManager.removeAllDeliveredNotifications()
         for i in 0 ..< 12 {
             guard let modifiedDate = Calendar.current.date(byAdding: .day, value: i, to: Date()) else { return }
             let date = cal.dateComponents([.year, .month, .day], from: modifiedDate)

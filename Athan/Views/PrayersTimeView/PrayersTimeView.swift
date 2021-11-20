@@ -18,16 +18,26 @@ struct PrayersTimeView: View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 PrayerTimeHeader()
-                
-                
-                Button("YOU CANT PRESS ME"){
-                    let numbers = [0]
-                    let _ = numbers[1]
-                }
 
                 if let prayers = env.prayers {
+                    VStack {
+                        Text("Next Prayer in")
+                            .font(.headline)
+
+                        Text(vm.nextPrayerCountDown())
+                            // .font(.largeTitle)
+                            .font(.system(.largeTitle, design: .monospaced))
+                            .fontWeight(.semibold)
+                            .onReceive(vm.timer, perform: { _ in
+                                vm.currentTime = Date.now
+                            })
+
+                    }.multilineTextAlignment(.center)
+                        .foregroundColor(AppColors.yellow)
+                        .shadow(radius: 6)
+
                     PrayerTimeCard(prayers: prayers)
-                        .padding()
+                        .padding(.horizontal)
 
                 } else {
                     VStack {
@@ -83,8 +93,29 @@ struct PrayersTimeView: View {
 extension PrayersTimeView {
     class ViewModel: ObservableObject {
         let env: EnvViewModel = EnvViewModel.shared
+        let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
         @Published var showLocationIndicator: Bool = false
         @Published var showLocationDeniedAlert: Bool = false
+        @Published var currentTime = Date.now
+
+        func nextPrayerCountDown() -> String {
+            guard let prayers = env.prayers,
+                  let nextPrayer = prayers.nextPrayer()
+            else { return "00:00:00" }
+            let calendar = Calendar(identifier: .gregorian)
+            let components = calendar
+                .dateComponents([.hour, .minute, .second],
+                                from: currentTime,
+                                to: prayers.time(for: nextPrayer)
+                )
+
+            return String(format: "%02d:%02d:%02d",
+                          components.hour ?? 00,
+                          components.minute ?? 00,
+                          components.second ?? 00
+            )
+        }
 
         func requestLocation() {
             showLocationIndicator = true

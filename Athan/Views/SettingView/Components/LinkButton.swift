@@ -11,9 +11,14 @@ struct LinkButton: View {
     let label: LocalizedStringKey
     let urlSring: String
     var body: some View {
-        Button(label) {
+        Button {
             guard let url = URL(string: urlSring) else { return }
             UIApplication.shared.open(url)
+        } label: {
+            HStack {
+                Text(label)
+                Spacer()
+            }
         }
         .buttonStyle(.borderless)
     }

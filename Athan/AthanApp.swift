@@ -20,6 +20,7 @@ struct AthanApp: App {
             Group {
                 if env.showOnboarding == false {
                     AppTapView()
+                    //CountDownView()
 
                 } else {
                     OnboardingView()
