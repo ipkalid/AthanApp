@@ -18,6 +18,7 @@ struct PrayerTimeCell: View {
     }
 
     // to get the prayer name
+
     private var prayerName: LocalizedStringKey {
         switch prayer {
         case .fajr:
@@ -54,7 +55,18 @@ struct PrayerTimeCell: View {
     }
 
     var body: some View {
-        HStack {
+        var topPdaaing: Double = 8.0
+        var buttonPadding: Double = 8.0
+        switch prayer {
+        case .fajr:
+            topPdaaing = 0.0
+        case .isha:
+            buttonPadding = 0.0
+        default:
+            topPdaaing = 6.0
+            buttonPadding = 6.0
+        }
+        return HStack {
             VStack(alignment: .leading) {
                 Text(prayerName)
                     .font(.title2)
@@ -68,10 +80,10 @@ struct PrayerTimeCell: View {
             Image(systemName: prayerIcon)
                 .font(.largeTitle)
                 .foregroundColor(.gray)
-//               .symbolRenderingMode(.palette)
-//                .foregroundStyle(Color.gray, Color.orange, Color.indigo)
         }
-        .padding(8.0)
+        .padding(.horizontal, 8.0)
+        .padding(.top, topPdaaing)
+        .padding(.bottom, buttonPadding)
     }
 }
 

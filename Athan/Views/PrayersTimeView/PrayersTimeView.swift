@@ -26,7 +26,6 @@ struct PrayersTimeView: View {
                                 .font(.headline)
 
                             Text(vm.nextPrayerCountDown())
-                                // .font(.largeTitle)
                                 .font(.system(.largeTitle, design: .monospaced))
                                 .fontWeight(.semibold)
                                 .onReceive(vm.timer, perform: { _ in
