@@ -6,7 +6,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/ipkalid/AthanApp">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/app_logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Athan</h3>
