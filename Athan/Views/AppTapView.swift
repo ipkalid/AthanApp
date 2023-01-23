@@ -17,7 +17,7 @@ struct AppTapView: View {
         UITabBar.appearance().backgroundColor = .white
     }
 
-    @State var selectionTab: Int = 3
+    @State var selectionTab: Int = 0
 
     var body: some View {
         TabView(selection: $selectionTab) {
