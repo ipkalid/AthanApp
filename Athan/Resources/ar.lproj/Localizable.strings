@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  Athan
+/*
+   Localizable.strings
+   Athan
 
-  Created by Kalid on 28/10/2021.
-  
-*/
+   Created by Kalid on 28/10/2021.
+
+ */
 
 //AppName
 "Athan" = "أذان";
@@ -31,6 +31,8 @@
 "Salah" = "الصلاة";
 "Athkar" = "الأذكار";
 "Settings" = "الإعدادات";
+"Qiblah" = "القبلة";
+
 
 //PrayerTime View
 "Prayer Time" = "اوقات الصلاة";
@@ -43,6 +45,19 @@
 "Asr" = "العصر";
 "Maghrib" = "المغرب";
 "Isha" = "العشاء";
+
+
+//Qiblah View
+"Location" = "الموقع";
+"to your" = "الى جهة";
+"left" = "اليسار";
+"right" = "اليمين";
+"facing" = "مواجه";
+"Qiblah" = "القبلة";
+
+"Location" = "الموقع";
+
+
 
 
 //AthkarView
@@ -61,6 +76,13 @@
 "Notifications" = "اللإشعارات";
 "Madhab Type" = "تحديث الموقع";
 "Calculation Method" = "تحديث الموقع";
+
+
+"Athan's Sound" = "صوت الأذان";
+"Defualt Sound" = "النغمة اللإفتراضية";
+"Makkah's Athan" = "أذان مكة المكرمة";
+"Madinah's Athan" = "أذان المدينة المنورة";
+"Alaqsa's Athan" = "أذان المسجد الأقصى";
 
 "Source Code" = "الكود البرمجي";
 "Rate the app ⭐️⭐️⭐️⭐️⭐️" = "قيم التطبيق ⭐️⭐️⭐️⭐️⭐️";
@@ -81,5 +103,3 @@
 "10 Minutes Brefore Prayer Time Reminder" = "تنبيه ١٠ دقائق قبل الصلاة";
 "Follow the Developer on Linkden" =  "تابع المطور على Linkden";
 "Follow the Developer on GitHub" =  "تابع المطور على GitHub";
-
-

@@ -24,6 +24,7 @@ struct PrayerTimeCard: View {
                 PrayerTimeCell(salahTime: prayers.isha, prayer: .isha)
             }
         }
-        .modifier(MainCardStyle())
+        .mainCardView(withPadding: false)
+//        .modifier(MainCardStyle())
     }
 }

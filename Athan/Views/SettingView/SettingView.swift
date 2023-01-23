@@ -9,7 +9,10 @@ import SwiftUI
 
 struct SettingView: View {
     init() {
-        UITableView.appearance().backgroundColor = UIColor.clear
+        if #unavailable(iOS 16.0) {
+            UITableView.appearance().backgroundColor = .clear
+        }
+
         UITableView.appearance().showsVerticalScrollIndicator = false
     }
 
@@ -38,6 +41,7 @@ struct SettingView: View {
                 .listRowSeparatorTint(.white.opacity(0.3))
                 .listRowBackground(AppColors.SettinglistRowBackground)
             }
+            .clearListBackground()
             .foregroundColor(.white)
             .listStyle(.insetGrouped)
             .padding(.top, 1)
@@ -63,7 +67,7 @@ struct SettingView: View {
             Spacer()
 
             VStack(spacing: 0) {
-                LogoTextStyleView("أذان",isArabic: true)
+                LogoTextStyleView("أذان", isArabic: true)
 
                 Text("\(appVersion)")
                     .font(.system(size: 14))

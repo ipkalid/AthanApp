@@ -10,6 +10,65 @@ import SwiftUI
 import UIKit
 import UserNotifications
 
+enum CustomNotificationSound: String, CaseIterable, Identifiable {
+    var id: String {
+        switch self {
+        case .defualtSound:
+            return "defualtSound"
+        case .makkah:
+            return "makkah"
+        case .maddinah:
+            return "maddinah"
+        case .alaqsa:
+            return "alaqsa"
+        }
+    }
+
+    case defualtSound = "defualt"
+    case makkah = "Makkah"
+    case maddinah = "Maddinah"
+    case alaqsa = "Alaqsa"
+
+    var localizedStringKey: LocalizedStringKey {
+        switch self {
+        case .defualtSound:
+            return LocalizedStringKey("Defualt Sound")
+        case .makkah:
+            return LocalizedStringKey("Makkah's Athan")
+        case .maddinah:
+            return LocalizedStringKey("Madinah's Athan")
+        case .alaqsa:
+            return LocalizedStringKey("Alaqsa's Athan")
+        }
+    }
+
+    var notificationSoundName: UNNotificationSoundName {
+        switch self {
+        case .defualtSound:
+            return UNNotificationSoundName("tri_tone.caf")
+        case .makkah:
+            return UNNotificationSoundName("Athan_makkah.caf")
+        case .maddinah:
+            return UNNotificationSoundName("Athan_madina.caf")
+        case .alaqsa:
+            return UNNotificationSoundName("Athan_alaqsa.caf")
+        }
+    }
+
+    var urlPath: URL? {
+        switch self {
+        case .makkah:
+            return Bundle.main.url(forResource: "Athan_makkah", withExtension: "caf")
+        case .maddinah:
+            return Bundle.main.url(forResource: "Athan_madina", withExtension: "caf")
+        case .alaqsa:
+            return Bundle.main.url(forResource: "Athan_alaqsa", withExtension: "caf")
+        case .defualtSound:
+            return Bundle.main.url(forResource: "tri_tone", withExtension: "caf")
+        }
+    }
+}
+
 class NotificationManager {
     static let instance = NotificationManager()
 
@@ -31,11 +90,16 @@ class NotificationManager {
         }
     }
 
-    func scheduleNewNotification(udid: String = UUID().uuidString, titlt: String, body: String, date: Date) {
+    func scheduleNewNotification(udid: String = UUID().uuidString, titlt: String, body: String, date: Date, notificationSound: CustomNotificationSound?) {
         let content = UNMutableNotificationContent()
         content.title = titlt
         content.body = body
-        content.sound = .default
+        if let notificationSound {
+            let notificationSound = UNNotificationSound(named: notificationSound.notificationSoundName)
+            content.sound = notificationSound
+        } else {
+            content.sound = .default
+        }
 
         let calendar = Calendar.current
 

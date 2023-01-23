@@ -85,6 +85,12 @@ class EnvViewModel: ObservableObject {
         }
     }
 
+    @AppStorage(UserDefaultsKey.audioName) var audioName: CustomNotificationSound = .defualtSound {
+        didSet {
+            addNewPrayersNotification()
+        }
+    }
+
     private var locationManager = LocationManager.instance
     private var notificationManager = NotificationManager.instance
     private var isArabic: Bool
@@ -92,8 +98,8 @@ class EnvViewModel: ObservableObject {
     init() {
         isArabic = Helper.isArabic()
         guard
-            let latitude = self.latitude,
-            let longitude = self.longitude
+            let latitude = latitude,
+            let longitude = longitude
         else { return }
 
         LocationManager.getCityName(latitude: latitude, longitude: longitude) { city in
@@ -197,15 +203,15 @@ class EnvViewModel: ObservableObject {
         let titleReminder = notificationMessages[0]
         let prayerTimeReminder = notificationMessages[1]
         let beforePrayerTimeReminder = notificationMessages[2]
-        notificationManager.scheduleNewNotification(titlt: titleReminder, body: prayerTimeReminder, date: prayerDate)
+        notificationManager.scheduleNewNotification(titlt: titleReminder, body: prayerTimeReminder, date: prayerDate, notificationSound: audioName)
         if beforeNotification {
-            notificationManager.scheduleNewNotification(titlt: titleReminder, body: beforePrayerTimeReminder, date: prayerDate.addingTimeInterval(-10 * 60))
+            notificationManager.scheduleNewNotification(titlt: titleReminder, body: beforePrayerTimeReminder, date: prayerDate.addingTimeInterval(-10 * 60), notificationSound: nil)
         }
     }
 
     private func addNewPrayersNotification(calculationMethod: CalculationMethod = .ummAlQura) {
-        guard let latitude = self.latitude,
-              let longitude = self.longitude
+        guard let latitude = latitude,
+              let longitude = longitude
         else {
             return
         }
@@ -262,9 +268,9 @@ class EnvViewModel: ObservableObject {
         guard let modifiedDate = Calendar.current.date(byAdding: .day, value: 11, to: Date()) else { return }
 
         if isArabic {
-            notificationManager.scheduleNewNotification(titlt: "أفتح التطبيق", body: "الرجاء فتح التطبيق من أجل إستمرار الإشعارات", date: modifiedDate)
+            notificationManager.scheduleNewNotification(titlt: "أفتح التطبيق", body: "الرجاء فتح التطبيق من أجل إستمرار الإشعارات", date: modifiedDate, notificationSound: nil)
         } else {
-            notificationManager.scheduleNewNotification(titlt: "Open The App", body: "open the app to continue receiving the notifications", date: modifiedDate)
+            notificationManager.scheduleNewNotification(titlt: "Open The App", body: "open the app to continue receiving the notifications", date: modifiedDate, notificationSound: nil)
         }
     }
 }

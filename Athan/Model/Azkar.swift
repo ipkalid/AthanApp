@@ -20,5 +20,3 @@ struct ZekrContent: Codable {
         case bless
     }
 }
-
-//   let azkar = try? newJSONDecoder().decode(Azkar.self, from: jsonData)

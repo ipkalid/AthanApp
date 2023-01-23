@@ -36,7 +36,7 @@ class LocationManager: NSObject {
     static func getCityName(latitude: Double, longitude: Double, completion: @escaping (_ city: String) -> Void) {
         let location = CLLocation(latitude: latitude, longitude: longitude)
         let geocoder = CLGeocoder()
-        print(location)
+//        print(location)
 
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
             if let error = error {

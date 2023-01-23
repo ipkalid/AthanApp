@@ -9,17 +9,24 @@ import SwiftUI
 
 struct AppSettingSection: View {
     @EnvironmentObject var env: EnvViewModel
-    @State var goToNoificationScreen: Bool = false
 
     var body: some View {
         Section(header: Text("Athan Settings")) {
-            Button(action: {
-                goToNoificationScreen.toggle()
-            }) {
+            NavigationLink {
+                SettingNotificationView()
+            } label: {
                 HStack {
                     Text("Notifications")
                     Spacer()
-                    NavigationLink(destination: SettingNotificationView(), isActive: $goToNoificationScreen) { EmptyView() }
+                }
+            }
+
+            NavigationLink {
+                SettingSoundView()
+            } label: {
+                HStack {
+                    Text("Athan's Sound")
+                    Spacer()
                 }
             }
 
@@ -30,6 +37,7 @@ struct AppSettingSection: View {
                 }
             }
         }
+        .environmentObject(env)
         .buttonStyle(.borderless)
     }
 }

@@ -5,84 +5,67 @@
 //  Created by Khalid Alhazmi on 11/09/2021.
 //
 
+import Adhan
 import Foundation
 import SwiftUI
 
 struct PrayerTimeCell: View {
-    let prayer: Prayer
+    @EnvironmentObject var env: EnvViewModel
+    let prayer: Adhan.Prayer
 
     let salahTime: Date
-    init(salahTime: Date = Date(), prayer: Prayer = .fajr) {
+    init(salahTime: Date = Date(), prayer: Adhan.Prayer = .fajr) {
         self.salahTime = salahTime
         self.prayer = prayer
     }
 
+    var isNextPrayer: Bool {
+        if let nextPrayer = env.prayers?.nextPrayer() {
+            return prayer.prayerName == nextPrayer.prayerName
+        }
+
+        return false
+    }
+
     // to get the prayer name
-
-    private var prayerName: LocalizedStringKey {
-        switch prayer {
-        case .fajr:
-            return "Fajr"
-        case .sunrise:
-            return "Sunrise"
-        case .dhuhr:
-            return "Dhuhr"
-        case .asr:
-            return "Asr"
-        case .maghrib:
-            return "Maghrib"
-        case .isha:
-            return "Isha"
-        }
-    }
-
-    // to get the prayer icon
-    private var prayerIcon: String {
-        switch prayer {
-        case .fajr:
-            return "sun.and.horizon"
-        case .sunrise:
-            return "sunrise"
-        case .dhuhr:
-            return "sun.max"
-        case .asr:
-            return "cloud.sun"
-        case .maghrib:
-            return "sunset"
-        case .isha:
-            return "moon.stars"
-        }
-    }
 
     var body: some View {
         var topPdaaing: Double = 8.0
         var buttonPadding: Double = 8.0
         switch prayer {
         case .fajr:
-            topPdaaing = 0.0
+            topPdaaing = 10.0
         case .isha:
-            buttonPadding = 0.0
+            buttonPadding = 10.0
         default:
             topPdaaing = 5.0
             buttonPadding = 5.0
         }
         return HStack {
             VStack(alignment: .leading) {
-                Text(prayerName)
-                    .font(.title2)
+                Text(prayer.prayerName)
+                    .font(.title2.weight(isNextPrayer ? .bold : .regular))
                     .foregroundColor(.black)
+
                 Text(salahTime.getShortDate())
-                    .font(.callout)
+                    .font(.callout.weight(isNextPrayer ? .bold : .regular))
                     .foregroundColor(.gray)
             }
+            .scaleEffect(isNextPrayer ? 1.1 : 1)
+
             Spacer()
 
-            Image(systemName: prayerIcon)
+            Image(systemName: prayer.prayerIcon)
+                .symbolRenderingMode(.hierarchical)
+                .foregroundStyle(.gray, .orange)
                 .font(.largeTitle)
-                .foregroundColor(.gray)
+                .scaleEffect(isNextPrayer ? 1.1 : 1)
+//                .foregroundColor(.gray)
         }
         .padding(.horizontal, 8.0)
         .padding(.top, topPdaaing)
         .padding(.bottom, buttonPadding)
+        .padding(.horizontal)
+        .background(isNextPrayer ? AppColors.yellow.opacity(0.3) : nil)
     }
 }

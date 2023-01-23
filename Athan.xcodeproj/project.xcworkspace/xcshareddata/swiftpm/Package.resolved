@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Adhan",
-        "repositoryURL": "https://github.com/batoulapps/adhan-swift.git",
-        "state": {
-          "branch": null,
-          "revision": "dab32d8268a826d3087cbfc32256953929233234",
-          "version": "1.3.0"
-        }
+  "pins" : [
+    {
+      "identity" : "adhan-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/batoulapps/adhan-swift",
+      "state" : {
+        "branch" : "main",
+        "revision" : "fe8381795e65dc00ca0a584a2e82058f05e371d0"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }

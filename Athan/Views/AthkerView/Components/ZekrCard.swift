@@ -10,9 +10,13 @@ struct ZekrCardView: View {
     }
 
     func buttonAction() {
-        if zekrContent.contentRepeat > 0 {
-            zekrContent.contentRepeat = zekrContent.contentRepeat - 1
+        if zekrContent.contentRepeat >= 0 {
             UINotificationFeedbackGenerator().notificationOccurred(.warning)
+            if zekrContent.contentRepeat == 0 {
+                onTap()
+                return
+            }
+            zekrContent.contentRepeat = zekrContent.contentRepeat - 1
 
             if zekrContent.contentRepeat == 0 {
                 onTap()
@@ -57,8 +61,3 @@ struct ZekrCardView: View {
     }
 }
 
-struct ZekrCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        ZekrCardView(zekrContent: ZekrContent(zekr: "السلام عليكم", contentRepeat: 1, bless: "السلام عليمم"), onTap: { print("dd") })
-    }
-}

@@ -3,20 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1225B0D629788B3600BC335A /* Adhan in Frameworks */ = {isa = PBXBuildFile; productRef = 1225B0D529788B3600BC335A /* Adhan */; };
+		1225B0D829788D8500BC335A /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1225B0D729788D8500BC335A /* Prayer.swift */; };
+		1225B0F62978BAAA00BC335A /* QiblahView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1225B0F52978BAAA00BC335A /* QiblahView.swift */; };
 		1239FDBE272C6DF10039C89D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1239FDBD272C6DF10039C89D /* OnboardingView.swift */; };
 		12413E9127394D5400090C2A /* SettingLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12413E9027394D5400090C2A /* SettingLocationButton.swift */; };
-		1246FCD3272B37B7007DDBF4 /* SalahSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1246FCD2272B37B7007DDBF4 /* SalahSetting.swift */; };
 		124E3611272A026E0007F905 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 124E3613272A026E0007F905 /* Localizable.strings */; };
 		126B93282738938E00B997CD /* OnBordingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126B93272738938E00B997CD /* OnBordingCardView.swift */; };
-		12CD91B02740B69E00C2DAB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12CD91AE2740B4FA00C2DAB5 /* GoogleService-Info.plist */; };
+		12D82342297AA3EC00FD5FBF /* ClearListBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D82341297AA3EC00FD5FBF /* ClearListBackground.swift */; };
+		12D82366297B9C4600FD5FBF /* SettingSoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D82365297B9C4600FD5FBF /* SettingSoundView.swift */; };
+		12D8236C297C194500FD5FBF /* Athan_alaqsa.caf in Resources */ = {isa = PBXBuildFile; fileRef = 12D82368297C194500FD5FBF /* Athan_alaqsa.caf */; };
+		12D8236D297C194500FD5FBF /* Athan_makkah.caf in Resources */ = {isa = PBXBuildFile; fileRef = 12D82369297C194500FD5FBF /* Athan_makkah.caf */; };
+		12D8236E297C194500FD5FBF /* Athan_madina.caf in Resources */ = {isa = PBXBuildFile; fileRef = 12D8236A297C194500FD5FBF /* Athan_madina.caf */; };
+		12D82370297C1A1F00FD5FBF /* makkah.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 12D8236F297C1A1F00FD5FBF /* makkah.mp3 */; };
+		12D82372297C1EF400FD5FBF /* tri_tone.caf in Resources */ = {isa = PBXBuildFile; fileRef = 12D82371297C1EF400FD5FBF /* tri_tone.caf */; };
 		12F4CBF827485412005BCBC0 /* timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F4CBF727485412005BCBC0 /* timer.swift */; };
-		12F4CBFA2748AF95005BCBC0 /* appstorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F4CBF92748AF94005BCBC0 /* appstorage.swift */; };
-		524829933B0DFC5C1C927EAE /* Pods_Athan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E49ADCEEE8CBB2657864485 /* Pods_Athan.framework */; };
-		E9016CAE26F566D00000EDBF /* PrayerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9016CAD26F566D00000EDBF /* PrayerTime.swift */; };
 		E9016CB026F568D00000EDBF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9016CAF26F568D00000EDBF /* Date.swift */; };
 		E93115ED26FD4D3600532A28 /* LogoTextStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93115EC26FD4D3600532A28 /* LogoTextStyleView.swift */; };
 		E93115F626FD518500532A28 /* Rakkas-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E93115F526FD518500532A28 /* Rakkas-Regular.ttf */; };
@@ -65,34 +70,36 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		12413EAB273977E700090C2A /* Embed App Extensions */ = {
+		12413EAB273977E700090C2A /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1225B0D729788D8500BC335A /* Prayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
+		1225B0DE2978B5C100BC335A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		1225B0F52978BAAA00BC335A /* QiblahView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiblahView.swift; sourceTree = "<group>"; };
 		1239FDBD272C6DF10039C89D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		12413E9027394D5400090C2A /* SettingLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingLocationButton.swift; sourceTree = "<group>"; };
 		12413E9A273977E500090C2A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		1246FCD2272B37B7007DDBF4 /* SalahSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalahSetting.swift; sourceTree = "<group>"; };
 		124E3612272A026E0007F905 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		124E3614272A02800007F905 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		126B93272738938E00B997CD /* OnBordingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBordingCardView.swift; sourceTree = "<group>"; };
-		12CD91AE2740B4FA00C2DAB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		12CD91B22740BBE800C2DAB5 /* Athan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Athan.entitlements; sourceTree = "<group>"; };
+		12D82341297AA3EC00FD5FBF /* ClearListBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearListBackground.swift; sourceTree = "<group>"; };
+		12D82365297B9C4600FD5FBF /* SettingSoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSoundView.swift; sourceTree = "<group>"; };
+		12D82368297C194500FD5FBF /* Athan_alaqsa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Athan_alaqsa.caf; sourceTree = "<group>"; };
+		12D82369297C194500FD5FBF /* Athan_makkah.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Athan_makkah.caf; sourceTree = "<group>"; };
+		12D8236A297C194500FD5FBF /* Athan_madina.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Athan_madina.caf; sourceTree = "<group>"; };
+		12D8236F297C1A1F00FD5FBF /* makkah.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = makkah.mp3; sourceTree = "<group>"; };
+		12D82371297C1EF400FD5FBF /* tri_tone.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tri_tone.caf; sourceTree = "<group>"; };
 		12F4CBF727485412005BCBC0 /* timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timer.swift; sourceTree = "<group>"; };
-		12F4CBF92748AF94005BCBC0 /* appstorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appstorage.swift; sourceTree = "<group>"; };
-		2F3AB4F32398E99F931132BF /* Pods-Athan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Athan.release.xcconfig"; path = "Target Support Files/Pods-Athan/Pods-Athan.release.xcconfig"; sourceTree = "<group>"; };
-		7E49ADCEEE8CBB2657864485 /* Pods_Athan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Athan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8FAE1CB65D19999DF5BCE22 /* Pods-Athan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Athan.debug.xcconfig"; path = "Target Support Files/Pods-Athan/Pods-Athan.debug.xcconfig"; sourceTree = "<group>"; };
-		E9016CAD26F566D00000EDBF /* PrayerTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTime.swift; sourceTree = "<group>"; };
 		E9016CAF26F568D00000EDBF /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E93115EC26FD4D3600532A28 /* LogoTextStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoTextStyleView.swift; sourceTree = "<group>"; };
 		E93115F526FD518500532A28 /* Rakkas-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rakkas-Regular.ttf"; sourceTree = "<group>"; };
@@ -146,13 +153,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				524829933B0DFC5C1C927EAE /* Pods_Athan.framework in Frameworks */,
+				1225B0D629788B3600BC335A /* Adhan in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1225B0F42978BA9300BC335A /* QiblahView */ = {
+			isa = PBXGroup;
+			children = (
+				1225B0F52978BAAA00BC335A /* QiblahView.swift */,
+			);
+			path = QiblahView;
+			sourceTree = "<group>";
+		};
 		1239FDBC272C6DC50039C89D /* OnboardingViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,27 +181,29 @@
 			isa = PBXGroup;
 			children = (
 				12413E9A273977E500090C2A /* SwiftUI.framework */,
-				7E49ADCEEE8CBB2657864485 /* Pods_Athan.framework */,
+				1225B0DE2978B5C100BC335A /* WidgetKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		12D82352297B91AD00FD5FBF /* Audio Files */ = {
+			isa = PBXGroup;
+			children = (
+				12D82371297C1EF400FD5FBF /* tri_tone.caf */,
+				12D8236F297C1A1F00FD5FBF /* makkah.mp3 */,
+				12D82368297C194500FD5FBF /* Athan_alaqsa.caf */,
+				12D8236A297C194500FD5FBF /* Athan_madina.caf */,
+				12D82369297C194500FD5FBF /* Athan_makkah.caf */,
+			);
+			path = "Audio Files";
 			sourceTree = "<group>";
 		};
 		12F4CBF627485406005BCBC0 /* LearnSwift */ = {
 			isa = PBXGroup;
 			children = (
 				12F4CBF727485412005BCBC0 /* timer.swift */,
-				12F4CBF92748AF94005BCBC0 /* appstorage.swift */,
 			);
 			path = LearnSwift;
-			sourceTree = "<group>";
-		};
-		A59CA14904D7E53B15C52900 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D8FAE1CB65D19999DF5BCE22 /* Pods-Athan.debug.xcconfig */,
-				2F3AB4F32398E99F931132BF /* Pods-Athan.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		E93115F726FD535C00532A28 /* Style */ = {
@@ -255,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				E96CD928271B54B800C847D3 /* SettingNotificationView.swift */,
+				12D82365297B9C4600FD5FBF /* SettingSoundView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,7 +336,7 @@
 		E9F37889270023A200C86589 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				12CD91AE2740B4FA00C2DAB5 /* GoogleService-Info.plist */,
+				12D82352297B91AD00FD5FBF /* Audio Files */,
 				E9F378A4270024F400C86589 /* Json */,
 				E99C4E4226EEA9F300971EA3 /* Fonts */,
 				E9FADB8326EC3D1100271BFA /* Assets.xcassets */,
@@ -344,7 +362,6 @@
 				E9FADB7E26EC3D1000271BFA /* Athan */,
 				12413E97273977E500090C2A /* Frameworks */,
 				E9FADB7D26EC3D1000271BFA /* Products */,
-				A59CA14904D7E53B15C52900 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -360,7 +377,6 @@
 			isa = PBXGroup;
 			children = (
 				12F4CBF627485406005BCBC0 /* LearnSwift */,
-				12CD91B22740BBE800C2DAB5 /* Athan.entitlements */,
 				E9FADB7F26EC3D1000271BFA /* AthanApp.swift */,
 				E96974E12715A987006C2154 /* Launch Screen.storyboard */,
 				E9F37889270023A200C86589 /* Resources */,
@@ -390,6 +406,8 @@
 				E9FADB8F26ECFBAB00271BFA /* Color.swift */,
 				E9016CAF26F568D00000EDBF /* Date.swift */,
 				E9F1970327127CE9002AE23E /* UIScreen.swift */,
+				1225B0D729788D8500BC335A /* Prayer.swift */,
+				12D82341297AA3EC00FD5FBF /* ClearListBackground.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -400,6 +418,7 @@
 				E9FADB8126EC3D1000271BFA /* AppTapView.swift */,
 				1239FDBC272C6DC50039C89D /* OnboardingViews */,
 				E9FADB9526ED0BF000271BFA /* PrayersTimeView */,
+				1225B0F42978BA9300BC335A /* QiblahView */,
 				E99C4E3426EE497700971EA3 /* AthkerView */,
 				E96974DB27158787006C2154 /* SettingView */,
 			);
@@ -428,9 +447,7 @@
 		E9FADB9726ED129E00271BFA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E9016CAD26F566D00000EDBF /* PrayerTime.swift */,
 				E9AA10C82712469F0073C265 /* Azkar.swift */,
-				1246FCD2272B37B7007DDBF4 /* SalahSetting.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -442,13 +459,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9FADB8B26EC3D1100271BFA /* Build configuration list for PBXNativeTarget "Athan" */;
 			buildPhases = (
-				FB9F9E3F43F12744EB2A44A3 /* [CP] Check Pods Manifest.lock */,
 				E9FADB7826EC3D1000271BFA /* Sources */,
 				E9FADB7926EC3D1000271BFA /* Frameworks */,
 				E9FADB7A26EC3D1000271BFA /* Resources */,
-				12413EAB273977E700090C2A /* Embed App Extensions */,
-				416B0D3E91173FE484267E34 /* [CP] Embed Pods Frameworks */,
-				12CD91B12740B6E400C2DAB5 /* ShellScript */,
+				12413EAB273977E700090C2A /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -456,6 +470,7 @@
 			);
 			name = Athan;
 			packageProductDependencies = (
+				1225B0D529788B3600BC335A /* Adhan */,
 			);
 			productName = Athan;
 			productReference = E9FADB7C26EC3D1000271BFA /* Athan.app */;
@@ -467,8 +482,8 @@
 		E9FADB7426EC3D1000271BFA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1250;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					E9FADB7B26EC3D1000271BFA = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -486,6 +501,7 @@
 			);
 			mainGroup = E9FADB7326EC3D1000271BFA;
 			packageReferences = (
+				1225B0D429788B3600BC335A /* XCRemoteSwiftPackageReference "adhan-swift" */,
 			);
 			productRefGroup = E9FADB7D26EC3D1000271BFA /* Products */;
 			projectDirPath = "";
@@ -503,16 +519,20 @@
 			files = (
 				E9AA10CD271246FC0073C265 /* azkar_massa.json in Resources */,
 				E9F378AA270024F400C86589 /* 1_athkar.json in Resources */,
-				12CD91B02740B69E00C2DAB5 /* GoogleService-Info.plist in Resources */,
 				E9FADB8726EC3D1100271BFA /* Preview Assets.xcassets in Resources */,
 				124E3611272A026E0007F905 /* Localizable.strings in Resources */,
+				12D8236E297C194500FD5FBF /* Athan_madina.caf in Resources */,
 				E9FADB8426EC3D1100271BFA /* Assets.xcassets in Resources */,
+				12D82372297C1EF400FD5FBF /* tri_tone.caf in Resources */,
+				12D8236C297C194500FD5FBF /* Athan_alaqsa.caf in Resources */,
 				E96974E22715A987006C2154 /* Launch Screen.storyboard in Resources */,
 				E9F483D82712864F004971BF /* me_quran.ttf in Resources */,
 				E93115F626FD518500532A28 /* Rakkas-Regular.ttf in Resources */,
 				E9F378AD270024F400C86589 /* 6_allah_names.json in Resources */,
+				12D82370297C1A1F00FD5FBF /* makkah.mp3 in Resources */,
 				E9AA10CE271246FC0073C265 /* PostPrayer_azkar.json in Resources */,
 				E9F378AB270024F400C86589 /* 3_sunnah_ad3yah.json in Resources */,
+				12D8236D297C194500FD5FBF /* Athan_makkah.caf in Resources */,
 				E9F378AE270024F400C86589 /* 2_quraan_ad3yah.json in Resources */,
 				E9F378AC270024F400C86589 /* 4_ruqiya.json in Resources */,
 				E9AA10CF271246FC0073C265 /* azkar_sabah.json in Resources */,
@@ -520,67 +540,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		12CD91B12740B6E400C2DAB5 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
-		};
-		416B0D3E91173FE484267E34 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Athan/Pods-Athan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Athan/Pods-Athan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Athan/Pods-Athan-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FB9F9E3F43F12744EB2A44A3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Athan-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E9FADB7826EC3D1000271BFA /* Sources */ = {
@@ -590,19 +549,22 @@
 				E9FADB9C26ED22C300271BFA /* PrayerTimeCell.swift in Sources */,
 				126B93282738938E00B997CD /* OnBordingCardView.swift in Sources */,
 				E9AA10C92712469F0073C265 /* Azkar.swift in Sources */,
+				1225B0F62978BAAA00BC335A /* QiblahView.swift in Sources */,
 				E9016CB026F568D00000EDBF /* Date.swift in Sources */,
-				1246FCD3272B37B7007DDBF4 /* SalahSetting.swift in Sources */,
 				E96B23BC271F63FA00B6C249 /* UserDefaultsKey.swift in Sources */,
 				E9504DCE27231EB400836A76 /* Helper.swift in Sources */,
 				E96CD929271B54B800C847D3 /* SettingNotificationView.swift in Sources */,
 				E9FADB9A26ED220C00271BFA /* PrayersTimeView.swift in Sources */,
+				1225B0D829788D8500BC335A /* Prayer.swift in Sources */,
 				E9FADB8226EC3D1000271BFA /* AppTapView.swift in Sources */,
 				E96974E02715A4AE006C2154 /* SettingView.swift in Sources */,
 				1239FDBE272C6DF10039C89D /* OnboardingView.swift in Sources */,
 				E96B23B9271B9D6700B6C249 /* AthkarBigButton.swift in Sources */,
 				E9AA10C7271245640073C265 /* CoreDataManager.swift in Sources */,
 				12413E9127394D5400090C2A /* SettingLocationButton.swift in Sources */,
+				12D82366297B9C4600FD5FBF /* SettingSoundView.swift in Sources */,
 				E99C4E3D26EE524A00971EA3 /* AthkarView.swift in Sources */,
+				12D82342297AA3EC00FD5FBF /* ClearListBackground.swift in Sources */,
 				E9FADB9E26ED22F500271BFA /* PrayerTimeCard.swift in Sources */,
 				E9FADB8026EC3D1000271BFA /* AthanApp.swift in Sources */,
 				E96CD92D271B87FB00C847D3 /* EnvViewModel.swift in Sources */,
@@ -610,10 +572,8 @@
 				E96B23BF271F6A8A00B6C249 /* SoundManager.swift in Sources */,
 				E96B23C3271F764900B6C249 /* NotificationManager.swift in Sources */,
 				E96B23C1271F757400B6C249 /* HapticManager.swift in Sources */,
-				12F4CBFA2748AF95005BCBC0 /* appstorage.swift in Sources */,
 				12F4CBF827485412005BCBC0 /* timer.swift in Sources */,
 				E9775CF2271A251B00608664 /* AppDetailsSection.swift in Sources */,
-				E9016CAE26F566D00000EDBF /* PrayerTime.swift in Sources */,
 				E9AA10D2271247B10073C265 /* Colors.swift in Sources */,
 				E9AA10D527124A750073C265 /* TasbihView.swift in Sources */,
 				E93B5ED126F13A6E00C85177 /* LocationManager.swift in Sources */,
@@ -764,14 +724,13 @@
 		};
 		E9FADB8C26EC3D1100271BFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8FAE1CB65D19999DF5BCE22 /* Pods-Athan.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Athan/Athan.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"Athan/Preview Content\"";
 				DEVELOPMENT_TEAM = Q22HQU5G8X;
@@ -782,7 +741,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = iKAlhazmi.Athan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -793,14 +752,13 @@
 		};
 		E9FADB8D26EC3D1100271BFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F3AB4F32398E99F931132BF /* Pods-Athan.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Athan/Athan.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"Athan/Preview Content\"";
 				DEVELOPMENT_TEAM = Q22HQU5G8X;
@@ -811,7 +769,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = iKAlhazmi.Athan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -842,6 +800,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1225B0D429788B3600BC335A /* XCRemoteSwiftPackageReference "adhan-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/batoulapps/adhan-swift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1225B0D529788B3600BC335A /* Adhan */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1225B0D429788B3600BC335A /* XCRemoteSwiftPackageReference "adhan-swift" */;
+			productName = Adhan;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E9FADB7426EC3D1000271BFA /* Project object */;
 }

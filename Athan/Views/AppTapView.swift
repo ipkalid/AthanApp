@@ -17,35 +17,46 @@ struct AppTapView: View {
         UITabBar.appearance().backgroundColor = .white
     }
 
+    @State var selectionTab: Int = 3
+
     var body: some View {
-        //NavigationView {
-            TabView {
-                PrayersTimeView()
-                    .tag(0)
-                    .tabItem {
-                        Image(tabBarImages[0])
-                            .renderingMode(.template)
-                        Text("Salah")
-                    }
+        TabView(selection: $selectionTab) {
+            PrayersTimeView()
+                .tag(0)
+                .tabItem {
+                    Image(tabBarImages[0])
+                        .renderingMode(.template)
+                    Text("Salah")
+                        .overlay {
+                            Text("j")
+                        }
+                }
 
-                AthkarView()
-                    .tag(2)
-                    .tabItem {
-                        Image(tabBarImages[2])
-                            .renderingMode(.template)
-                        Text("Athkar")
-                    }
+            QiblahView()
+                .tag(1)
+                .tabItem {
+                    Image(systemName: "safari")
+                        .renderingMode(.template)
+                    Text("Qiblah")
+                }
 
-                SettingView()
-                    .tag(3)
-                    .tabItem {
-                        Image(systemName: "gear")
-                            .renderingMode(.template)
-                        Text("Settings")
-                    }
-            }
-            .navigationBarHidden(true)
-        
+            AthkarView()
+                .tag(2)
+                .tabItem {
+                    Image(tabBarImages[2])
+                        .renderingMode(.template)
+                    Text("Athkar")
+                }
+
+            SettingView()
+                .tag(3)
+                .tabItem {
+                    Image(systemName: "gear")
+                        .renderingMode(.template)
+                    Text("Settings")
+                }
+        }
+        .navigationBarHidden(true)
         .navigationBarHidden(true)
         .accentColor(.black)
     }

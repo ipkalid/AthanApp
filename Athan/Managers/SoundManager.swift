@@ -7,22 +7,34 @@
 
 import AVKit
 import Foundation
-
-class SoundManager {
-    static let instance = SoundManager()
-
-    var player: AVAudioPlayer?
-
-    func playSound() {
-        guard let url = URL(string: "") else { return }
-
-        do {
-            player = try AVAudioPlayer(contentsOf: url)
-            player?.play()
-        } catch {
-            debugPrint("Error: " + error.localizedDescription)
-        }
-    }
-
-    // func playSound
-}
+//
+//class AudioPlayer: NSObject {
+//    static let instance = AudioPlayer()
+//
+//    var player: AVAudioPlayer
+//    var url: URL? {
+//        didSet {
+//            if let url {
+//                player.url = url
+//                player.prepareToPlay()
+//            }
+//        }
+//    }
+//
+//    override init() {
+//        player = AVAudioPlayer()
+//        player.delegate = self
+//    }
+//
+//    func playAudio() {
+//        guard let url else { return }
+//        player.
+//        if player.isPlaying {
+//            player.stop()
+//        }
+//        player.play()
+//    }
+//}
+//
+//extension AudioPlayer: AVAudioPlayerDelegate {
+//}

@@ -18,7 +18,7 @@ struct TasbihView: View {
                     Spacer()
                         .frame(maxWidth: .infinity, minHeight: 25)
 
-                    ForEach(vm.azkarConents.indices) { i in
+                    ForEach(vm.azkarConents.indices, id: \.self) { i in
                         ZekrCardView(
                             zekrContent: vm.azkarConents[i],
                             onTap: { vm.toTheNextCard(index: i, scrollValue: value) }
@@ -64,11 +64,7 @@ extension TasbihView {
             let url = URL(fileURLWithPath: path)
             do {
                 let JsonData = try Data(contentsOf: url)
-
-                guard let azkar = try? decoder.decode(Azkar.self, from: JsonData) else {
-                    return nil
-                }
-
+                let azkar = try decoder.decode(Azkar.self, from: JsonData)
                 return azkar
             } catch {
                 debugPrint("Error Tsbih View Model \(error.localizedDescription)")

@@ -9,6 +9,13 @@ import SwiftUI
 
 struct SettingNotificationView: View {
     @EnvironmentObject var env: EnvViewModel
+    init() {
+        if #unavailable(iOS 16.0) {
+            UITableView.appearance().backgroundColor = .clear
+        }
+
+        UITableView.appearance().showsVerticalScrollIndicator = false
+    }
 
     var body: some View {
         List {
@@ -56,6 +63,7 @@ struct SettingNotificationView: View {
             .listRowSeparatorTint(.white.opacity(0.3))
             .listRowBackground(AppColors.SettinglistRowBackground)
         }
+        .clearListBackground()
         .foregroundColor(.white)
         .padding(.top, 1)
         .navigationTitle("Notifications")

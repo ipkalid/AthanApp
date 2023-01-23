@@ -13,7 +13,6 @@ import SwiftUI
 struct PrayersTimeView: View {
     @EnvironmentObject var env: EnvViewModel
     @StateObject var vm = PrayersTimeView.ViewModel()
-
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
@@ -22,10 +21,26 @@ struct PrayersTimeView: View {
                 if let prayers = env.prayers {
                     VStack(spacing: 4) {
                         VStack {
-                            Text("Next Prayer in")
-                                .font(.headline)
+                            if let nextPrayerName = vm.nextPrayer?.prayerName {
+                                if Helper.isArabic() {
+                                    HStack {
+                                        Text("صلاة")
+                                        Text(nextPrayerName)
+//                                            .bold()
+                                        Text("بعد")
+                                    }
+                                    .font(.title)
 
-                            Text(vm.nextPrayerCountDown())
+                                } else {
+                                    HStack {
+                                        Text(nextPrayerName)
+                                        Text("Prayer After")
+                                    }
+                                    .font(.title)
+                                }
+                            }
+
+                            Text(vm.nextPrayerCountDown)
                                 .font(.system(.largeTitle, design: .monospaced))
                                 .fontWeight(.semibold)
                                 .onReceive(vm.timer, perform: { _ in
@@ -37,6 +52,7 @@ struct PrayersTimeView: View {
                             .shadow(radius: 6)
                         PrayerTimeCard(prayers: prayers)
                             .padding(.horizontal)
+                            .environmentObject(env)
                     }
 
                 } else {
@@ -64,14 +80,6 @@ struct PrayersTimeView: View {
                     .modifier(MainCardStyle(height: 300))
                     .padding()
                 }
-//
-//                Text("لا توجل عمل اليوم الى الغد لأنك سوف تندم ندما")
-//                    // .font(Font.custom("me_quran", size: 32))
-//                    .font(.title)
-//                    .minimumScaleFactor(0.4)
-//                    .multilineTextAlignment(.center)
-//                    .foregroundColor(AppColors.yellow)
-//                    .shadow(radius: 6)
                 Spacer()
             }
             .padding(.top, 1)
@@ -99,10 +107,9 @@ extension PrayersTimeView {
         @Published var showLocationDeniedAlert: Bool = false
         @Published var currentTime = Date.now
 
-        func nextPrayerCountDown() -> String {
+        var nextPrayerCountDown: String {
             guard let prayers = env.prayers else { return "ERROR" }
             var nextPrayerDate: Date
-
             if let nextPrayer = prayers.nextPrayer() {
                 nextPrayerDate = prayers.time(for: nextPrayer)
             } else {
@@ -110,6 +117,7 @@ extension PrayersTimeView {
             }
 
             let calendar = Calendar(identifier: .gregorian)
+
             let components = calendar
                 .dateComponents([.hour, .minute, .second],
                                 from: currentTime,
@@ -121,6 +129,11 @@ extension PrayersTimeView {
                           components.minute ?? 00,
                           components.second ?? 00
             )
+        }
+
+        var nextPrayer: Adhan.Prayer? {
+            guard let prayers = env.prayers else { return nil }
+            return prayers.nextPrayer() ?? prayers.currentPrayer(at: prayers.fajr)
         }
 
         func requestLocation() {
