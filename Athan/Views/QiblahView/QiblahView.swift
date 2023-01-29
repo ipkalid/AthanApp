@@ -46,7 +46,7 @@ class QiblahViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
 
-    private let _constKaabaLocation = CLLocation(latitude: 21.4225, longitude: 39.8262)
+    private let _constKaabaLocation = CLLocation(latitude: 21.422487, longitude: 39.826206)
 
     private let locationManager: CLLocationManager
     private let geocoder: CLGeocoder
