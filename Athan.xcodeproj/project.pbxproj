@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,7 @@
 		12D82370297C1A1F00FD5FBF /* makkah.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 12D8236F297C1A1F00FD5FBF /* makkah.mp3 */; };
 		12D82372297C1EF400FD5FBF /* tri_tone.caf in Resources */ = {isa = PBXBuildFile; fileRef = 12D82371297C1EF400FD5FBF /* tri_tone.caf */; };
 		12F4CBF827485412005BCBC0 /* timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F4CBF727485412005BCBC0 /* timer.swift */; };
+		9A21D7592CD2299D0076A255 /* Athan_BinMagid_final.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9A21D7582CD2299D0076A255 /* Athan_BinMagid_final.caf */; };
 		E9016CB026F568D00000EDBF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9016CAF26F568D00000EDBF /* Date.swift */; };
 		E93115ED26FD4D3600532A28 /* LogoTextStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93115EC26FD4D3600532A28 /* LogoTextStyleView.swift */; };
 		E93115F626FD518500532A28 /* Rakkas-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E93115F526FD518500532A28 /* Rakkas-Regular.ttf */; };
@@ -100,6 +101,7 @@
 		12D8236F297C1A1F00FD5FBF /* makkah.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = makkah.mp3; sourceTree = "<group>"; };
 		12D82371297C1EF400FD5FBF /* tri_tone.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tri_tone.caf; sourceTree = "<group>"; };
 		12F4CBF727485412005BCBC0 /* timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timer.swift; sourceTree = "<group>"; };
+		9A21D7582CD2299D0076A255 /* Athan_BinMagid_final.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Athan_BinMagid_final.caf; sourceTree = "<group>"; };
 		E9016CAF26F568D00000EDBF /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E93115EC26FD4D3600532A28 /* LogoTextStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoTextStyleView.swift; sourceTree = "<group>"; };
 		E93115F526FD518500532A28 /* Rakkas-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rakkas-Regular.ttf"; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				12D82371297C1EF400FD5FBF /* tri_tone.caf */,
 				12D8236F297C1A1F00FD5FBF /* makkah.mp3 */,
+				9A21D7582CD2299D0076A255 /* Athan_BinMagid_final.caf */,
 				12D82368297C194500FD5FBF /* Athan_alaqsa.caf */,
 				12D8236A297C194500FD5FBF /* Athan_madina.caf */,
 				12D82369297C194500FD5FBF /* Athan_makkah.caf */,
@@ -528,6 +531,7 @@
 				E96974E22715A987006C2154 /* Launch Screen.storyboard in Resources */,
 				E9F483D82712864F004971BF /* me_quran.ttf in Resources */,
 				E93115F626FD518500532A28 /* Rakkas-Regular.ttf in Resources */,
+				9A21D7592CD2299D0076A255 /* Athan_BinMagid_final.caf in Resources */,
 				E9F378AD270024F400C86589 /* 6_allah_names.json in Resources */,
 				12D82370297C1A1F00FD5FBF /* makkah.mp3 in Resources */,
 				E9AA10CE271246FC0073C265 /* PostPrayer_azkar.json in Resources */,

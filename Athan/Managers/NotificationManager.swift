@@ -21,6 +21,8 @@ enum CustomNotificationSound: String, CaseIterable, Identifiable {
             return "maddinah"
         case .alaqsa:
             return "alaqsa"
+        case .binMagid:
+            return "binMagid"
         }
     }
 
@@ -28,6 +30,7 @@ enum CustomNotificationSound: String, CaseIterable, Identifiable {
     case makkah = "Makkah"
     case maddinah = "Maddinah"
     case alaqsa = "Alaqsa"
+    case binMagid = "BinMagid"
 
     var localizedStringKey: LocalizedStringKey {
         switch self {
@@ -39,6 +42,8 @@ enum CustomNotificationSound: String, CaseIterable, Identifiable {
             return LocalizedStringKey("Madinah's Athan")
         case .alaqsa:
             return LocalizedStringKey("Alaqsa's Athan")
+        case .binMagid:
+            return LocalizedStringKey("Abdulaziz Bin Magid's Athan")
         }
     }
 
@@ -52,6 +57,8 @@ enum CustomNotificationSound: String, CaseIterable, Identifiable {
             return UNNotificationSoundName("Athan_madina.caf")
         case .alaqsa:
             return UNNotificationSoundName("Athan_alaqsa.caf")
+        case .binMagid:
+            return UNNotificationSoundName("Athan_BinMagid_final.caf")
         }
     }
 
@@ -65,6 +72,8 @@ enum CustomNotificationSound: String, CaseIterable, Identifiable {
             return Bundle.main.url(forResource: "Athan_alaqsa", withExtension: "caf")
         case .defualtSound:
             return Bundle.main.url(forResource: "tri_tone", withExtension: "caf")
+        case .binMagid:
+            return Bundle.main.url(forResource: "Athan_BinMagid_final", withExtension: "caf")
         }
     }
 }
